@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grounded Play Labs ABA — Play-Based, Compassionate ABA Therapy</title>
+<meta name="description" content="Grounded Play Labs ABA offers individualized, play-based behavior therapy and parent coaching that helps your child build meaningful, lasting skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F7F2E6;
+    --paper-soft:#FBF8F1;
+    --band:#EDE6D2;
+    --sand:#E3D8BD;
+    --moss:#4E5C39;
+    --moss-deep:#3A4529;
+    --sage:#8A9A6E;
+    --sage-pale:#C9D2AE;
+    --clay:#BD6E49;
+    --clay-deep:#A25837;
+    --bark:#382D22;
+    --bark-soft:#6B5F50;
+    --line:rgba(56,45,34,0.14);
+    --shadow: 0 18px 40px -22px rgba(56,45,34,0.35);
+    --radius-lg: 28px;
+    --radius-md: 16px;
+    --serif: 'Fraunces', serif;
+    --sans: 'Work Sans', sans-serif;
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:96px;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--bark);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  h1,h2,h3,h4{
+    font-family:var(--serif);
+    font-weight:500;
+    color:var(--moss-deep);
+    margin:0 0 0.5em;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0 0 1em; max-width:62ch;}
+  .lede{max-width:52ch;}
+  ul{margin:0; padding:0;}
+  section{position:relative;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  .eyebrow{display:none;} /* intentionally unused — no tracked-out caps labels */
+
+  ::selection{background:var(--sage-pale); color:var(--moss-deep);}
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:var(--sans); font-weight:600; font-size:0.98rem;
+    padding:14px 26px; border-radius:100px; border:1.5px solid transparent;
+    text-decoration:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--clay); color:var(--paper-soft);}
+  .btn-primary:hover{background:var(--clay-deep); transform:translateY(-2px); box-shadow:0 12px 22px -10px rgba(162,88,55,0.55);}
+  .btn-ghost{background:transparent; color:var(--moss-deep); border-color:var(--moss-deep);}
+  .btn-ghost:hover{background:var(--moss-deep); color:var(--paper-soft); transform:translateY(-2px);}
+  .btn-light{background:var(--paper-soft); color:var(--moss-deep);}
+  .btn-light:hover{transform:translateY(-2px); box-shadow:var(--shadow);}
+  .btn-sm{padding:10px 20px; font-size:0.88rem;}
+
+  /* ---------- Grow rail (desktop scroll companion) ---------- */
+  .grow-rail{
+    position:fixed; left:22px; top:0; height:100vh; width:26px;
+    display:flex; align-items:center; justify-content:center;
+    z-index:60; pointer-events:none;
+  }
+  .grow-track{
+    position:relative; width:3px; height:64vh; border-radius:4px;
+    background:linear-gradient(to bottom, rgba(56,45,34,0.08), rgba(56,45,34,0.08));
+  }
+  .grow-fill{
+    position:absolute; left:0; top:0; width:100%; height:0%;
+    background:linear-gradient(to bottom, var(--sage), var(--moss));
+    border-radius:4px; transition:height .06s linear;
+  }
+  .grow-node{
+    position:absolute; left:50%; transform:translate(-50%,-50%);
+    width:10px; height:10px;
+  }
+  .node-dot{
+    position:relative; display:block; width:9px; height:9px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--sand);
+    transition:background .35s ease, border-color .35s ease, transform .35s ease;
+  }
+  .grow-node.active .node-dot{background:var(--moss); border-color:var(--moss); transform:scale(1.15);}
+  .node-dot::before,.node-dot::after{
+    content:''; position:absolute; width:0; height:0; background:var(--sage);
+    border-radius:0 100% 0 100%; opacity:0; transition:all .4s ease .05s;
+  }
+  .node-dot::before{left:6px; top:-2px;}
+  .node-dot::after{right:6px; top:2px; transform:scaleX(-1); }
+  .grow-node.active .node-dot::before{width:12px; height:8px; opacity:1;}
+  .grow-node.active .node-dot::after{width:10px; height:7px; opacity:1;}
+  .grow-node.seed .node-dot{background:var(--clay); border-color:var(--clay);}
+  .grow-node.tree.active .node-dot{width:13px; height:13px;}
+  .grow-node.tree.active .node-dot::before{width:16px; height:11px;}
+  .grow-node.tree.active .node-dot::after{width:14px; height:10px;}
+
+  .top-progress{position:fixed; top:0; left:0; width:100%; height:3px; z-index:70; background:rgba(56,45,34,0.08); display:none;}
+  .top-progress-fill{height:100%; width:0%; background:linear-gradient(to right, var(--clay), var(--moss));}
+
+  @media (max-width:1000px){
+    .grow-rail{display:none;}
+    .top-progress{display:block;}
+  }
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:50; background:var(--band);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    max-width:var(--maxw); margin:0 auto; padding:12px 32px;
+    display:flex; align-items:center; gap:18px;
+  }
+  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto; flex-shrink:0;}
+  .brand img{width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;}
+  .brand-word{font-family:var(--serif); font-size:1.05rem; color:var(--moss-deep); line-height:1.15; white-space:nowrap;}
+  .brand-word small{display:block; font-family:var(--sans); font-size:0.58rem; font-weight:600; color:var(--bark-soft); letter-spacing:0.06em;}
+
+  .main-nav > ul{display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0;}
+  .main-nav > ul > li{position:relative;}
+  .main-nav > ul > li > a{
+    display:block; padding:9px 11px; text-decoration:none; font-weight:600; font-size:0.88rem;
+    color:var(--bark); border-radius:8px; transition:background .15s ease, color .15s ease; white-space:nowrap;
+  }
+  .main-nav > ul > li > a:hover, .main-nav > ul > li.open > a{background:var(--sand); color:var(--moss-deep);}
+  .has-dropdown > a::after{content:'⌄'; margin-left:5px; font-size:0.8em; opacity:0.6;}
+
+  .dropdown{
+    position:absolute; top:calc(100% + 8px); left:0; min-width:230px;
+    background:var(--paper-soft); border-radius:14px; box-shadow:var(--shadow);
+    padding:10px; margin:0; list-style:none; opacity:0; visibility:hidden; transform:translateY(6px);
+    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  }
+  .has-dropdown:hover .dropdown, .has-dropdown.open .dropdown{opacity:1; visibility:visible; transform:translateY(0);}
+  .dropdown li a{display:block; padding:9px 12px; border-radius:8px; text-decoration:none; font-size:0.92rem; color:var(--bark); font-weight:500;}
+  .dropdown li a:hover{background:var(--band); color:var(--moss-deep);}
+  .dropdown .dropdown-label{padding:8px 12px 2px; font-size:0.76rem; color:var(--bark-soft); font-weight:600;}
+
+  .nav-cta{margin-left:6px; flex-shrink:0;}
+  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .menu-toggle span{display:block; width:24px; height:2px; background:var(--moss-deep); margin:5px 0; border-radius:2px;}
+
+  @media (max-width:1100px){
+    .main-nav{
+      position:fixed; inset:0 0 0 auto; top:74px; height:calc(100vh - 74px); width:min(340px,86vw);
+      background:var(--paper-soft); padding:18px; overflow-y:auto; box-shadow:var(--shadow);
+      transform:translateX(100%); transition:transform .28s ease; z-index:55;
+    }
+    .main-nav.open{transform:translateX(0);}
+    .main-nav ul{flex-direction:column; align-items:stretch; gap:2px;}
+    .dropdown{position:static; opacity:1; visibility:visible; transform:none; box-shadow:none; display:none; margin:0 0 6px 10px; background:transparent;}
+    .has-dropdown.open .dropdown{display:block;}
+    .nav-cta{display:none;}
+    .menu-toggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:64px 0 90px;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .hero h1{font-size:clamp(2.3rem, 4vw, 3.4rem); line-height:1.08; max-width:14ch;}
+  .hero .lede{font-size:1.14rem; color:var(--bark-soft);}
+  .hero-ctas{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
+  .hero-figure{position:relative;}
+  .hero-figure img{border-radius:var(--radius-lg); width:100%; height:560px; object-fit:cover; box-shadow:var(--shadow);}
+  .hero-badge{
+    position:absolute; left:-26px; bottom:34px; background:var(--paper-soft); border-radius:18px;
+    padding:16px 20px; box-shadow:var(--shadow); max-width:230px; display:flex; gap:12px; align-items:center;
+  }
+  .hero-badge .seed-icon{width:34px; height:34px; flex:none;}
+  .hero-badge p{margin:0; font-size:0.86rem; color:var(--bark-soft);}
+  .hero-badge strong{display:block; color:var(--moss-deep); font-family:var(--serif); font-size:1rem;}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:36px;}
+    .hero-figure img{height:auto; aspect-ratio:4/5;}
+    .hero-badge{left:14px; bottom:-24px; max-width:200px;}
+  }
+
+  /* ---------- Section dividers (organic curve) ---------- */
+  .curve-top{position:absolute; top:-1px; left:0; width:100%; overflow:hidden; line-height:0; transform:rotate(180deg);}
+  .curve-bottom{position:absolute; bottom:-1px; left:0; width:100%; overflow:hidden; line-height:0;}
+  .curve-top svg, .curve-bottom svg{width:100%; height:70px; display:block;}
+
+  /* ---------- Band / Pillars ---------- */
+  .band{background:var(--band); padding:96px 0;}
+  .pillars-head{max-width:640px; margin:0 auto 52px; text-align:left;}
+  .pillars-head h2{font-size:clamp(1.8rem,3vw,2.4rem);}
+  .pillar-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .pillar-card{background:var(--paper-soft); border-radius:var(--radius-md); padding:34px 30px; box-shadow:var(--shadow);}
+  .pillar-icon{width:44px; height:44px; margin-bottom:18px;}
+  .pillar-card h3{font-size:1.24rem; margin-bottom:10px;}
+  .pillar-card p{font-size:0.96rem; color:var(--bark-soft); margin-bottom:0;}
+  @media (max-width:900px){.pillar-grid{grid-template-columns:1fr;}}
+
+  /* ---------- About ---------- */
+  .about{padding:110px 0 96px;}
+  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:start;}
+  .about-copy h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
+  .about-block{margin-bottom:34px;}
+  .about-block h3{font-size:1.1rem; color:var(--clay-deep); margin-bottom:8px;}
+  .about-block p{color:var(--bark-soft);}
+  .founder-card{
+    background:var(--paper-soft); border-radius:var(--radius-lg); padding:28px; box-shadow:var(--shadow);
+    position:sticky; top:112px;
+  }
+  .founder-card img{border-radius:18px; width:100%; height:340px; object-fit:cover; object-position:top;}
+  .founder-card h3{font-family:var(--serif); font-size:1.3rem; margin:18px 0 2px;}
+  .founder-card .role{color:var(--clay-deep); font-weight:600; font-size:0.9rem; margin-bottom:12px; display:block;}
+  .founder-card p{color:var(--bark-soft); font-size:0.95rem;}
+  @media (max-width:900px){
+    .about-grid{grid-template-columns:1fr;}
+    .founder-card{position:static;}
+  }
+
+  /* ---------- Services ---------- */
+  .services{padding:100px 0 40px;}
+  .section-head{max-width:680px; margin-bottom:50px;}
+  .section-head h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
+  .offer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:80px;}
+  .offer-card{border:1px solid var(--line); border-radius:var(--radius-md); padding:30px; background:var(--paper-soft);}
+  .offer-card h3{font-size:1.14rem;}
+  .offer-card p{color:var(--bark-soft); font-size:0.95rem; margin-bottom:0;}
+  @media (max-width:900px){.offer-grid{grid-template-columns:1fr;}}
+
+  .support-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:30px;}
+  .support-head h3{font-size:1.5rem; margin:0;}
+  .support-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; padding-bottom:100px;}
+  .support-card{background:var(--sand); border-radius:var(--radius-md); padding:28px 24px; scroll-margin-top:110px;}
+  .support-card h4{font-size:1.06rem; margin-bottom:8px;}
+  .support-card p{font-size:0.92rem; color:var(--bark); margin-bottom:0;}
+  @media (max-width:1000px){.support-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.support-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Training ---------- */
+  .training{padding:96px 0;}
+  .training-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
+  .training-card{
+    background:var(--paper-soft); border-radius:var(--radius-lg); padding:38px; box-shadow:var(--shadow);
+    scroll-margin-top:110px;
+  }
+  .training-card h3{font-size:1.3rem;}
+  .training-card p{color:var(--bark-soft);}
+  @media (max-width:900px){.training-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Extras / Toys ---------- */
+  .extras{padding:96px 0;}
+  .toy-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px;}
+  .toy-card{
+    background:var(--paper-soft); border:1px solid var(--line); border-radius:var(--radius-md);
+    padding:24px 20px; text-align:left; scroll-margin-top:110px;
+  }
+  .toy-card .num{font-family:var(--serif); font-size:1.6rem; color:var(--sage); display:block; margin-bottom:10px;}
+  .toy-card h4{font-size:1rem; margin-bottom:8px;}
+  .toy-card p{font-size:0.88rem; color:var(--bark-soft); margin-bottom:0;}
+  @media (max-width:1000px){.toy-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){.toy-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Getting started / roadmap ---------- */
+  .start{padding:100px 0;}
+  .start-grid{display:grid; grid-template-columns:1fr 0.85fr; gap:60px; align-items:start;}
+  .roadmap{list-style:none;}
+  .roadmap li{
+    display:grid; grid-template-columns:36px 1fr; gap:18px;
+    padding:0 0 30px; position:relative;
+  }
+  .step-num{
+    font-family:var(--serif); font-size:1.05rem; color:var(--paper-soft);
+    background:var(--moss); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    position:relative; z-index:1;
+  }
+  .roadmap li:not(:last-child)::after{
+    content:''; position:absolute; left:17px; top:36px; bottom:-6px; width:2px; background:var(--sand);
+  }
+  .step-body h4{margin:2px 0 6px; font-size:1.05rem; font-family:var(--sans); font-weight:700; color:var(--moss-deep);}
+  .step-body p{margin:0; font-size:0.94rem; color:var(--bark-soft); max-width:52ch;}
+
+  .start-side .info-card{background:var(--sand); border-radius:var(--radius-md); padding:26px; margin-bottom:20px;}
+  .start-side .info-card h4{font-family:var(--serif); font-size:1.12rem; color:var(--moss-deep); margin-bottom:8px;}
+  .start-side .info-card p{font-size:0.93rem; color:var(--bark); margin-bottom:0;}
+
+  @media (max-width:900px){.start-grid{grid-template-columns:1fr;}}
+
+  .faqs{padding-top:80px; max-width:760px;}
+  .faq-item{border-top:1px solid var(--line); padding:22px 0;}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-item summary{cursor:pointer; list-style:none; font-family:var(--serif); font-size:1.08rem; color:var(--moss-deep); display:flex; justify-content:space-between; align-items:center; gap:16px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:'+'; font-family:var(--sans); font-size:1.3rem; color:var(--clay); flex:none; transition:transform .2s ease;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{margin:14px 0 0; color:var(--bark-soft); font-size:0.96rem;}
+
+  /* ---------- Testimonials ---------- */
+  .testimonials{padding:96px 0;}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .testi-card{background:var(--paper-soft); border-radius:var(--radius-md); padding:30px; box-shadow:var(--shadow);}
+  .testi-card p{font-family:var(--serif); font-size:1.08rem; color:var(--moss-deep); font-style:italic;}
+  .testi-card cite{display:block; margin-top:16px; font-style:normal; font-size:0.86rem; color:var(--bark-soft); font-weight:600;}
+  .testi-note{margin-top:22px; font-size:0.82rem; color:var(--bark-soft);}
+  @media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Contact ---------- */
+  .contact{padding:100px 0 120px;}
+  .contact-inner{background:var(--moss-deep); border-radius:36px; padding:60px; color:var(--paper-soft); display:grid; grid-template-columns:0.8fr 1.2fr; gap:50px;}
+  .contact-copy h2{color:var(--paper-soft); font-size:clamp(1.9rem,3vw,2.3rem);}
+  .contact-copy p{color:rgba(247,242,230,0.82);}
+  .contact-copy .contact-detail{margin-top:28px; font-size:0.94rem; color:rgba(247,242,230,0.82);}
+  .contact-copy .contact-detail strong{display:block; color:var(--paper-soft); font-family:var(--serif); font-size:1.02rem; margin-bottom:4px;}
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .form-grid .full{grid-column:1 / -1;}
+  .contact input, .contact textarea{
+    width:100%; padding:15px 16px; border-radius:12px; border:1.5px solid rgba(247,242,230,0.25);
+    background:rgba(247,242,230,0.08); color:var(--paper-soft); font-family:var(--sans); font-size:0.96rem;
+  }
+  .contact textarea{min-height:120px; resize:vertical;}
+  .contact input::placeholder, .contact textarea::placeholder{color:rgba(247,242,230,0.55);}
+  .contact input:focus, .contact textarea:focus{outline:2px solid var(--sage-pale); outline-offset:1px;}
+  .contact form{margin-top:26px;}
+  .form-note{font-size:0.82rem; color:rgba(247,242,230,0.6); margin-top:14px;}
+  .submit-row{margin-top:6px;}
+  .submit-row .btn-primary{width:100%;}
+  @media (max-width:900px){
+    .contact-inner{grid-template-columns:1fr; padding:38px 26px; border-radius:26px;}
+    .form-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{padding:50px 0; border-top:1px solid var(--line);}
+  .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;}
+  .foot-inner .brand{margin-right:0;}
+  .foot-links{display:flex; gap:22px; flex-wrap:wrap; list-style:none; font-size:0.9rem; font-weight:500;}
+  .foot-links a{text-decoration:none;}
+  .foot-fine{font-size:0.8rem; color:var(--bark-soft); margin-top:26px; text-align:center;}
+
+  /* utility */
+  .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:0.01ms !important; animation-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Growing vine — scroll companion (desktop) -->
+<div class="grow-rail" aria-hidden="true">
+  <div class="grow-track">
+    <div class="grow-fill" id="growFill"></div>
+    <div class="grow-node seed" style="top:0%"><span class="node-dot"></span></div>
+    <div class="grow-node" data-pct="16" style="top:16.6%"><span class="node-dot"></span></div>
+    <div class="grow-node" data-pct="33" style="top:33.3%"><span class="node-dot"></span></div>
+    <div class="grow-node" data-pct="50" style="top:50%"><span class="node-dot"></span></div>
+    <div class="grow-node" data-pct="66" style="top:66.6%"><span class="node-dot"></span></div>
+    <div class="grow-node" data-pct="83" style="top:83.3%"><span class="node-dot"></span></div>
+    <div class="grow-node tree" data-pct="98" style="top:100%"><span class="node-dot"></span></div>
+  </div>
+</div>
+<div class="top-progress" aria-hidden="true"><div class="top-progress-fill" id="topProgressFill"></div></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#home" class="brand">
+      <img src="assets/logo.jpg" alt="Grounded Play Labs ABA logo">
+      <span class="brand-word">Grounded Play Labs<small>ABA THERAPY</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li class="has-dropdown">
+          <a href="#parent-support">Parent Support</a>
+          <ul class="dropdown">
+            <li><a href="#behavior-support">Behavior Support</a></li>
+            <li><a href="#school-support">School / Educational</a></li>
+            <li><a href="#social-support">Social</a></li>
+            <li><a href="#play-support">Play Based</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#training">Training</a>
+          <ul class="dropdown">
+            <li><a href="#group-trainings">Group Trainings</a></li>
+            <li><a href="#rbt-training">RBTs</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="#extras">Extras</a>
+          <ul class="dropdown">
+            <li class="dropdown-label">Recommended Toys</li>
+            <li><a href="#toy-pretend">Functional Pretend Play</a></li>
+            <li><a href="#toy-constructive">Constructive Play</a></li>
+            <li><a href="#toy-rules">Games with Rules</a></li>
+            <li><a href="#toy-outside">Outside Play</a></li>
+            <li><a href="#toy-tabletop">Table Top Play</a></li>
+          </ul>
+        </li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="btn btn-primary btn-sm nav-cta">Schedule a Free Consultation</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section id="home" class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <h1>Where meaningful growth starts with play.</h1>
+        <p class="lede">Grounded Play Labs ABA offers individualized, play-based behavior therapy and parent coaching that helps your child build the skills to thrive — at their own pace, in their own way.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Schedule a Free Consultation</a>
+          <a href="#services" class="btn btn-ghost">Explore Our Services</a>
+        </div>
+      </div>
+      <div class="hero-figure">
+        <img src="assets/hero-reach.jpg" alt="A mother holds her toddler up to explore autumn leaves on a tree branch">
+        <div class="hero-badge">
+          <svg class="seed-icon" viewBox="0 0 44 44" fill="none"><path d="M22 40V20" stroke="#4E5C39" stroke-width="2.4" stroke-linecap="round"/><path d="M22 22c0-8 6-12 14-12 0 8-6 12-14 12Z" fill="#8A9A6E"/><path d="M22 26c0-7-5-11-13-11 0 7 5 11 13 11Z" fill="#BD6E49"/></svg>
+          <p><strong>Rooted in play.</strong>Every session grows from genuine connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VALUE PILLARS ============ -->
+  <section class="band" id="pillars">
+    <div class="wrap">
+      <div class="pillars-head">
+        <h2>Care that grows with your child, not against them.</h2>
+        <p class="lede" style="color:var(--bark-soft)">Three things guide every plan we build — and every session we run.</p>
+      </div>
+      <div class="pillar-grid">
+        <div class="pillar-card">
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" fill="var(--sage-pale)"/><path d="M22 30V16m0 0c0-4 3-7 7-7 0 4-3 7-7 7Zm0 0c0-4-3-7-7-7 0 4 3 7 7 7Z" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Play-Based &amp; Naturalistic</h3>
+          <p>Therapy that looks and feels like play, because that's how children learn best. We meet your child in their world, building skills through curiosity and joy rather than rigid drills.</p>
+        </div>
+        <div class="pillar-card">
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" fill="var(--sage-pale)"/><path d="M14 26c0-6 4-10 8-10s8 4 8 10" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round"/><circle cx="22" cy="14" r="3.4" stroke="var(--moss)" stroke-width="1.8"/><path d="M12 30c2-2 5-3 10-3s8 1 10 3" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <h3>Whole-Family Collaboration</h3>
+          <p>You know your child better than anyone. We work alongside you with coaching, tools, and support that fit your family's daily life — not the other way around.</p>
+        </div>
+        <div class="pillar-card">
+          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" fill="var(--sage-pale)"/><path d="M22 12v20M14 20l8-8 8 8" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 32h14" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <h3>Individualized &amp; Compassionate</h3>
+          <p>No two children grow the same way. Every plan is built around your child's strengths and interests, with dignity and patience at the center of everything we do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div class="about-copy">
+        <h2>Our philosophy</h2>
+        <div class="about-block">
+          <h3>Our mission</h3>
+          <p>Every child deserves to be seen, supported, and celebrated exactly as they are. Grounded Play Labs ABA exists to help children build meaningful, lasting skills — through connection first, always.</p>
+        </div>
+        <div class="about-block">
+          <h3>Our approach</h3>
+          <p>We practice a modern, compassionate style of ABA grounded in play, connection, and emotional safety. Skills aren't drilled into a child — they grow out of trust and genuinely fun moments spent together. We follow your child's lead, notice what lights them up, and build meaningful growth from there — one building-block skill at a time.</p>
+        </div>
+        <div class="about-block">
+          <h3>For parents</h3>
+          <p>You are the expert on your child, and we treat you that way. From your very first conversation with us, you're an active partner in the process — never a bystander. We coach you through daily routines and tricky moments, so the progress your child makes with us carries all the way home.</p>
+        </div>
+      </div>
+      <div class="founder-card">
+        <img src="assets/founder-headshot.jpg" alt="Portrait of the founder of Grounded Play Labs ABA" style="object-position:center 30%;">
+        <h3>Meet the founder</h3>
+        <span class="role">[Founder Name], M.S., BCBA</span>
+        <p>I started Grounded Play Labs ABA because families deserve behavior support that feels like partnership, not a program. My goal for every family we work with is simple: help your child grow into their most confident, capable self — and make the path there feel a little lighter for you, too.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services" class="services">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Services built around your family's life</h2>
+        <p class="lede" style="color:var(--bark-soft)">In-home sessions, school collaboration, and parent coaching — woven together, not scheduled separately.</p>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <h3>Individualized Behavior Care</h3>
+          <p>Day-to-day sessions built entirely around your child — using play to teach communication, coping tools, and independence, one small breakthrough at a time.</p>
+        </div>
+        <div class="offer-card">
+          <h3>Parent Guidance &amp; Coaching</h3>
+          <p>Practical tools for daily routines, communication, and the hard moments at home — so you never feel like you're navigating this alone.</p>
+        </div>
+        <div class="offer-card">
+          <h3>School &amp; Community Integration</h3>
+          <p>We collaborate with teachers and care teams to support transitions, classroom routines, and real-world success beyond our sessions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap" id="parent-support">
+      <div class="support-head">
+        <h3>Areas of Parent Support</h3>
+        <p style="color:var(--bark-soft); max-width:44ch; margin:0;">Focused support for the moments that matter most to your family, right now.</p>
+      </div>
+      <div class="support-grid">
+        <div class="support-card" id="behavior-support">
+          <h4>Behavior Support</h4>
+          <p>Support for the big feelings and big behaviors that come with growing up. We help your child build coping tools and communication skills — replacing overwhelm with confidence, for them and for you.</p>
+        </div>
+        <div class="support-card" id="school-support">
+          <h4>School / Educational</h4>
+          <p>We work with teachers and school teams on transitions, classroom routines, and readiness skills, so progress made in therapy carries into the classroom too.</p>
+        </div>
+        <div class="support-card" id="social-support">
+          <h4>Social</h4>
+          <p>Guided practice with turn-taking, play, and connecting with peers — helping your child build friendships at their own pace, in ways that feel natural.</p>
+        </div>
+        <div class="support-card" id="play-support">
+          <h4>Play Based</h4>
+          <p>Every session is built on genuine play. It's how we teach language, motor skills, and problem-solving, without your child ever feeling like they're "in therapy."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRAINING ============ -->
+  <section id="training" class="training">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Training &amp; team development</h2>
+        <p class="lede" style="color:var(--bark-soft)">Because a well-supported care team is how children get consistent, quality support.</p>
+      </div>
+      <div class="training-grid">
+        <div class="training-card" id="group-trainings">
+          <h3>Group Trainings</h3>
+          <p>Workshops for caregivers, educators, and care teams covering practical strategies for supporting communication, routines, and behavior in real-world settings.</p>
+        </div>
+        <div class="training-card" id="rbt-training">
+          <h3>RBTs</h3>
+          <p>Structured onboarding and ongoing supervision for Registered Behavior Technicians — building a team that's skilled, supported, and genuinely invested in every child's growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXTRAS / TOYS ============ -->
+  <section class="band" id="extras">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Extras: recommended toys</h2>
+        <p class="lede" style="color:var(--bark-soft)">Simple, screen-free ways to keep building skills at home — organized by the kind of play your child is working on.</p>
+      </div>
+      <div class="toy-grid">
+        <div class="toy-card" id="toy-pretend">
+          <span class="num">01</span>
+          <h4>Functional Pretend Play</h4>
+          <p>Play kitchens, dolls, and doctor kits — building imagination and everyday life skills.</p>
+        </div>
+        <div class="toy-card" id="toy-constructive">
+          <span class="num">02</span>
+          <h4>Constructive Play</h4>
+          <p>Blocks, stacking cups, and building sets — developing problem-solving and fine motor skills.</p>
+        </div>
+        <div class="toy-card" id="toy-rules">
+          <span class="num">03</span>
+          <h4>Games with Rules</h4>
+          <p>Simple board and matching games — practicing turn-taking, waiting, and following directions.</p>
+        </div>
+        <div class="toy-card" id="toy-outside">
+          <span class="num">04</span>
+          <h4>Outside Play</h4>
+          <p>Balls, bubbles, chalk, and ride-on toys — building gross motor skills and shared attention outdoors.</p>
+        </div>
+        <div class="toy-card" id="toy-tabletop">
+          <span class="num">05</span>
+          <h4>Table Top Play</h4>
+          <p>Puzzles, sorting activities, and sensory bins — supporting focus and fine motor coordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GETTING STARTED ============ -->
+  <section id="getting-started" class="start">
+    <div class="wrap start-grid">
+      <div>
+        <div class="section-head">
+          <h2>Getting started, step by step</h2>
+          <p class="lede" style="color:var(--bark-soft)">From your first message to day one of therapy — here's exactly what to expect.</p>
+        </div>
+        <ol class="roadmap">
+          <li><span class="step-num">1</span><div class="step-body"><h4>Reach out</h4><p>Share a bit about your child and what you're looking for. We respond within one business day.</p></div></li>
+          <li><span class="step-num">2</span><div class="step-body"><h4>Free consultation call</h4><p>A relaxed conversation to understand your child's needs and answer your questions — no pressure, no jargon.</p></div></li>
+          <li><span class="step-num">3</span><div class="step-body"><h4>Insurance verification</h4><p>We check your benefits and confirm coverage before you commit to anything.</p></div></li>
+          <li><span class="step-num">4</span><div class="step-body"><h4>Assessment</h4><p>A caring specialist gets to know your child through play-based observation, building the foundation for their plan.</p></div></li>
+          <li><span class="step-num">5</span><div class="step-body"><h4>Individualized plan built</h4><p>We create a therapy plan centered on your child's goals, strengths, and your family's routines.</p></div></li>
+          <li><span class="step-num">6</span><div class="step-body"><h4>Day one of therapy</h4><p>Sessions begin, and we keep adjusting the plan as your child grows.</p></div></li>
+        </ol>
+      </div>
+      <div class="start-side">
+        <div class="info-card">
+          <h4>Insurance, explained simply</h4>
+          <p>Navigating insurance shouldn't be another thing on your plate. Our team manages verification, authorization, and paperwork on your behalf, so you can focus on your child, not the phone calls.</p>
+        </div>
+        <div class="info-card">
+          <h4>Private pay options</h4>
+          <p>For families who want to start sooner, need a flexible scope, or prefer to keep sessions off insurance records, we offer private-pay options with the same individualized care, on a timeline that works for you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap faqs">
+      <h2 style="margin-bottom:26px;">Common questions</h2>
+      <details class="faq-item" open>
+        <summary>Do I need a formal diagnosis before we start?</summary>
+        <p>Not necessarily. Reach out and we'll walk you through what's needed for your specific situation and insurance plan.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does a typical session look like?</summary>
+        <p>Sessions are built around play, following your child's lead while gently building skills in communication, coping, and independence.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How involved will I be as a parent?</summary>
+        <p>Very involved. You're an active partner throughout, with regular coaching, check-ins, and tools you can use every day, not just during sessions.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How long until we see progress?</summary>
+        <p>Every child's timeline looks different. We track meaningful growth from day one and share updates regularly, so you always know where things stand.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What ages do you work with?</summary>
+        <p>Reach out with your child's age and a bit about your situation, and we'll let you know if we're the right fit or point you toward someone who is.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="band" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Families we've grown alongside</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p>"For the first time, therapy felt like something we were doing together, not something being done to our son."</p>
+          <cite>— Placeholder quote, swap with a real family testimonial</cite>
+        </div>
+        <div class="testi-card">
+          <p>"Our team taught us as much as they taught our daughter. We finally feel equipped for the hard moments."</p>
+          <cite>— Placeholder quote, swap with a real family testimonial</cite>
+        </div>
+        <div class="testi-card">
+          <p>"The play-based approach meant our son actually looked forward to sessions. That changed everything."</p>
+          <cite>— Placeholder quote, swap with a real family testimonial</cite>
+        </div>
+      </div>
+      <p class="testi-note">Testimonials shown above are placeholders — replace with real, permission-granted quotes from families before launch.</p>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <div class="contact-inner">
+        <div class="contact-copy">
+          <h2>Let's talk about your child</h2>
+          <p>Tell us a little about what you're looking for, and we'll be in touch within one to two business days. There's no pressure, and no wrong way to start this conversation.</p>
+          <div class="contact-detail">
+            <strong>Prefer email?</strong>
+            hello@groundedplaylabsaba.com
+          </div>
+          <div class="contact-detail">
+            <strong>Response time</strong>
+            Within 1–2 business days
+          </div>
+        </div>
+        <form id="contactForm">
+          <div class="form-grid">
+            <div>
+              <label class="visually-hidden" for="firstName">First name</label>
+              <input id="firstName" name="firstName" type="text" placeholder="First name *" required>
+            </div>
+            <div>
+              <label class="visually-hidden" for="lastName">Last name</label>
+              <input id="lastName" name="lastName" type="text" placeholder="Last name *" required>
+            </div>
+            <div>
+              <label class="visually-hidden" for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Email address *" required>
+            </div>
+            <div>
+              <label class="visually-hidden" for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="Phone number *" required>
+            </div>
+            <div class="full">
+              <label class="visually-hidden" for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us a bit about your child and what you're looking for..."></textarea>
+            </div>
+          </div>
+          <div class="submit-row">
+            <button type="submit" class="btn btn-primary">Send message</button>
+          </div>
+          <p class="form-note">This form currently opens your email client to send a message. Connect a form service (like Formspree or EmailJS) to route submissions automatically — see the comment near the bottom of this file for where to plug that in.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <a href="#home" class="brand">
+        <img src="assets/logo.jpg" alt="Grounded Play Labs ABA logo">
+        <span class="brand-word">Grounded Play Labs<small>ABA THERAPY</small></span>
+      </a>
+      <ul class="foot-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#extras">Extras</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <p class="foot-fine">© <span id="year"></span> Grounded Play Labs ABA. This site is a starting template — replace placeholder names, quotes, and contact details before publishing.</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mainNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // Mobile dropdown accordions
+  document.querySelectorAll('.has-dropdown > a').forEach(a => {
+    a.addEventListener('click', (e) => {
+      if (window.innerWidth <= 1000) {
+        e.preventDefault();
+        a.parentElement.classList.toggle('open');
+      }
+    });
+  });
+
+  // Close mobile nav after choosing a link
+  document.querySelectorAll('.main-nav a:not(.has-dropdown > a)').forEach(a => {
+    a.addEventListener('click', () => {
+      mainNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  // ---- Growing vine / scroll progress ----
+  const growFill = document.getElementById('growFill');
+  const topFill = document.getElementById('topProgressFill');
+  const nodes = document.querySelectorAll('.grow-node');
+
+  function onScroll(){
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
+    if (growFill) growFill.style.height = pct + '%';
+    if (topFill) topFill.style.width = pct + '%';
+    nodes.forEach(n => {
+      const threshold = parseFloat(n.dataset.pct || '0');
+      if (pct >= threshold) n.classList.add('active');
+      else n.classList.remove('active');
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  // ---- Contact form: mailto fallback ----
+  // TO CONNECT A REAL EMAIL SERVICE LATER:
+  // Replace this handler with a fetch() POST to your form provider
+  // (e.g. Formspree: https://formspree.io, or EmailJS: https://www.emailjs.com),
+  // or set this <form>'s action/method attributes directly per that provider's docs.
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = new FormData(this);
+    const subject = encodeURIComponent('New inquiry from ' + f.get('firstName') + ' ' + f.get('lastName'));
+    const body = encodeURIComponent(
+      'Name: ' + f.get('firstName') + ' ' + f.get('lastName') + '\n' +
+      'Email: ' + f.get('email') + '\n' +
+      'Phone: ' + f.get('phone') + '\n\n' +
+      'Message:\n' + f.get('message')
+    );
+    window.location.href = 'mailto:hello@groundedplaylabsaba.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
