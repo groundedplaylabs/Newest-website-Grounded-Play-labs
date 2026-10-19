@@ -1,0 +1,6 @@
+{
+  "name": "Grounded Play Labs ABA",
+  "description": "Where Behavioral Science Meets the Power of Play. Boutique behavioral consulting, professional staff training, FBAs, parent coaching, and California SDP services founded by Jessica Lewis, MA, BCBA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -3,729 +3,2977 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grounded Play Labs ABA — Play-Based, Compassionate ABA Therapy</title>
-<meta name="description" content="Grounded Play Labs ABA offers individualized, play-based behavior therapy and parent coaching that helps your child build meaningful, lasting skills.">
+<title>Grounded Play Labs ABA — Behavioral Consulting & Play-Based Learning</title>
+<meta name="description" content="Grounded in Science. Inspired by Play. Focused on Growth. Boutique behavioral consulting, professional staff training, FBAs, parent coaching, and California Self-Determination Program services founded by Jessica Lewis, MA, BCBA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --paper:#F7F2E6;
-    --paper-soft:#FBF8F1;
-    --band:#EDE6D2;
-    --sand:#E3D8BD;
-    --moss:#4E5C39;
-    --moss-deep:#3A4529;
-    --sage:#8A9A6E;
-    --sage-pale:#C9D2AE;
-    --clay:#BD6E49;
-    --clay-deep:#A25837;
-    --bark:#382D22;
-    --bark-soft:#6B5F50;
-    --line:rgba(56,45,34,0.14);
-    --shadow: 0 18px 40px -22px rgba(56,45,34,0.35);
-    --radius-lg: 28px;
+  :root {
+    /* Palette from Mood Board: Thriving California — Empathetic, Grounded, Restorative */
+    --paper: #F4F2EB;       /* Light ecru / warm off-white canvas */
+    --paper-soft: #FBF9F5;  /* Subtle card elevation */
+    --band: #ECEAE2;        /* Restorative section band */
+    --sand: #D4C1A7;        /* Warm sand / almond swatch 5 */
+    --sand-light: #EFE7DA;
+    --sage: #9FA898;        /* Muted sage / mineral green swatch 2 */
+    --sage-pale: #D9DFD4;
+    --sage-light: #EEF1EB;
+    --olive: #7B7746;       /* Earthy olive / moss swatch 3 */
+    --moss-deep: #3A4529;   /* Deep olive forest for crisp headings */
+    --clay: #C57E52;        /* Warm terracotta / clay amber swatch 4 */
+    --clay-deep: #A25837;   /* Interactive hover accent */
+    --clay-light: #F6ECE5;
+    --bark: #2C251D;        /* Readable dark bark typography (WCAG AAA) */
+    --bark-soft: #5C5245;   /* Secondary muted prose */
+    --line: rgba(44, 37, 29, 0.12);
+    --shadow-soft: 0 16px 36px -18px rgba(44, 37, 29, 0.16);
+    --shadow-card: 0 10px 28px -12px rgba(44, 37, 29, 0.12);
+    --radius-lg: 24px;
     --radius-md: 16px;
-    --serif: 'Fraunces', serif;
-    --sans: 'Work Sans', sans-serif;
-    --maxw: 1180px;
+    --radius-sm: 10px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --maxw: 1200px;
   }
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; scroll-padding-top:96px;}
-  body{
-    margin:0;
-    font-family:var(--sans);
-    color:var(--bark);
-    background:var(--paper);
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body {
+    font-family: var(--sans);
+    color: var(--bark);
+    background: var(--paper);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  img{max-width:100%; display:block;}
-  a{color:inherit;}
-  h1,h2,h3,h4{
-    font-family:var(--serif);
-    font-weight:500;
-    color:var(--moss-deep);
-    margin:0 0 0.5em;
-    letter-spacing:-0.01em;
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    color: var(--moss-deep);
+    line-height: 1.2;
+    text-wrap: balance;
   }
-  p{margin:0 0 1em; max-width:62ch;}
-  .lede{max-width:52ch;}
-  ul{margin:0; padding:0;}
-  section{position:relative;}
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
-  .eyebrow{display:none;} /* intentionally unused — no tracked-out caps labels */
+  p { margin-bottom: 1rem; color: var(--bark-soft); max-width: 65ch; }
+  p:last-child { margin-bottom: 0; }
 
-  ::selection{background:var(--sage-pale); color:var(--moss-deep);}
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-flex; align-items:center; justify-content:center; gap:8px;
-    font-family:var(--sans); font-weight:600; font-size:0.98rem;
-    padding:14px 26px; border-radius:100px; border:1.5px solid transparent;
-    text-decoration:none; cursor:pointer; transition:transform .18s ease, box-shadow .18s ease, background .18s ease, color .18s ease;
-    white-space:nowrap;
-  }
-  .btn-primary{background:var(--clay); color:var(--paper-soft);}
-  .btn-primary:hover{background:var(--clay-deep); transform:translateY(-2px); box-shadow:0 12px 22px -10px rgba(162,88,55,0.55);}
-  .btn-ghost{background:transparent; color:var(--moss-deep); border-color:var(--moss-deep);}
-  .btn-ghost:hover{background:var(--moss-deep); color:var(--paper-soft); transform:translateY(-2px);}
-  .btn-light{background:var(--paper-soft); color:var(--moss-deep);}
-  .btn-light:hover{transform:translateY(-2px); box-shadow:var(--shadow);}
-  .btn-sm{padding:10px 20px; font-size:0.88rem;}
-
-  /* ---------- Grow rail (desktop scroll companion) ---------- */
-  .grow-rail{
-    position:fixed; left:22px; top:0; height:100vh; width:26px;
-    display:flex; align-items:center; justify-content:center;
-    z-index:60; pointer-events:none;
-  }
-  .grow-track{
-    position:relative; width:3px; height:64vh; border-radius:4px;
-    background:linear-gradient(to bottom, rgba(56,45,34,0.08), rgba(56,45,34,0.08));
-  }
-  .grow-fill{
-    position:absolute; left:0; top:0; width:100%; height:0%;
-    background:linear-gradient(to bottom, var(--sage), var(--moss));
-    border-radius:4px; transition:height .06s linear;
-  }
-  .grow-node{
-    position:absolute; left:50%; transform:translate(-50%,-50%);
-    width:10px; height:10px;
-  }
-  .node-dot{
-    position:relative; display:block; width:9px; height:9px; border-radius:50%;
-    background:var(--paper); border:2px solid var(--sand);
-    transition:background .35s ease, border-color .35s ease, transform .35s ease;
-  }
-  .grow-node.active .node-dot{background:var(--moss); border-color:var(--moss); transform:scale(1.15);}
-  .node-dot::before,.node-dot::after{
-    content:''; position:absolute; width:0; height:0; background:var(--sage);
-    border-radius:0 100% 0 100%; opacity:0; transition:all .4s ease .05s;
-  }
-  .node-dot::before{left:6px; top:-2px;}
-  .node-dot::after{right:6px; top:2px; transform:scaleX(-1); }
-  .grow-node.active .node-dot::before{width:12px; height:8px; opacity:1;}
-  .grow-node.active .node-dot::after{width:10px; height:7px; opacity:1;}
-  .grow-node.seed .node-dot{background:var(--clay); border-color:var(--clay);}
-  .grow-node.tree.active .node-dot{width:13px; height:13px;}
-  .grow-node.tree.active .node-dot::before{width:16px; height:11px;}
-  .grow-node.tree.active .node-dot::after{width:14px; height:10px;}
-
-  .top-progress{position:fixed; top:0; left:0; width:100%; height:3px; z-index:70; background:rgba(56,45,34,0.08); display:none;}
-  .top-progress-fill{height:100%; width:0%; background:linear-gradient(to right, var(--clay), var(--moss));}
-
-  @media (max-width:1000px){
-    .grow-rail{display:none;}
-    .top-progress{display:block;}
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 32px;
   }
 
-  /* ---------- Header ---------- */
-  .site-header{
-    position:sticky; top:0; z-index:50; background:var(--band);
-    border-bottom:1px solid var(--line);
+  /* ---------- Typography & Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 13px 26px;
+    border-radius: 9999px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.18s ease,
+                color 0.18s ease;
+    white-space: nowrap;
   }
-  .header-inner{
-    max-width:var(--maxw); margin:0 auto; padding:12px 32px;
-    display:flex; align-items:center; gap:18px;
+  .btn:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 3px;
   }
-  .brand{display:flex; align-items:center; gap:10px; text-decoration:none; margin-right:auto; flex-shrink:0;}
-  .brand img{width:40px; height:40px; border-radius:50%; object-fit:cover; flex-shrink:0;}
-  .brand-word{font-family:var(--serif); font-size:1.05rem; color:var(--moss-deep); line-height:1.15; white-space:nowrap;}
-  .brand-word small{display:block; font-family:var(--sans); font-size:0.58rem; font-weight:600; color:var(--bark-soft); letter-spacing:0.06em;}
-
-  .main-nav > ul{display:flex; align-items:center; gap:2px; list-style:none; margin:0; padding:0;}
-  .main-nav > ul > li{position:relative;}
-  .main-nav > ul > li > a{
-    display:block; padding:9px 11px; text-decoration:none; font-weight:600; font-size:0.88rem;
-    color:var(--bark); border-radius:8px; transition:background .15s ease, color .15s ease; white-space:nowrap;
+  .btn-primary {
+    background: var(--clay);
+    color: #FFFFFF;
   }
-  .main-nav > ul > li > a:hover, .main-nav > ul > li.open > a{background:var(--sand); color:var(--moss-deep);}
-  .has-dropdown > a::after{content:'⌄'; margin-left:5px; font-size:0.8em; opacity:0.6;}
-
-  .dropdown{
-    position:absolute; top:calc(100% + 8px); left:0; min-width:230px;
-    background:var(--paper-soft); border-radius:14px; box-shadow:var(--shadow);
-    padding:10px; margin:0; list-style:none; opacity:0; visibility:hidden; transform:translateY(6px);
-    transition:opacity .18s ease, transform .18s ease, visibility .18s;
+  .btn-primary:hover {
+    background: var(--clay-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -10px rgba(197, 126, 82, 0.55);
   }
-  .has-dropdown:hover .dropdown, .has-dropdown.open .dropdown{opacity:1; visibility:visible; transform:translateY(0);}
-  .dropdown li a{display:block; padding:9px 12px; border-radius:8px; text-decoration:none; font-size:0.92rem; color:var(--bark); font-weight:500;}
-  .dropdown li a:hover{background:var(--band); color:var(--moss-deep);}
-  .dropdown .dropdown-label{padding:8px 12px 2px; font-size:0.76rem; color:var(--bark-soft); font-weight:600;}
+  .btn-secondary {
+    background: transparent;
+    color: var(--moss-deep);
+    border-color: var(--moss-deep);
+  }
+  .btn-secondary:hover {
+    background: var(--moss-deep);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+  }
+  .btn-light {
+    background: var(--paper-soft);
+    color: var(--moss-deep);
+    border: 1px solid var(--line);
+  }
+  .btn-light:hover {
+    background: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+  .btn-sm {
+    padding: 9px 18px;
+    font-size: 0.88rem;
+  }
 
-  .nav-cta{margin-left:6px; flex-shrink:0;}
-  .menu-toggle{display:none; background:none; border:none; cursor:pointer; padding:8px;}
-  .menu-toggle span{display:block; width:24px; height:2px; background:var(--moss-deep); margin:5px 0; border-radius:2px;}
+  /* ---------- Top Bar Contract ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(244, 242, 235, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  /* Zone 1: Brand title, one line */
+  .brand-wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .brand-logo-img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid rgba(123, 119, 70, 0.3);
+  }
+  .brand-title-text {
+    font-family: var(--serif);
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+    letter-spacing: -0.01em;
+  }
+  /* Zone 2: Nav links */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 1.4vw, 22px);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--bark);
+    white-space: nowrap;
+    position: relative;
+    padding: 6px 4px;
+    transition: color 0.15s ease;
+  }
+  .nav-link:hover {
+    color: var(--clay);
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 4px;
+    right: 4px;
+    height: 2px;
+    background: var(--clay);
+    transform: scaleX(0);
+    transition: transform 0.2s ease;
+    transform-origin: center;
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+  /* Zone 3: 1 primary action */
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .mobile-menu-btn {
+    display: none;
+    background: rgba(44, 37, 29, 0.05);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s ease;
+  }
+  .mobile-menu-btn:hover {
+    background: rgba(44, 37, 29, 0.1);
+  }
+  .mobile-menu-btn svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--moss-deep);
+  }
 
-  @media (max-width:1100px){
-    .main-nav{
-      position:fixed; inset:0 0 0 auto; top:74px; height:calc(100vh - 74px); width:min(340px,86vw);
-      background:var(--paper-soft); padding:18px; overflow-y:auto; box-shadow:var(--shadow);
-      transform:translateX(100%); transition:transform .28s ease; z-index:55;
+  .drawer-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 37, 29, 0.45);
+    backdrop-filter: blur(4px);
+    z-index: 55;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s ease;
+  }
+  .drawer-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* CRITICAL: Hide drawer-only items on desktop! */
+  .mobile-drawer-header,
+  .mobile-drawer-cta-wrap {
+    display: none;
+  }
+
+  @media (max-width: 1080px) {
+    .drawer-backdrop {
+      display: block;
     }
-    .main-nav.open{transform:translateX(0);}
-    .main-nav ul{flex-direction:column; align-items:stretch; gap:2px;}
-    .dropdown{position:static; opacity:1; visibility:visible; transform:none; box-shadow:none; display:none; margin:0 0 6px 10px; background:transparent;}
-    .has-dropdown.open .dropdown{display:block;}
-    .nav-cta{display:none;}
-    .menu-toggle{display:block;}
+    .mobile-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 16px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .mobile-drawer-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--moss-deep);
+    }
+    .mobile-drawer-close {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(44, 37, 29, 0.06);
+      border: 1px solid var(--line);
+      color: var(--bark);
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background-color 0.15s ease;
+    }
+    .mobile-drawer-close:hover {
+      background: rgba(44, 37, 29, 0.12);
+    }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(340px, 86vw);
+      height: 100vh;
+      background: var(--paper-soft);
+      box-shadow: -10px 0 35px rgba(44, 37, 29, 0.2);
+      flex-direction: column;
+      align-items: stretch;
+      padding: 24px 20px 40px;
+      gap: 4px;
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 60;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-links.open {
+      transform: translateX(0);
+    }
+    .nav-link {
+      padding: 13px 14px;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--bark);
+      border-bottom: 1px solid rgba(44, 37, 29, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      border-radius: 8px;
+    }
+    .nav-link:active {
+      background: rgba(44, 37, 29, 0.06);
+      color: var(--clay);
+    }
+    .nav-link::after {
+      display: none;
+    }
+    .mobile-drawer-cta-wrap {
+      display: block;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+    .mobile-drawer-cta-wrap .btn {
+      width: 100%;
+      min-height: 48px;
+      font-size: 0.98rem;
+    }
+    .header-actions .btn {
+      display: none;
+    }
+    .mobile-menu-btn {
+      display: flex;
+    }
   }
 
-  /* ---------- Hero ---------- */
-  .hero{padding:64px 0 90px;}
-  .hero .wrap{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
-  .hero h1{font-size:clamp(2.3rem, 4vw, 3.4rem); line-height:1.08; max-width:14ch;}
-  .hero .lede{font-size:1.14rem; color:var(--bark-soft);}
-  .hero-ctas{display:flex; gap:14px; margin-top:30px; flex-wrap:wrap;}
-  .hero-figure{position:relative;}
-  .hero-figure img{border-radius:var(--radius-lg); width:100%; height:560px; object-fit:cover; box-shadow:var(--shadow);}
-  .hero-badge{
-    position:absolute; left:-26px; bottom:34px; background:var(--paper-soft); border-radius:18px;
-    padding:16px 20px; box-shadow:var(--shadow); max-width:230px; display:flex; gap:12px; align-items:center;
+  /* ---------- Scroll Vine Rail (Desktop Companion) ---------- */
+  .grow-rail {
+    position: fixed;
+    left: 20px;
+    top: 0;
+    height: 100vh;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+    pointer-events: none;
   }
-  .hero-badge .seed-icon{width:34px; height:34px; flex:none;}
-  .hero-badge p{margin:0; font-size:0.86rem; color:var(--bark-soft);}
-  .hero-badge strong{display:block; color:var(--moss-deep); font-family:var(--serif); font-size:1rem;}
-
-  @media (max-width:900px){
-    .hero .wrap{grid-template-columns:1fr; gap:36px;}
-    .hero-figure img{height:auto; aspect-ratio:4/5;}
-    .hero-badge{left:14px; bottom:-24px; max-width:200px;}
+  .grow-track {
+    position: relative;
+    width: 3px;
+    height: 60vh;
+    background: rgba(44, 37, 29, 0.08);
+    border-radius: 9999px;
   }
-
-  /* ---------- Section dividers (organic curve) ---------- */
-  .curve-top{position:absolute; top:-1px; left:0; width:100%; overflow:hidden; line-height:0; transform:rotate(180deg);}
-  .curve-bottom{position:absolute; bottom:-1px; left:0; width:100%; overflow:hidden; line-height:0;}
-  .curve-top svg, .curve-bottom svg{width:100%; height:70px; display:block;}
-
-  /* ---------- Band / Pillars ---------- */
-  .band{background:var(--band); padding:96px 0;}
-  .pillars-head{max-width:640px; margin:0 auto 52px; text-align:left;}
-  .pillars-head h2{font-size:clamp(1.8rem,3vw,2.4rem);}
-  .pillar-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
-  .pillar-card{background:var(--paper-soft); border-radius:var(--radius-md); padding:34px 30px; box-shadow:var(--shadow);}
-  .pillar-icon{width:44px; height:44px; margin-bottom:18px;}
-  .pillar-card h3{font-size:1.24rem; margin-bottom:10px;}
-  .pillar-card p{font-size:0.96rem; color:var(--bark-soft); margin-bottom:0;}
-  @media (max-width:900px){.pillar-grid{grid-template-columns:1fr;}}
-
-  /* ---------- About ---------- */
-  .about{padding:110px 0 96px;}
-  .about-grid{display:grid; grid-template-columns:0.95fr 1.05fr; gap:64px; align-items:start;}
-  .about-copy h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
-  .about-block{margin-bottom:34px;}
-  .about-block h3{font-size:1.1rem; color:var(--clay-deep); margin-bottom:8px;}
-  .about-block p{color:var(--bark-soft);}
-  .founder-card{
-    background:var(--paper-soft); border-radius:var(--radius-lg); padding:28px; box-shadow:var(--shadow);
-    position:sticky; top:112px;
+  .grow-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, var(--olive), var(--clay));
+    border-radius: 9999px;
+    transition: height 0.08s linear;
   }
-  .founder-card img{border-radius:18px; width:100%; height:340px; object-fit:cover; object-position:top;}
-  .founder-card h3{font-family:var(--serif); font-size:1.3rem; margin:18px 0 2px;}
-  .founder-card .role{color:var(--clay-deep); font-weight:600; font-size:0.9rem; margin-bottom:12px; display:block;}
-  .founder-card p{color:var(--bark-soft); font-size:0.95rem;}
-  @media (max-width:900px){
-    .about-grid{grid-template-columns:1fr;}
-    .founder-card{position:static;}
+  .grow-node {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--sand);
+    transition: all 0.3s ease;
+  }
+  .grow-node.active {
+    background: var(--clay);
+    border-color: var(--clay);
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  @media (max-width: 1100px) {
+    .grow-rail { display: none; }
   }
 
-  /* ---------- Services ---------- */
-  .services{padding:100px 0 40px;}
-  .section-head{max-width:680px; margin-bottom:50px;}
-  .section-head h2{font-size:clamp(1.9rem,3.2vw,2.5rem);}
-  .offer-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:80px;}
-  .offer-card{border:1px solid var(--line); border-radius:var(--radius-md); padding:30px; background:var(--paper-soft);}
-  .offer-card h3{font-size:1.14rem;}
-  .offer-card p{color:var(--bark-soft); font-size:0.95rem; margin-bottom:0;}
-  @media (max-width:900px){.offer-grid{grid-template-columns:1fr;}}
-
-  .support-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; flex-wrap:wrap; margin-bottom:30px;}
-  .support-head h3{font-size:1.5rem; margin:0;}
-  .support-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; padding-bottom:100px;}
-  .support-card{background:var(--sand); border-radius:var(--radius-md); padding:28px 24px; scroll-margin-top:110px;}
-  .support-card h4{font-size:1.06rem; margin-bottom:8px;}
-  .support-card p{font-size:0.92rem; color:var(--bark); margin-bottom:0;}
-  @media (max-width:1000px){.support-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:600px){.support-grid{grid-template-columns:1fr;}}
-
-  /* ---------- Training ---------- */
-  .training{padding:96px 0;}
-  .training-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px;}
-  .training-card{
-    background:var(--paper-soft); border-radius:var(--radius-lg); padding:38px; box-shadow:var(--shadow);
-    scroll-margin-top:110px;
+  /* ---------- Hero Section ---------- */
+  .hero {
+    padding: 64px 0 88px;
+    position: relative;
   }
-  .training-card h3{font-size:1.3rem;}
-  .training-card p{color:var(--bark-soft);}
-  @media (max-width:900px){.training-grid{grid-template-columns:1fr;}}
-
-  /* ---------- Extras / Toys ---------- */
-  .extras{padding:96px 0;}
-  .toy-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:18px;}
-  .toy-card{
-    background:var(--paper-soft); border:1px solid var(--line); border-radius:var(--radius-md);
-    padding:24px 20px; text-align:left; scroll-margin-top:110px;
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 52px;
+    align-items: center;
   }
-  .toy-card .num{font-family:var(--serif); font-size:1.6rem; color:var(--sage); display:block; margin-bottom:10px;}
-  .toy-card h4{font-size:1rem; margin-bottom:8px;}
-  .toy-card p{font-size:0.88rem; color:var(--bark-soft); margin-bottom:0;}
-  @media (max-width:1000px){.toy-grid{grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:600px){.toy-grid{grid-template-columns:1fr;}}
-
-  /* ---------- Getting started / roadmap ---------- */
-  .start{padding:100px 0;}
-  .start-grid{display:grid; grid-template-columns:1fr 0.85fr; gap:60px; align-items:start;}
-  .roadmap{list-style:none;}
-  .roadmap li{
-    display:grid; grid-template-columns:36px 1fr; gap:18px;
-    padding:0 0 30px; position:relative;
+  .hero-tagline {
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--clay-deep);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
-  .step-num{
-    font-family:var(--serif); font-size:1.05rem; color:var(--paper-soft);
-    background:var(--moss); width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center;
-    position:relative; z-index:1;
+  .hero-tagline span {
+    display: inline-block;
   }
-  .roadmap li:not(:last-child)::after{
-    content:''; position:absolute; left:17px; top:36px; bottom:-6px; width:2px; background:var(--sand);
+  .hero h1 {
+    font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--moss-deep);
+    margin-bottom: 22px;
   }
-  .step-body h4{margin:2px 0 6px; font-size:1.05rem; font-family:var(--sans); font-weight:700; color:var(--moss-deep);}
-  .step-body p{margin:0; font-size:0.94rem; color:var(--bark-soft); max-width:52ch;}
-
-  .start-side .info-card{background:var(--sand); border-radius:var(--radius-md); padding:26px; margin-bottom:20px;}
-  .start-side .info-card h4{font-family:var(--serif); font-size:1.12rem; color:var(--moss-deep); margin-bottom:8px;}
-  .start-side .info-card p{font-size:0.93rem; color:var(--bark); margin-bottom:0;}
-
-  @media (max-width:900px){.start-grid{grid-template-columns:1fr;}}
-
-  .faqs{padding-top:80px; max-width:760px;}
-  .faq-item{border-top:1px solid var(--line); padding:22px 0;}
-  .faq-item:last-child{border-bottom:1px solid var(--line);}
-  .faq-item summary{cursor:pointer; list-style:none; font-family:var(--serif); font-size:1.08rem; color:var(--moss-deep); display:flex; justify-content:space-between; align-items:center; gap:16px;}
-  .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary::after{content:'+'; font-family:var(--sans); font-size:1.3rem; color:var(--clay); flex:none; transition:transform .2s ease;}
-  .faq-item[open] summary::after{transform:rotate(45deg);}
-  .faq-item p{margin:14px 0 0; color:var(--bark-soft); font-size:0.96rem;}
-
-  /* ---------- Testimonials ---------- */
-  .testimonials{padding:96px 0;}
-  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-  .testi-card{background:var(--paper-soft); border-radius:var(--radius-md); padding:30px; box-shadow:var(--shadow);}
-  .testi-card p{font-family:var(--serif); font-size:1.08rem; color:var(--moss-deep); font-style:italic;}
-  .testi-card cite{display:block; margin-top:16px; font-style:normal; font-size:0.86rem; color:var(--bark-soft); font-weight:600;}
-  .testi-note{margin-top:22px; font-size:0.82rem; color:var(--bark-soft);}
-  @media (max-width:900px){.testi-grid{grid-template-columns:1fr;}}
-
-  /* ---------- Contact ---------- */
-  .contact{padding:100px 0 120px;}
-  .contact-inner{background:var(--moss-deep); border-radius:36px; padding:60px; color:var(--paper-soft); display:grid; grid-template-columns:0.8fr 1.2fr; gap:50px;}
-  .contact-copy h2{color:var(--paper-soft); font-size:clamp(1.9rem,3vw,2.3rem);}
-  .contact-copy p{color:rgba(247,242,230,0.82);}
-  .contact-copy .contact-detail{margin-top:28px; font-size:0.94rem; color:rgba(247,242,230,0.82);}
-  .contact-copy .contact-detail strong{display:block; color:var(--paper-soft); font-family:var(--serif); font-size:1.02rem; margin-bottom:4px;}
-  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
-  .form-grid .full{grid-column:1 / -1;}
-  .contact input, .contact textarea{
-    width:100%; padding:15px 16px; border-radius:12px; border:1.5px solid rgba(247,242,230,0.25);
-    background:rgba(247,242,230,0.08); color:var(--paper-soft); font-family:var(--sans); font-size:0.96rem;
+  .hero-lead {
+    font-size: 1.14rem;
+    line-height: 1.65;
+    color: var(--bark-soft);
+    margin-bottom: 24px;
+    max-width: 58ch;
   }
-  .contact textarea{min-height:120px; resize:vertical;}
-  .contact input::placeholder, .contact textarea::placeholder{color:rgba(247,242,230,0.55);}
-  .contact input:focus, .contact textarea:focus{outline:2px solid var(--sage-pale); outline-offset:1px;}
-  .contact form{margin-top:26px;}
-  .form-note{font-size:0.82rem; color:rgba(247,242,230,0.6); margin-top:14px;}
-  .submit-row{margin-top:6px;}
-  .submit-row .btn-primary{width:100%;}
-  @media (max-width:900px){
-    .contact-inner{grid-template-columns:1fr; padding:38px 26px; border-radius:26px;}
-    .form-grid{grid-template-columns:1fr;}
+  .hero-mission-callout {
+    background: var(--band);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(123, 119, 70, 0.2);
+  }
+  .hero-mission-callout p {
+    font-size: 0.94rem;
+    color: var(--moss-deep);
+    font-weight: 500;
+    margin: 0;
+  }
+  .hero-mission-callout strong {
+    color: var(--clay-deep);
+  }
+  .hero-ctas {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 0.86rem;
+    color: var(--bark-soft);
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .trust-item svg {
+    width: 16px;
+    height: 16px;
+    color: var(--olive);
+    flex-shrink: 0;
+  }
+  .hero-media-wrap {
+    position: relative;
+  }
+  .hero-media-frame {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    aspect-ratio: 4/5;
+    background: var(--band);
+  }
+  .hero-media-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-quote-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    max-width: 280px;
+    box-shadow: var(--shadow-card);
+  }
+  .hero-quote-badge p {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--moss-deep);
+    margin-bottom: 6px;
+  }
+  .hero-quote-badge span {
+    font-size: 0.8rem;
+    color: var(--bark-soft);
+    display: block;
+    font-weight: 600;
+  }
+
+  @media (max-width: 992px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero-quote-badge {
+      position: static;
+      margin-top: 16px;
+      max-width: 100%;
+    }
+  }
+
+  /* ---------- Marquee Highlight: Staff Training & Behavioral Consultation ---------- */
+  .section-spotlight {
+    background: var(--band);
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .spotlight-eyebrow {
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .spotlight-copy h2 {
+    font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+    margin-bottom: 16px;
+  }
+  .spotlight-copy p {
+    font-size: 1.02rem;
+    line-height: 1.68;
+    margin-bottom: 24px;
+  }
+  .spotlight-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .spotlight-card {
+    background: var(--paper-soft);
+    border-radius: var(--radius-md);
+    padding: 22px 20px;
+    border: 1px solid var(--line);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .spotlight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card);
+  }
+  .spotlight-card h3 {
+    font-size: 1.12rem;
+    margin-bottom: 6px;
+    color: var(--moss-deep);
+  }
+  .spotlight-card p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .spotlight-grid { grid-template-columns: 1fr; gap: 32px; }
+    .spotlight-cards-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- How We Help / Our Approach (Haven-Inspired Layout) ---------- */
+  .how-we-help {
+    padding: 96px 0;
+  }
+  .section-intro-center {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 56px;
+  }
+  .section-kicker {
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--olive);
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .section-intro-center h2 {
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    margin-bottom: 16px;
+  }
+  .section-intro-center p {
+    font-size: 1.08rem;
+    margin: 0 auto;
+  }
+
+  /* 4-Card Photo Grid matching Haven image 2 */
+  .approach-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+  .approach-photo-card {
+    background: var(--paper-soft);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .approach-photo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+  .approach-card-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: var(--band);
+  }
+  .approach-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .approach-photo-card:hover .approach-card-img-wrap img {
+    transform: scale(1.03);
+  }
+  .approach-card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(251, 249, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(44, 37, 29, 0.1);
+    border-radius: 9999px;
+    padding: 4px 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--bark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .approach-card-content {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .approach-card-content h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+  }
+  .approach-card-content p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .approach-card-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--clay);
+  }
+
+  @media (max-width: 820px) {
+    .approach-photo-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Full Services Section with Interactive Filter Tabs ---------- */
+  .services-section {
+    background: var(--band);
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .services-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+  }
+  .services-header-text h2 {
+    font-size: clamp(2rem, 3.4vw, 2.7rem);
+    margin-bottom: 12px;
+  }
+  .services-filter-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    background: rgba(244, 242, 235, 0.7);
+    padding: 6px;
+    border-radius: 9999px;
+    border: 1px solid var(--line);
+  }
+  .filter-btn {
+    background: transparent;
+    border: none;
+    font-family: var(--sans);
+    font-size: 0.86rem;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    color: var(--bark-soft);
+    cursor: pointer;
+    transition: all 0.16s ease;
+    white-space: nowrap;
+  }
+  .filter-btn:hover {
+    color: var(--bark);
+  }
+  .filter-btn.active {
+    background: #FFFFFF;
+    color: var(--moss-deep);
+    box-shadow: 0 2px 8px rgba(44, 37, 29, 0.08);
+  }
+
+  .services-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .service-card {
+    background: var(--paper-soft);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+  }
+  .service-card-num {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--clay);
+    margin-bottom: 14px;
+    display: block;
+  }
+  .service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--moss-deep);
+  }
+  .service-card p {
+    font-size: 0.93rem;
+    line-height: 1.62;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+  .service-features-list {
+    list-style: none;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    margin-bottom: 20px;
+  }
+  .service-features-list li {
+    font-size: 0.86rem;
+    color: var(--bark);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .service-features-list li::before {
+    content: '•';
+    color: var(--olive);
+    font-size: 1.1rem;
+  }
+  .service-card .btn-card-inquire {
+    margin-top: auto;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--clay);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+  }
+  .service-card .btn-card-inquire:hover {
+    color: var(--clay-deep);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1024px) {
+    .services-cards-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 680px) {
+    .services-cards-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Who We Serve (Families, Schools, Agencies, Clinics, Camps) ---------- */
+  .who-we-serve {
+    padding: 96px 0;
+  }
+  .serve-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .serve-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    padding: 30px 24px 26px;
+    border: 1.5px solid rgba(197, 126, 82, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+    
+    /* Tactile paper texture + origami facet lighting */
+    background-color: var(--paper-soft);
+    background-image: 
+      linear-gradient(135deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.12) 40%, rgba(44, 37, 29, 0.02) 100%),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.35 0 0 0 0 0.30 0 0 0 0 0.24 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperNoise)'/%3E%3C/svg%3E");
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(44, 37, 29, 0.04),
+      0 10px 24px -8px rgba(44, 37, 29, 0.09),
+      0 2px 6px -1px rgba(44, 37, 29, 0.04);
+  }
+
+  /* Origami folded corner accent mirroring the tree facets */
+  .serve-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 26px 26px 0;
+    border-color: transparent rgba(197, 126, 82, 0.12) transparent transparent;
+    border-top-right-radius: var(--radius-lg);
+    pointer-events: none;
+    transition: border-color 0.25s ease;
+  }
+
+  .serve-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.95),
+      0 18px 32px -10px rgba(44, 37, 29, 0.15),
+      0 4px 10px -2px rgba(44, 37, 29, 0.06);
+    border-color: rgba(197, 126, 82, 0.42);
+  }
+  .serve-card:hover::after {
+    border-color: transparent rgba(197, 126, 82, 0.28) transparent transparent;
+  }
+
+  /* Specific tree-inspired palette harmonies across the 4 selected cards */
+  /* 1. Families & Caregivers: Warm terracotta linen warmth */
+  .serve-card:nth-child(1) {
+    background-color: #FAF5EE;
+    border-color: rgba(197, 126, 82, 0.24);
+  }
+  .serve-card:nth-child(1) .serve-icon {
+    color: var(--clay);
+    border-color: rgba(197, 126, 82, 0.25);
+  }
+  .serve-card:nth-child(1) .serve-tags {
+    color: var(--clay);
+  }
+
+  /* 2. Schools & Districts: Gentle sage paper leaf tone */
+  .serve-card:nth-child(2) {
+    background-color: #F5F7EE;
+    border-color: rgba(123, 119, 70, 0.24);
+  }
+  .serve-card:nth-child(2)::after {
+    border-color: transparent rgba(123, 119, 70, 0.14) transparent transparent;
+  }
+  .serve-card:nth-child(2):hover::after {
+    border-color: transparent rgba(123, 119, 70, 0.3) transparent transparent;
+  }
+  .serve-card:nth-child(2) .serve-icon {
+    color: var(--olive);
+    border-color: rgba(123, 119, 70, 0.25);
+  }
+  .serve-card:nth-child(2) .serve-tags {
+    color: var(--olive);
+  }
+
+  /* 3. Agencies & Clinics: Warm natural wood/parchment tone */
+  .serve-card:nth-child(3) {
+    background-color: #F8F5EC;
+    border-color: rgba(162, 88, 55, 0.22);
+  }
+  .serve-card:nth-child(3)::after {
+    border-color: transparent rgba(162, 88, 55, 0.12) transparent transparent;
+  }
+  .serve-card:nth-child(3):hover::after {
+    border-color: transparent rgba(162, 88, 55, 0.26) transparent transparent;
+  }
+  .serve-card:nth-child(3) .serve-icon {
+    color: var(--clay-deep);
+    border-color: rgba(162, 88, 55, 0.22);
+  }
+  .serve-card:nth-child(3) .serve-tags {
+    color: var(--clay-deep);
+  }
+
+  /* 4. Camps & Community: Forest meadow origami paper tone */
+  .serve-card:nth-child(4) {
+    background-color: #F3F6EC;
+    border-color: rgba(90, 110, 75, 0.24);
+  }
+  .serve-card:nth-child(4)::after {
+    border-color: transparent rgba(90, 110, 75, 0.14) transparent transparent;
+  }
+  .serve-card:nth-child(4):hover::after {
+    border-color: transparent rgba(90, 110, 75, 0.3) transparent transparent;
+  }
+  .serve-card:nth-child(4) .serve-icon {
+    color: var(--moss-deep);
+    border-color: rgba(90, 110, 75, 0.25);
+  }
+  .serve-card:nth-child(4) .serve-tags {
+    color: var(--moss-deep);
+  }
+
+  /* Tactile papercraft icon badge */
+  .serve-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #FFFFFF 0%, #F5EFE4 100%);
+    border: 1px solid rgba(197, 126, 82, 0.2);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 4px 10px -2px rgba(44, 37, 29, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .serve-card:hover .serve-icon {
+    transform: scale(1.06) rotate(-2deg);
+    box-shadow: 
+      inset 0 1px 0 #FFFFFF,
+      0 6px 14px -3px rgba(44, 37, 29, 0.14);
+  }
+  .serve-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    color: var(--moss-deep);
+  }
+  .serve-card p {
+    font-size: 0.91rem;
+    line-height: 1.58;
+    margin-bottom: 18px;
+    flex-grow: 1;
+    color: var(--bark);
+  }
+  .serve-tags {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(44, 37, 29, 0.1);
+  }
+
+  @media (max-width: 1024px) {
+    .serve-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .serve-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- About Us / Founder Section (Jessica Lewis, MA, BCBA) ---------- */
+  .about-section {
+    background: var(--paper-soft);
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .about-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .founder-media-stack {
+    position: relative;
+  }
+  .founder-main-photo {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+    aspect-ratio: 4/5;
+    background: var(--band);
+  }
+  .founder-main-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+  }
+  .founder-creds-strip {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .founder-stat-item {
+    background: var(--band);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.74rem;
+    color: var(--bark-soft);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .about-copy h2 {
+    font-size: clamp(2rem, 3.4vw, 2.7rem);
+    margin-bottom: 8px;
+  }
+  .founder-title-badge {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--clay-deep);
+    margin-bottom: 22px;
+    display: block;
+  }
+  .about-copy p {
+    font-size: 1.02rem;
+    line-height: 1.68;
+    margin-bottom: 18px;
+  }
+  .about-pillars-inline {
+    margin: 28px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .inline-pillar {
+    background: var(--paper);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    border: 1px solid var(--line);
+  }
+  .inline-pillar h4 {
+    font-size: 1rem;
+    color: var(--moss-deep);
+    margin-bottom: 4px;
+  }
+  .inline-pillar p {
+    font-size: 0.86rem;
+    line-height: 1.45;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .about-layout { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ---------- Testimonials / Staggered Quote Bubbles ---------- */
+  .words-section {
+    padding: 96px 0 104px;
+    background: var(--paper);
+    position: relative;
+  }
+  .words-intro {
+    margin-bottom: 56px;
+  }
+  .quote-bubbles-container {
+    display: grid;
+    grid-template-columns: 1fr 1.08fr 1fr;
+    gap: 28px;
+    align-items: start;
+  }
+  .bubbles-col {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+  .col-center {
+    padding-top: 18px;
+  }
+  .quote-bubble {
+    background: var(--paper-soft);
+    border-radius: 26px;
+    padding: 30px 26px 26px;
+    border: 1.5px solid var(--line);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .quote-bubble:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px -10px rgba(44, 37, 29, 0.16);
+    border-color: rgba(197, 126, 82, 0.38);
+  }
+  .quote-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 42px;
+    width: 16px;
+    height: 16px;
+    background: var(--paper-soft);
+    border-bottom: 1.5px solid var(--line);
+    border-right: 1.5px solid var(--line);
+    transform: rotate(45deg);
+    border-bottom-right-radius: 3px;
+    transition: border-color 0.25s ease;
+  }
+  .quote-bubble:hover::after {
+    border-bottom-color: rgba(197, 126, 82, 0.38);
+    border-right-color: rgba(197, 126, 82, 0.38);
+  }
+
+  .quote-bubble.bubble-featured {
+    background: linear-gradient(175deg, #FCFAF6 0%, #F5ECE0 100%);
+    border: 1.5px solid rgba(197, 126, 82, 0.38);
+    box-shadow: 0 16px 36px -12px rgba(44, 37, 29, 0.18);
+    padding: 38px 30px 30px;
+  }
+  .quote-bubble.bubble-featured::after {
+    background: #F5ECE0;
+    border-bottom-color: rgba(197, 126, 82, 0.38);
+    border-right-color: rgba(197, 126, 82, 0.38);
+  }
+  .bubble-tag {
+    position: absolute;
+    top: -12px;
+    left: 28px;
+    background: var(--clay);
+    color: #FFFFFF;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 14px;
+    border-radius: 9999px;
+    box-shadow: 0 4px 12px rgba(197, 126, 82, 0.3);
+  }
+  .bubble-icon {
+    color: var(--clay);
+    opacity: 0.7;
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+  .quote-bubble blockquote {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    line-height: 1.58;
+    color: var(--moss-deep);
+    margin: 0 0 20px;
+    flex-grow: 1;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .quote-bubble.bubble-featured blockquote {
+    font-size: 1.15rem;
+    line-height: 1.56;
+  }
+  .bubble-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+  .bubble-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.92rem;
+    font-family: var(--serif);
+    flex-shrink: 0;
+  }
+  .bubble-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .bubble-details strong {
+    font-size: 0.92rem;
+    color: var(--bark);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  .bubble-details span {
+    font-size: 0.78rem;
+    color: var(--bark-soft);
+    line-height: 1.35;
+  }
+
+  @media (max-width: 980px) {
+    .quote-bubbles-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .col-center {
+      grid-column: 1 / -1;
+      padding-top: 0;
+      order: -1;
+    }
+  }
+
+  /* ---------- Extras: Recommended Toys (Animated Play Tree) ---------- */
+  .extras-section {
+    background: var(--band);
+    padding: 96px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .play-tree-container {
+    position: relative;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    background: #F7F4EC;
+    border: 1px solid rgba(44, 37, 29, 0.14);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+  }
+  .tree-artwork-stage {
+    position: relative;
+    width: 100%;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7F4EC;
+  }
+  .tree-bg-image {
+    width: 100%;
+    height: 100%;
+    max-height: 760px;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+  }
+  .tree-artwork-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 94% 90% at 50% 50%, rgba(247,244,236,0) 50%, rgba(247,244,236,0.2) 75%, rgba(238,234,222,0.6) 100%);
+  }
+
+  /* 5 Plaques */
+  .tree-badges-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+  .tree-badge {
+    position: absolute;
+    pointer-events: auto;
+    z-index: 3;
+  }
+  .badge-pos-1 { top: 6%; left: 50%; transform: translateX(-50%); width: 250px; }
+  .badge-pos-2 { top: 24%; left: 16%; transform: translateX(-50%); width: 240px; }
+  .badge-pos-3 { top: 24%; left: 84%; transform: translateX(-50%); width: 240px; }
+  .badge-pos-4 { top: 60%; left: 14%; transform: translateX(-50%); width: 240px; }
+  .badge-pos-5 { top: 60%; left: 86%; transform: translateX(-50%); width: 240px; }
+
+  .badge-plaque {
+    background: linear-gradient(180deg, #FBF9F4 0%, #F5EDE0 100%);
+    border: 2px solid #C49C65;
+    border-radius: 18px;
+    padding: 16px 14px 14px;
+    box-shadow: 0 12px 28px -8px rgba(44, 37, 29, 0.25);
+    text-align: center;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+  }
+  .badge-plaque:hover {
+    transform: translateY(-5px);
+    border-color: var(--clay);
+    box-shadow: 0 18px 38px -6px rgba(44, 37, 29, 0.35);
+  }
+  .badge-plaque:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 3px;
+  }
+  .badge-link-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 8px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--clay-deep);
+    background: rgba(197, 126, 82, 0.1);
+    border: 1px solid rgba(197, 126, 82, 0.28);
+    border-radius: 9999px;
+    padding: 3px 10px;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  }
+  .badge-plaque:hover .badge-link-cta {
+    background: var(--clay);
+    color: #FFFFFF;
+    border-color: var(--clay);
+    transform: translateY(-1px);
+  }
+  .badge-num {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--clay);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .badge-title {
+    font-family: var(--serif);
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+    margin-bottom: 6px;
+  }
+  .badge-desc {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--bark);
+    margin: 0;
+  }
+
+  @keyframes plaquePopIn {
+    0% { opacity: 0; transform: scale(0.5) translateY(24px); }
+    70% { opacity: 1; transform: scale(1.05) translateY(-3px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  .play-tree-container.is-animating .tree-badge[data-step="1"] .badge-plaque {
+    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
+  }
+  .play-tree-container.is-animating .tree-badge[data-step="2"] .badge-plaque {
+    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.85s forwards;
+  }
+  .play-tree-container.is-animating .tree-badge[data-step="3"] .badge-plaque {
+    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.55s forwards;
+  }
+  .play-tree-container.is-animating .tree-badge[data-step="4"] .badge-plaque {
+    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 2.25s forwards;
+  }
+  .play-tree-container.is-animating .tree-badge[data-step="5"] .badge-plaque {
+    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 2.95s forwards;
+  }
+  .play-tree-container.animation-completed .badge-plaque {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .tree-controls-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px 20px 18px;
+    background: #F4EEDC;
+    border-top: 1px solid rgba(44, 37, 29, 0.08);
+  }
+  .tree-replay-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 1px solid rgba(44, 37, 29, 0.16);
+    border-radius: 9999px;
+    padding: 7px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .tree-replay-btn:hover {
+    border-color: var(--clay);
+    color: var(--clay-deep);
+    transform: translateY(-1px);
+  }
+
+  @media (max-width: 960px) {
+    .tree-artwork-stage { display: block; min-height: auto; }
+    .tree-bg-image { max-height: 400px; }
+    .tree-badges-overlay {
+      position: relative;
+      inset: auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: 24px 18px;
+      pointer-events: auto;
+      background: #F4EEDC;
+    }
+    .tree-badge { position: relative; top: auto !important; left: auto !important; transform: none !important; width: 100% !important; }
+    .badge-pos-1 { grid-column: 1 / -1; max-width: 440px; margin: 0 auto; }
+  }
+  @media (max-width: 600px) {
+    .tree-badges-overlay { grid-template-columns: 1fr; }
+    .badge-pos-1 { grid-column: auto; max-width: none; }
+  }
+
+  /* ---------- Interactive Consultation / Contact Section ---------- */
+  .contact-section {
+    padding: 96px 0 120px;
+    position: relative;
+  }
+  .contact-container {
+    background: var(--moss-deep);
+    border-radius: 32px;
+    padding: 60px;
+    color: var(--paper-soft);
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    box-shadow: 0 24px 48px -16px rgba(44, 37, 29, 0.35);
+  }
+  .contact-info h2 {
+    color: #FFFFFF;
+    font-size: clamp(2rem, 3.2vw, 2.7rem);
+    margin-bottom: 14px;
+  }
+  .contact-info p {
+    color: rgba(251, 249, 245, 0.85);
+    font-size: 1.04rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .contact-perks-list {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+  .contact-perks-list li {
+    font-size: 0.94rem;
+    color: rgba(251, 249, 245, 0.9);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .contact-perks-list li svg {
+    width: 18px;
+    height: 18px;
+    color: var(--sand);
+    flex-shrink: 0;
+  }
+  .contact-direct-block {
+    padding-top: 24px;
+    border-top: 1px solid rgba(251, 249, 245, 0.16);
+    font-size: 0.92rem;
+    color: rgba(251, 249, 245, 0.85);
+  }
+  .contact-direct-block strong {
+    color: #FFFFFF;
+    display: block;
+    margin-bottom: 4px;
+    font-family: var(--serif);
+    font-size: 1.05rem;
+  }
+
+  /* Form Elements */
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-group-label {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--sand);
+    margin-bottom: 6px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  /* Role selector buttons */
+  .role-toggle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .role-toggle-btn {
+    background: rgba(251, 249, 245, 0.08);
+    border: 1px solid rgba(251, 249, 245, 0.22);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    color: var(--paper-soft);
+    font-family: var(--sans);
+    font-size: 0.86rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.15s ease;
+  }
+  .role-toggle-btn:hover {
+    background: rgba(251, 249, 245, 0.16);
+  }
+  .role-toggle-btn.active {
+    background: var(--clay);
+    border-color: var(--clay);
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  .form-inputs-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-input, .form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(251, 249, 245, 0.22);
+    background: rgba(251, 249, 245, 0.08);
+    color: #FFFFFF;
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    transition: border-color 0.18s ease, background-color 0.18s ease;
+  }
+  .form-input::placeholder, .form-textarea::placeholder {
+    color: rgba(251, 249, 245, 0.5);
+  }
+  .form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--sand);
+    background: rgba(251, 249, 245, 0.14);
+  }
+  .form-textarea {
+    min-height: 110px;
+    resize: vertical;
+  }
+
+  .services-checkboxes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px 12px;
+    font-size: 0.85rem;
+    color: rgba(251, 249, 245, 0.9);
+  }
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+  .checkbox-label input[type="checkbox"] {
+    accent-color: var(--clay);
+    width: 16px;
+    height: 16px;
+  }
+
+  .form-footer-note {
+    font-size: 0.8rem;
+    color: rgba(251, 249, 245, 0.65);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 992px) {
+    .contact-container {
+      grid-template-columns: 1fr;
+      padding: 40px 28px;
+      gap: 36px;
+    }
+    .form-inputs-row { grid-template-columns: 1fr; }
+    .services-checkboxes-grid { grid-template-columns: 1fr; }
+  }
+
+  /* Modal feedback upon submission */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(44, 37, 29, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .modal-overlay.open {
+    display: flex;
+  }
+  .modal-box {
+    background: var(--paper-soft);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    max-width: 520px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+    text-align: center;
+  }
+  .modal-box h3 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: var(--moss-deep);
+  }
+  .modal-box p {
+    font-size: 0.98rem;
+    color: var(--bark-soft);
+    margin-bottom: 24px;
   }
 
   /* ---------- Footer ---------- */
-  footer{padding:50px 0; border-top:1px solid var(--line);}
-  .foot-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px;}
-  .foot-inner .brand{margin-right:0;}
-  .foot-links{display:flex; gap:22px; flex-wrap:wrap; list-style:none; font-size:0.9rem; font-weight:500;}
-  .foot-links a{text-decoration:none;}
-  .foot-fine{font-size:0.8rem; color:var(--bark-soft); margin-top:26px; text-align:center;}
+  .site-footer {
+    padding: 56px 0 40px;
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .footer-links a:hover {
+    color: var(--clay);
+  }
+  .footer-bottom-bar {
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    font-size: 0.84rem;
+    color: var(--bark-soft);
+  }
 
-  /* utility */
-  .visually-hidden{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{transition-duration:0.01ms !important; animation-duration:0.01ms !important;}
+
+
+  /* ---------- Touch Ergonomics & Interaction Polish ---------- */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  /* Tree mobile hint */
+  .tree-mobile-hint {
+    display: none;
+  }
+
+  @media (max-width: 960px) {
+    .tree-mobile-hint {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--clay-deep);
+      background: rgba(197, 126, 82, 0.12);
+      border: 1px solid rgba(197, 126, 82, 0.28);
+      border-radius: 9999px;
+      padding: 6px 16px;
+      text-align: center;
+    }
+    .badge-plaque {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      text-align: left;
+      padding: 20px 18px 18px;
+      border-radius: 18px;
+      background: #FFFFFF;
+      border: 1.5px solid #D8CCA8;
+      box-shadow: 0 6px 20px -4px rgba(44, 37, 29, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+    .badge-plaque:active {
+      transform: scale(0.985);
+      background: #FAF6EF;
+      border-color: var(--clay);
+    }
+    .tree-artwork-stage {
+      min-height: auto;
+      display: block;
+    }
+    .tree-bg-image {
+      max-height: 220px;
+      object-fit: cover;
+      object-position: center 30%;
+      border-radius: 20px 20px 0 0;
+    }
+    .tree-badges-overlay {
+      position: relative;
+      inset: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px 16px 24px;
+      background: #F7F4EC;
+      pointer-events: auto;
+    }
+    .tree-badge {
+      position: relative;
+      top: auto !important;
+      left: auto !important;
+      transform: none !important;
+      width: 100% !important;
+    }
+    .badge-num {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--clay-deep);
+      background: rgba(197, 126, 82, 0.14);
+      padding: 3px 10px;
+      border-radius: 9999px;
+      width: fit-content;
+      margin-bottom: 8px;
+    }
+    .badge-title {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+      color: var(--moss-deep);
+    }
+    .badge-desc {
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: var(--bark-soft);
+      margin-bottom: 12px;
+    }
+    .badge-link-cta {
+      min-height: 44px;
+      width: 100%;
+      margin-top: 4px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 9999px;
+      background: var(--clay);
+      color: #FFFFFF;
+      border: 1px solid var(--clay-deep);
+      box-shadow: 0 4px 12px rgba(197, 126, 82, 0.28);
+    }
+    .badge-plaque:active .badge-link-cta {
+      background: var(--clay-deep);
+    }
+    .tree-controls-bar {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-section {
+      padding: 56px 0;
+    }
+    .services-header {
+      margin-bottom: 24px;
+      gap: 20px;
+    }
+    .services-filter-tabs {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      flex-wrap: nowrap;
+      padding: 6px 8px;
+      gap: 8px;
+      justify-content: flex-start;
+      border-radius: 16px;
+    }
+    .services-filter-tabs::-webkit-scrollbar {
+      display: none;
+    }
+    .filter-btn {
+      flex-shrink: 0;
+      padding: 10px 18px;
+      min-height: 44px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      border-radius: 9999px;
+    }
+    .service-card {
+      padding: 24px 20px;
+    }
+    .service-card .btn-card-inquire {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 0;
+    }
+
+    /* Mobile Sticky Bottom Action Bar (Thumb Reach Zone) */
+    .mobile-sticky-action-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 45;
+      background: rgba(244, 242, 235, 0.96);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid var(--line);
+      padding: 10px 16px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+      gap: 10px;
+      box-shadow: 0 -8px 24px rgba(44, 37, 29, 0.12);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .mobile-sticky-action-bar.hidden-near-form {
+      transform: translateY(115%);
+    }
+    .mobile-sticky-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 9999px;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.92rem;
+      min-height: 48px;
+      text-decoration: none;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    .mobile-sticky-primary {
+      flex: 1;
+      background: var(--clay);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(197, 126, 82, 0.3);
+    }
+    .mobile-sticky-primary:active {
+      background: var(--clay-deep);
+      transform: scale(0.98);
+    }
+    .mobile-sticky-secondary {
+      background: var(--paper-soft);
+      color: var(--moss-deep);
+      border: 1.5px solid var(--line);
+      padding: 0 18px;
+      font-size: 0.88rem;
+    }
+    .mobile-sticky-secondary:active {
+      background: var(--band);
+      transform: scale(0.98);
+    }
+    body {
+      padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+    }
+  }
+
+  /* Form input font size 16px prevents iOS Safari auto-zoom */
+  .form-input, .form-textarea {
+    font-size: 16px !important;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 640px) {
+    .wrap {
+      padding: 0 18px;
+    }
+    .header-inner {
+      padding: 10px 16px;
+      gap: 12px;
+    }
+    .brand-logo-img {
+      width: 36px;
+      height: 36px;
+    }
+    .brand-title-text {
+      font-size: 1.02rem;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .hero {
+      padding: 24px 0 36px;
+    }
+    .hero-tagline {
+      flex-wrap: wrap;
+      gap: 6px 8px;
+      font-size: 0.82rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 6.8vw, 2.35rem);
+      line-height: 1.16;
+      margin-bottom: 14px;
+    }
+    .hero-lead {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .hero-mission-callout {
+      padding: 14px 16px;
+      margin-bottom: 22px;
+      border-radius: var(--radius-sm);
+    }
+    .hero-ctas {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+    }
+    .hero-ctas .btn {
+      width: 100%;
+      min-height: 48px;
+      font-size: 0.98rem;
+    }
+    .hero-trust-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.86rem;
+      padding-top: 16px;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .trust-item svg {
+      width: 18px;
+      height: 18px;
+      color: var(--clay);
+      flex-shrink: 0;
+    }
+    .hero-media-frame {
+      aspect-ratio: 16/11;
+      border-radius: var(--radius-md);
+    }
+    .hero-quote-badge {
+      position: static;
+      margin-top: 14px;
+      max-width: 100%;
+      padding: 16px 18px;
+      border-radius: var(--radius-md);
+      background: var(--paper-soft);
+      border: 1px solid var(--line);
+    }
+    .section-spotlight {
+      padding: 44px 0;
+    }
+    .spotlight-copy h2 {
+      font-size: 1.65rem;
+    }
+    .spotlight-copy .btn {
+      width: 100%;
+      min-height: 48px;
+    }
+    .how-we-help {
+      padding: 52px 0;
+    }
+    .section-intro-center {
+      margin-bottom: 28px;
+    }
+    .approach-photo-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .approach-card-img-wrap {
+      aspect-ratio: 16/10;
+    }
+    .approach-card-content {
+      padding: 20px 18px;
+    }
+    .approach-card-content h3 {
+      font-size: 1.22rem;
+    }
+    .who-we-serve {
+      padding: 52px 0;
+    }
+    .serve-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .about-section {
+      padding: 52px 0;
+    }
+    .founder-main-photo {
+      aspect-ratio: 1/1;
+      max-height: 320px;
+      border-radius: var(--radius-md);
+    }
+    .founder-creds-strip {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .founder-stat-item {
+      padding: 10px 6px;
+      border-radius: 10px;
+    }
+    .stat-num {
+      font-size: 1.05rem;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.02em;
+    }
+    .about-pillars-inline {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .about-copy .btn {
+      width: 100%;
+      min-height: 48px;
+    }
+    .words-section {
+      padding: 56px 0;
+    }
+    .words-intro {
+      margin-bottom: 32px;
+    }
+    .quote-bubbles-container {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .bubbles-col {
+      gap: 18px;
+    }
+    .col-center {
+      padding-top: 0;
+      order: 0;
+    }
+    .quote-bubble {
+      padding: 24px 20px 22px;
+      border-radius: 20px;
+    }
+    .quote-bubble.bubble-featured {
+      padding: 30px 20px 24px;
+    }
+    .quote-bubble blockquote {
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+    .quote-bubble.bubble-featured blockquote {
+      font-size: 1.05rem;
+    }
+    .extras-section {
+      padding: 52px 0;
+    }
+    .contact-section {
+      padding: 44px 0 100px;
+    }
+    .contact-container {
+      padding: 28px 18px;
+      border-radius: 20px;
+      gap: 28px;
+    }
+    .role-toggle-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .role-toggle-btn {
+      min-height: 48px;
+      font-size: 0.84rem;
+      padding: 10px 8px;
+      border-radius: 10px;
+    }
+    .services-checkboxes-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .checkbox-label {
+      min-height: 48px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(251, 249, 245, 0.08);
+      border: 1px solid rgba(251, 249, 245, 0.18);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+    .checkbox-label:active {
+      background: rgba(251, 249, 245, 0.16);
+    }
+    .checkbox-label input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .contact-form .btn-primary {
+      min-height: 52px;
+      font-size: 1.02rem;
+    }
+    .modal-box {
+      padding: 28px 18px;
+      border-radius: var(--radius-md);
+      max-width: calc(100vw - 32px);
+    }
+    .modal-box h3 {
+      font-size: 1.35rem;
+    }
   }
 </style>
 </head>
 <body>
 
-<!-- Growing vine — scroll companion (desktop) -->
+<!-- Vine progress indicator on desktop -->
 <div class="grow-rail" aria-hidden="true">
   <div class="grow-track">
     <div class="grow-fill" id="growFill"></div>
-    <div class="grow-node seed" style="top:0%"><span class="node-dot"></span></div>
-    <div class="grow-node" data-pct="16" style="top:16.6%"><span class="node-dot"></span></div>
-    <div class="grow-node" data-pct="33" style="top:33.3%"><span class="node-dot"></span></div>
-    <div class="grow-node" data-pct="50" style="top:50%"><span class="node-dot"></span></div>
-    <div class="grow-node" data-pct="66" style="top:66.6%"><span class="node-dot"></span></div>
-    <div class="grow-node" data-pct="83" style="top:83.3%"><span class="node-dot"></span></div>
-    <div class="grow-node tree" data-pct="98" style="top:100%"><span class="node-dot"></span></div>
+    <div class="grow-node active" style="top:0%"></div>
+    <div class="grow-node" data-pct="20" style="top:20%"></div>
+    <div class="grow-node" data-pct="42" style="top:42%"></div>
+    <div class="grow-node" data-pct="64" style="top:64%"></div>
+    <div class="grow-node" data-pct="84" style="top:84%"></div>
+    <div class="grow-node" data-pct="98" style="top:98%"></div>
   </div>
 </div>
-<div class="top-progress" aria-hidden="true"><div class="top-progress-fill" id="topProgressFill"></div></div>
 
+<!-- ==================== HEADER (TOP BAR CONTRACT) ==================== -->
 <header class="site-header">
   <div class="header-inner">
-    <a href="#home" class="brand">
-      <img src="assets/logo.jpg" alt="Grounded Play Labs ABA logo">
-      <span class="brand-word">Grounded Play Labs<small>ABA THERAPY</small></span>
+    <!-- Zone 1: Single text element wordmark with logo -->
+    <a href="#home" class="brand-wordmark">
+      <img src="assets/logo.jpg" alt="Grounded Play Labs logo" class="brand-logo-img">
+      <span class="brand-title-text">Grounded Play Labs</span>
     </a>
-    <nav class="main-nav" id="mainNav">
-      <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li class="has-dropdown">
-          <a href="#parent-support">Parent Support</a>
-          <ul class="dropdown">
-            <li><a href="#behavior-support">Behavior Support</a></li>
-            <li><a href="#school-support">School / Educational</a></li>
-            <li><a href="#social-support">Social</a></li>
-            <li><a href="#play-support">Play Based</a></li>
-          </ul>
+
+    <!-- Mobile Drawer Backdrop Overlay -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+    <!-- Zone 2: 4-5 concise single-line nav links + Mobile Drawer -->
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li class="mobile-drawer-header">
+          <span class="mobile-drawer-title">Menu</span>
+          <button type="button" class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close navigation menu">&times;</button>
         </li>
-        <li class="has-dropdown">
-          <a href="#training">Training</a>
-          <ul class="dropdown">
-            <li><a href="#group-trainings">Group Trainings</a></li>
-            <li><a href="#rbt-training">RBTs</a></li>
-          </ul>
+        <li><a href="#about" class="nav-link">About Us</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#our-approach" class="nav-link">Our Approach</a></li>
+        <li><a href="#who-we-serve" class="nav-link">Who We Serve</a></li>
+        <li><a href="#extras" class="nav-link">Recommended Toys</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li class="mobile-drawer-cta-wrap">
+          <a href="#contact" class="btn btn-primary">Schedule a Consultation</a>
         </li>
-        <li class="has-dropdown">
-          <a href="#extras">Extras</a>
-          <ul class="dropdown">
-            <li class="dropdown-label">Recommended Toys</li>
-            <li><a href="#toy-pretend">Functional Pretend Play</a></li>
-            <li><a href="#toy-constructive">Constructive Play</a></li>
-            <li><a href="#toy-rules">Games with Rules</a></li>
-            <li><a href="#toy-outside">Outside Play</a></li>
-            <li><a href="#toy-tabletop">Table Top Play</a></li>
-          </ul>
-        </li>
-        <li><a href="#contact">Contact Us</a></li>
       </ul>
     </nav>
-    <a href="#contact" class="btn btn-primary btn-sm nav-cta">Schedule a Free Consultation</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+
+    <!-- Zone 3: 1 primary action -->
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-primary btn-sm">Schedule a Consultation</a>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
 
-  <!-- ============ HERO ============ -->
+  <!-- ==================== HERO SECTION ==================== -->
   <section id="home" class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <h1>Where meaningful growth starts with play.</h1>
-        <p class="lede">Grounded Play Labs ABA offers individualized, play-based behavior therapy and parent coaching that helps your child build the skills to thrive — at their own pace, in their own way.</p>
+    <div class="wrap hero-grid">
+      <div class="hero-content">
+        <div class="hero-tagline">
+          <span>Behavioral Consulting</span>
+          <span>·</span>
+          <span>Social Development</span>
+          <span>·</span>
+          <span>Play-Based Learning</span>
+        </div>
+        <h1>Where Behavioral Science Meets the Power of Play.</h1>
+        <p class="hero-lead">
+          At Grounded Play Labs ABA, we believe meaningful growth begins with understanding, connection, and individualized support. A modern, boutique behavioral consulting practice combining evidence-based behavioral science with compassionate, play-centered services.
+        </p>
+
+        <div class="hero-mission-callout">
+          <p>
+            <strong>Our Mission:</strong> To empower children, families, and professionals with the knowledge, strategies, and skills to thrive in everyday life.
+          </p>
+        </div>
+
         <div class="hero-ctas">
           <a href="#contact" class="btn btn-primary">Schedule a Free Consultation</a>
-          <a href="#services" class="btn btn-ghost">Explore Our Services</a>
+          <a href="#services" class="btn btn-secondary">Explore Our Services</a>
+        </div>
+
+        <div class="hero-trust-bar">
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Founded by Jessica Lewis, MA, BCBA</span>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>10+ Years Experience</span>
+          </div>
+          <div class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>California Self-Determination Provider</span>
+          </div>
         </div>
       </div>
-      <div class="hero-figure">
-        <img src="assets/hero-reach.jpg" alt="A mother holds her toddler up to explore autumn leaves on a tree branch">
-        <div class="hero-badge">
-          <svg class="seed-icon" viewBox="0 0 44 44" fill="none"><path d="M22 40V20" stroke="#4E5C39" stroke-width="2.4" stroke-linecap="round"/><path d="M22 22c0-8 6-12 14-12 0 8-6 12-14 12Z" fill="#8A9A6E"/><path d="M22 26c0-7-5-11-13-11 0 7 5 11 13 11Z" fill="#BD6E49"/></svg>
-          <p><strong>Rooted in play.</strong>Every session grows from genuine connection.</p>
+
+      <div class="hero-media-wrap">
+        <div class="hero-media-frame">
+          <img src="assets/hero-reach.jpg" alt="Child joyfully reaching upward in nature, exploring autumn leaves with caregiver" loading="eager">
+        </div>
+        <div class="hero-quote-badge">
+          <p>"Grounded in Science. Inspired by Play. Focused on Growth."</p>
+          <span>Grounded Play Labs ABA</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ VALUE PILLARS ============ -->
-  <section class="band" id="pillars">
+  <!-- ==================== MARQUEE HIGHLIGHT: STAFF TRAINING & CONSULTATION ==================== -->
+  <section class="section-spotlight" id="staff-training">
+    <div class="wrap spotlight-grid">
+      <div class="spotlight-copy">
+        <span class="spotlight-eyebrow">Featured Practice Focus</span>
+        <h2>Distinguished Staff Training &amp; Behavioral Consultation</h2>
+        <p>
+          Beyond individualized child services, Grounded Play Labs ABA partners directly with schools, agencies, clinics, and camps to deliver high-impact professional staff training and behavioral consultation. We empower your educators, care teams, and supervisors with sustainable, compassionate behavioral frameworks that elevate student success and clinical consistency.
+        </p>
+        <a href="#contact" class="btn btn-primary btn-sm" onclick="selectRole('organization')">Request Consultation for Your Team</a>
+      </div>
+
+      <div class="spotlight-cards-grid">
+        <div class="spotlight-card">
+          <h3>School &amp; District Consultation</h3>
+          <p>Assisting educators and administrators with classroom behavior strategies, assent-based support plans, and seamless transition protocols.</p>
+        </div>
+        <div class="spotlight-card">
+          <h3>Professional Staff Workshops</h3>
+          <p>Practical, interactive professional development covering de-escalation, reinforcement systems, functional communication, and neurodiversity-affirming care.</p>
+        </div>
+        <div class="spotlight-card">
+          <h3>Agency &amp; RBT Supervision</h3>
+          <p>Structured BCBA mentorship, Registered Behavior Technician onboarding, and clinical systems audits that strengthen retention and quality of care.</p>
+        </div>
+        <div class="spotlight-card">
+          <h3>Camp &amp; Community Inclusion</h3>
+          <p>Equipping counselors and program leaders with hands-on accommodations and social play support so all children participate fully.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== OUR APPROACH / HOW WE HELP (HAVEN-STYLE PHOTO GRID) ==================== -->
+  <section class="how-we-help" id="our-approach">
     <div class="wrap">
-      <div class="pillars-head">
-        <h2>Care that grows with your child, not against them.</h2>
-        <p class="lede" style="color:var(--bark-soft)">Three things guide every plan we build — and every session we run.</p>
+      <div class="section-intro-center">
+        <span class="section-kicker">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+          A Philosophy of Care
+        </span>
+        <h2>Gentle guidance, meaningful growth.</h2>
+        <p>
+          At Grounded Play Labs ABA, we know that every child and care setting is unique. That's why our approach is never one-size-fits-all. We focus on creating safe, nurturing spaces where children and care teams explore, learn, and thrive at their own pace—blending rigorous behavioral science with playful joy.
+        </p>
       </div>
-      <div class="pillar-grid">
-        <div class="pillar-card">
-          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" fill="var(--sage-pale)"/><path d="M22 30V16m0 0c0-4 3-7 7-7 0 4-3 7-7 7Zm0 0c0-4-3-7-7-7 0 4 3 7 7 7Z" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3>Play-Based &amp; Naturalistic</h3>
-          <p>Therapy that looks and feels like play, because that's how children learn best. We meet your child in their world, building skills through curiosity and joy rather than rigid drills.</p>
+
+      <!-- 4 Photo Cards matching Image 2 Layout -->
+      <div class="approach-photo-grid">
+        <!-- Card 1: Environment -->
+        <article class="approach-photo-card">
+          <div class="approach-card-img-wrap">
+            <img src="/src/assets/images/home_play_session_1792018361871.jpg" alt="Child happily playing with natural wooden toys in sunlit living room" loading="lazy">
+            <span class="approach-card-tag">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              Environment
+            </span>
+          </div>
+          <div class="approach-card-content">
+            <h3>Home-based and natural spaces</h3>
+            <p>
+              We bring support into the comfort of your home, classroom, or community setting—creating familiar, low-pressure spaces where children feel safe to learn, explore, and grow without feeling like they are in a sterile clinic.
+            </p>
+            <div class="approach-card-footer">
+              <span>Naturalistic generalization</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Method -->
+        <article class="approach-photo-card">
+          <div class="approach-card-img-wrap">
+            <img src="/src/assets/images/blended_approach_guidance_1792018362746.jpg" alt="Therapist and child warmly collaborating with sensory materials" loading="lazy">
+            <span class="approach-card-tag">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
+              Method
+            </span>
+          </div>
+          <div class="approach-card-content">
+            <h3>Blended science and play</h3>
+            <p>
+              We combine precision behavioral science with naturalistic, play-based strategies to create sessions that are engaging, respectful, and clinically effective. Skills grow out of genuine curiosity rather than repetitive drills.
+            </p>
+            <div class="approach-card-footer">
+              <span>Evidence-based precision</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Philosophy -->
+        <article class="approach-photo-card">
+          <div class="approach-card-img-wrap">
+            <img src="/src/assets/images/child_led_wooden_blocks_1792018364013.jpg" alt="Child stacking colorful rainbow arches and building shapes" loading="lazy">
+            <span class="approach-card-tag">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              Philosophy
+            </span>
+          </div>
+          <div class="approach-card-content">
+            <h3>Child-led and assent-based</h3>
+            <p>
+              Children are the experts of their own experience. By honoring their interests, reading their cues, and prioritizing assent at every step, we cultivate intrinsic motivation, joyful engagement, and self-advocacy.
+            </p>
+            <div class="approach-card-footer">
+              <span>Dignity-first learning</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Family -->
+        <article class="approach-photo-card">
+          <div class="approach-card-img-wrap">
+            <img src="/src/assets/images/parent_caregiver_support_1792018363546.jpg" alt="Parents and child joyfully engaged around learning puzzle on sofa" loading="lazy">
+            <span class="approach-card-tag">
+              <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+              Family
+            </span>
+          </div>
+          <div class="approach-card-content">
+            <h3>Parent and caregiver partnership</h3>
+            <p>
+              You know your child better than anyone. We work side-by-side with families, providing practical coaching, easy routines, and emotional encouragement so progress made together lasts for years to come.
+            </p>
+            <div class="approach-card-footer">
+              <span>Whole-family support</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMPREHENSIVE SERVICES SECTION ==================== -->
+  <section class="services-section" id="services">
+    <div class="wrap">
+      <div class="services-header">
+        <div class="services-header-text">
+          <span class="section-kicker">Boutique Behavioral Practice</span>
+          <h2>Our Core Practice Offerings</h2>
+          <p>
+            Designed to support children, empower parents, and strengthen professional educational teams across California.
+          </p>
         </div>
-        <div class="pillar-card">
-          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" fill="var(--sage-pale)"/><path d="M14 26c0-6 4-10 8-10s8 4 8 10" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round"/><circle cx="22" cy="14" r="3.4" stroke="var(--moss)" stroke-width="1.8"/><path d="M12 30c2-2 5-3 10-3s8 1 10 3" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <h3>Whole-Family Collaboration</h3>
-          <p>You know your child better than anyone. We work alongside you with coaching, tools, and support that fit your family's daily life — not the other way around.</p>
+
+        <!-- Interactive Category Filter -->
+        <div class="services-filter-tabs" role="tablist" aria-label="Service categories">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Offerings</button>
+          <button class="filter-btn" data-filter="consulting" role="tab" aria-selected="false">Staff &amp; Consulting</button>
+          <button class="filter-btn" data-filter="assessments" role="tab" aria-selected="false">Assessments (FBAs)</button>
+          <button class="filter-btn" data-filter="family" role="tab" aria-selected="false">Parent &amp; Social</button>
+          <button class="filter-btn" data-filter="sdp" role="tab" aria-selected="false">Self-Determination</button>
         </div>
-        <div class="pillar-card">
-          <svg class="pillar-icon" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="20" fill="var(--sage-pale)"/><path d="M22 12v20M14 20l8-8 8 8" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 32h14" stroke="var(--moss)" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <h3>Individualized &amp; Compassionate</h3>
-          <p>No two children grow the same way. Every plan is built around your child's strengths and interests, with dignity and patience at the center of everything we do.</p>
+      </div>
+
+      <div class="services-cards-grid" id="servicesContainer">
+        <!-- 01 Staff Training & Consultation -->
+        <div class="service-card" data-category="consulting">
+          <span class="service-card-num">01</span>
+          <h3>Staff Training &amp; Behavioral Consultation</h3>
+          <p>
+            Comprehensive consultative support and professional development for schools, clinical agencies, camps, and community care teams. We build clinical capacity, guide tier-1/tier-2 interventions, and train staff in positive behavioral approaches.
+          </p>
+          <ul class="service-features-list">
+            <li>Educator &amp; paraprofessional workshops</li>
+            <li>RBT supervision &amp; BCBA mentorship</li>
+            <li>Classroom environment optimization</li>
+            <li>De-escalation &amp; proactive coping tools</li>
+          </ul>
+          <button class="btn-card-inquire" onclick="inquireService('Staff Training & Behavioral Consultation')">
+            Inquire about staff training <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- 02 Functional Behavior Assessments (FBAs) -->
+        <div class="service-card" data-category="assessments">
+          <span class="service-card-num">02</span>
+          <h3>Functional Behavior Assessments (FBAs)</h3>
+          <p>
+            Comprehensive, individualized assessments conducted by Jessica Lewis, MA, BCBA. We look beyond surface behavior to identify the root communication, sensory, and environmental functions—translating findings into clear, respectful action plans.
+          </p>
+          <ul class="service-features-list">
+            <li>In-depth naturalistic observation</li>
+            <li>Collaborative caregiver &amp; teacher interviews</li>
+            <li>Targeted Behavior Intervention Plans (BIPs)</li>
+            <li>Objective data collection &amp; progress review</li>
+          </ul>
+          <button class="btn-card-inquire" onclick="inquireService('Functional Behavior Assessment (FBA)')">
+            Request an FBA consultation <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- 03 Parent Coaching & Family Support -->
+        <div class="service-card" data-category="family">
+          <span class="service-card-num">03</span>
+          <h3>Parent Coaching &amp; Training</h3>
+          <p>
+            Compassionate, non-judgmental guidance for moms, dads, and caregivers. We coach you through morning routines, bedtime, public outings, and big emotional moments, giving you tools that fit your family’s real-life lifestyle.
+          </p>
+          <ul class="service-features-list">
+            <li>1-on-1 collaborative coaching sessions</li>
+            <li>Home routine structuring &amp; visual supports</li>
+            <li>Sibling dynamics &amp; family connection</li>
+            <li>Stress reduction &amp; parent empowerment</li>
+          </ul>
+          <button class="btn-card-inquire" onclick="inquireService('Parent Coaching & Training')">
+            Explore parent coaching <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- 04 Social Skills Development -->
+        <div class="service-card" data-category="family">
+          <span class="service-card-num">04</span>
+          <h3>Social Skills Development</h3>
+          <p>
+            Naturalistic, play-centered peer learning that helps children foster authentic friendships. We guide turn-taking, shared attention, cooperative games, conversational rhythm, and self-advocacy without teaching masking.
+          </p>
+          <ul class="service-features-list">
+            <li>Play-based peer interactions</li>
+            <li>Perspective-taking &amp; emotional regulation</li>
+            <li>Self-advocacy &amp; expressing boundaries</li>
+            <li>Community and park outing practice</li>
+          </ul>
+          <button class="btn-card-inquire" onclick="inquireService('Social Skills Development')">
+            Learn about social skills <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- 05 California Self-Determination Program (SDP) -->
+        <div class="service-card" data-category="sdp">
+          <span class="service-card-num">05</span>
+          <h3>California Self-Determination Program (SDP)</h3>
+          <p>
+            Specialized person-centered planning and behavioral services tailored for participants in the California Regional Center Self-Determination Program. We work with your spending plan and independent facilitator to design personalized support.
+          </p>
+          <ul class="service-features-list">
+            <li>Regional Center SDP participant support</li>
+            <li>Person-centered behavioral goals</li>
+            <li>Community integration &amp; life skills</li>
+            <li>Direct collaboration with facilitators &amp; FMS</li>
+          </ul>
+          <button class="btn-card-inquire" onclick="inquireService('California Self-Determination Program (SDP)')">
+            Inquire about SDP services <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- 06 Individualized Play-Based Learning -->
+        <div class="service-card" data-category="family">
+          <span class="service-card-num">06</span>
+          <h3>Individualized Play-Based Learning</h3>
+          <p>
+            Gentle, one-on-one sessions structured around play and genuine curiosity. Every activity builds language, motor skills, functional communication, and cognitive problem-solving in a joyful, supportive environment.
+          </p>
+          <ul class="service-features-list">
+            <li>Tailored to your child’s unique passions</li>
+            <li>Assent-based, high-trust relationship</li>
+            <li>Continuous milestone tracking</li>
+            <li>Comfortable in-home setting</li>
+          </ul>
+          <button class="btn-card-inquire" onclick="inquireService('Play-Based Learning')">
+            Schedule an intake call <span aria-hidden="true">→</span>
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ ABOUT ============ -->
-  <section id="about" class="about">
-    <div class="wrap about-grid">
+  <!-- ==================== WHO WE SERVE ==================== -->
+  <section class="who-we-serve" id="who-we-serve">
+    <div class="wrap">
+      <div class="section-intro-center">
+        <span class="section-kicker">Partners in Growth</span>
+        <h2>Who We Serve</h2>
+        <p>
+          Providing customized behavioral expertise across a variety of environments throughout Southern California.
+        </p>
+      </div>
+
+      <div class="serve-grid">
+        <!-- 1. Families -->
+        <div class="serve-card">
+          <div class="serve-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <h3>Families &amp; Caregivers</h3>
+          <p>In-home play-based support, tailored daily routines, and compassionate parent coaching designed to bring peace and confidence to everyday household moments.</p>
+          <span class="serve-tags">Home · Community · Virtual</span>
+        </div>
+
+        <!-- 2. Schools -->
+        <div class="serve-card">
+          <div class="serve-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          </div>
+          <h3>Schools &amp; Districts</h3>
+          <p>Classroom behavioral consultations, functional behavior assessments (FBAs), staff professional development, and practical IEP support for educators.</p>
+          <span class="serve-tags">Classrooms · Districts · Teams</span>
+        </div>
+
+        <!-- 3. Agencies & Clinics -->
+        <div class="serve-card">
+          <div class="serve-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          </div>
+          <h3>Agencies &amp; Clinics</h3>
+          <p>Boutique BCBA consultation, RBT team training, clinical program reviews, and assent-centered supervision that elevates clinical consistency and outcomes.</p>
+          <span class="serve-tags">BCBA Mentorship · Supervision</span>
+        </div>
+
+        <!-- 4. Camps & Community -->
+        <div class="serve-card">
+          <div class="serve-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
+          </div>
+          <h3>Camps &amp; Community</h3>
+          <p>Counselor training, sensory inclusion strategies, and adaptive recreational program design so all children can experience the joy of camp and outdoor play.</p>
+          <span class="serve-tags">Recreation · Social Inclusion</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT US: JESSICA LEWIS, MA, BCBA ==================== -->
+  <section class="about-section" id="about">
+    <div class="wrap about-layout">
+      <div class="founder-media-stack">
+        <div class="founder-main-photo">
+          <img src="assets/founder-portrait.jpg" alt="Jessica Lewis, MA, BCBA, founder of Grounded Play Labs ABA" loading="lazy">
+        </div>
+        <div class="founder-creds-strip">
+          <div class="founder-stat-item">
+            <span class="stat-num">10+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="founder-stat-item">
+            <span class="stat-num">MA, BCBA</span>
+            <span class="stat-label">Board Certified</span>
+          </div>
+          <div class="founder-stat-item">
+            <span class="stat-num">CA SDP</span>
+            <span class="stat-label">Authorized Provider</span>
+          </div>
+        </div>
+      </div>
+
       <div class="about-copy">
-        <h2>Our philosophy</h2>
-        <div class="about-block">
-          <h3>Our mission</h3>
-          <p>Every child deserves to be seen, supported, and celebrated exactly as they are. Grounded Play Labs ABA exists to help children build meaningful, lasting skills — through connection first, always.</p>
-        </div>
-        <div class="about-block">
-          <h3>Our approach</h3>
-          <p>We practice a modern, compassionate style of ABA grounded in play, connection, and emotional safety. Skills aren't drilled into a child — they grow out of trust and genuinely fun moments spent together. We follow your child's lead, notice what lights them up, and build meaningful growth from there — one building-block skill at a time.</p>
-        </div>
-        <div class="about-block">
-          <h3>For parents</h3>
-          <p>You are the expert on your child, and we treat you that way. From your very first conversation with us, you're an active partner in the process — never a bystander. We coach you through daily routines and tricky moments, so the progress your child makes with us carries all the way home.</p>
-        </div>
-      </div>
-      <div class="founder-card">
-        <img src="assets/founder-headshot.jpg" alt="Portrait of the founder of Grounded Play Labs ABA" style="object-position:center 30%;">
-        <h3>Meet the founder</h3>
-        <span class="role">[Founder Name], M.S., BCBA</span>
-        <p>I started Grounded Play Labs ABA because families deserve behavior support that feels like partnership, not a program. My goal for every family we work with is simple: help your child grow into their most confident, capable self — and make the path there feel a little lighter for you, too.</p>
-      </div>
-    </div>
-  </section>
+        <span class="section-kicker">Meet the Founder</span>
+        <h2>Jessica Lewis, MA, BCBA</h2>
+        <span class="founder-title-badge">Founder &amp; Clinical Director · Board Certified Behavior Analyst</span>
+        
+        <p>
+          Founded by Jessica Lewis, MA, BCBA, Grounded Play Labs ABA was born from a deep conviction: behavioral science is most powerful when it is rooted in genuine human connection, dignity, and playful joy.
+        </p>
+        <p>
+          With over a decade of hands-on experience across California public and private schools, clinical centers, family homes, recreational camps, and community settings, Jessica combines evidence-based behavioral strategies with compassionate, developmentally appropriate approaches that foster confidence, independence, meaningful relationships, and lasting progress.
+        </p>
 
-  <!-- ============ SERVICES ============ -->
-  <section id="services" class="services">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Services built around your family's life</h2>
-        <p class="lede" style="color:var(--bark-soft)">In-home sessions, school collaboration, and parent coaching — woven together, not scheduled separately.</p>
-      </div>
-      <div class="offer-grid">
-        <div class="offer-card">
-          <h3>Individualized Behavior Care</h3>
-          <p>Day-to-day sessions built entirely around your child — using play to teach communication, coping tools, and independence, one small breakthrough at a time.</p>
-        </div>
-        <div class="offer-card">
-          <h3>Parent Guidance &amp; Coaching</h3>
-          <p>Practical tools for daily routines, communication, and the hard moments at home — so you never feel like you're navigating this alone.</p>
-        </div>
-        <div class="offer-card">
-          <h3>School &amp; Community Integration</h3>
-          <p>We collaborate with teachers and care teams to support transitions, classroom routines, and real-world success beyond our sessions.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap" id="parent-support">
-      <div class="support-head">
-        <h3>Areas of Parent Support</h3>
-        <p style="color:var(--bark-soft); max-width:44ch; margin:0;">Focused support for the moments that matter most to your family, right now.</p>
-      </div>
-      <div class="support-grid">
-        <div class="support-card" id="behavior-support">
-          <h4>Behavior Support</h4>
-          <p>Support for the big feelings and big behaviors that come with growing up. We help your child build coping tools and communication skills — replacing overwhelm with confidence, for them and for you.</p>
-        </div>
-        <div class="support-card" id="school-support">
-          <h4>School / Educational</h4>
-          <p>We work with teachers and school teams on transitions, classroom routines, and readiness skills, so progress made in therapy carries into the classroom too.</p>
-        </div>
-        <div class="support-card" id="social-support">
-          <h4>Social</h4>
-          <p>Guided practice with turn-taking, play, and connecting with peers — helping your child build friendships at their own pace, in ways that feel natural.</p>
-        </div>
-        <div class="support-card" id="play-support">
-          <h4>Play Based</h4>
-          <p>Every session is built on genuine play. It's how we teach language, motor skills, and problem-solving, without your child ever feeling like they're "in therapy."</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ TRAINING ============ -->
-  <section id="training" class="training">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Training &amp; team development</h2>
-        <p class="lede" style="color:var(--bark-soft)">Because a well-supported care team is how children get consistent, quality support.</p>
-      </div>
-      <div class="training-grid">
-        <div class="training-card" id="group-trainings">
-          <h3>Group Trainings</h3>
-          <p>Workshops for caregivers, educators, and care teams covering practical strategies for supporting communication, routines, and behavior in real-world settings.</p>
-        </div>
-        <div class="training-card" id="rbt-training">
-          <h3>RBTs</h3>
-          <p>Structured onboarding and ongoing supervision for Registered Behavior Technicians — building a team that's skilled, supported, and genuinely invested in every child's growth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ EXTRAS / TOYS ============ -->
-  <section class="band" id="extras">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Extras: recommended toys</h2>
-        <p class="lede" style="color:var(--bark-soft)">Simple, screen-free ways to keep building skills at home — organized by the kind of play your child is working on.</p>
-      </div>
-      <div class="toy-grid">
-        <div class="toy-card" id="toy-pretend">
-          <span class="num">01</span>
-          <h4>Functional Pretend Play</h4>
-          <p>Play kitchens, dolls, and doctor kits — building imagination and everyday life skills.</p>
-        </div>
-        <div class="toy-card" id="toy-constructive">
-          <span class="num">02</span>
-          <h4>Constructive Play</h4>
-          <p>Blocks, stacking cups, and building sets — developing problem-solving and fine motor skills.</p>
-        </div>
-        <div class="toy-card" id="toy-rules">
-          <span class="num">03</span>
-          <h4>Games with Rules</h4>
-          <p>Simple board and matching games — practicing turn-taking, waiting, and following directions.</p>
-        </div>
-        <div class="toy-card" id="toy-outside">
-          <span class="num">04</span>
-          <h4>Outside Play</h4>
-          <p>Balls, bubbles, chalk, and ride-on toys — building gross motor skills and shared attention outdoors.</p>
-        </div>
-        <div class="toy-card" id="toy-tabletop">
-          <span class="num">05</span>
-          <h4>Table Top Play</h4>
-          <p>Puzzles, sorting activities, and sensory bins — supporting focus and fine motor coordination.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ GETTING STARTED ============ -->
-  <section id="getting-started" class="start">
-    <div class="wrap start-grid">
-      <div>
-        <div class="section-head">
-          <h2>Getting started, step by step</h2>
-          <p class="lede" style="color:var(--bark-soft)">From your first message to day one of therapy — here's exactly what to expect.</p>
-        </div>
-        <ol class="roadmap">
-          <li><span class="step-num">1</span><div class="step-body"><h4>Reach out</h4><p>Share a bit about your child and what you're looking for. We respond within one business day.</p></div></li>
-          <li><span class="step-num">2</span><div class="step-body"><h4>Free consultation call</h4><p>A relaxed conversation to understand your child's needs and answer your questions — no pressure, no jargon.</p></div></li>
-          <li><span class="step-num">3</span><div class="step-body"><h4>Insurance verification</h4><p>We check your benefits and confirm coverage before you commit to anything.</p></div></li>
-          <li><span class="step-num">4</span><div class="step-body"><h4>Assessment</h4><p>A caring specialist gets to know your child through play-based observation, building the foundation for their plan.</p></div></li>
-          <li><span class="step-num">5</span><div class="step-body"><h4>Individualized plan built</h4><p>We create a therapy plan centered on your child's goals, strengths, and your family's routines.</p></div></li>
-          <li><span class="step-num">6</span><div class="step-body"><h4>Day one of therapy</h4><p>Sessions begin, and we keep adjusting the plan as your child grows.</p></div></li>
-        </ol>
-      </div>
-      <div class="start-side">
-        <div class="info-card">
-          <h4>Insurance, explained simply</h4>
-          <p>Navigating insurance shouldn't be another thing on your plate. Our team manages verification, authorization, and paperwork on your behalf, so you can focus on your child, not the phone calls.</p>
-        </div>
-        <div class="info-card">
-          <h4>Private pay options</h4>
-          <p>For families who want to start sooner, need a flexible scope, or prefer to keep sessions off insurance records, we offer private-pay options with the same individualized care, on a timeline that works for you.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="wrap faqs">
-      <h2 style="margin-bottom:26px;">Common questions</h2>
-      <details class="faq-item" open>
-        <summary>Do I need a formal diagnosis before we start?</summary>
-        <p>Not necessarily. Reach out and we'll walk you through what's needed for your specific situation and insurance plan.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What does a typical session look like?</summary>
-        <p>Sessions are built around play, following your child's lead while gently building skills in communication, coping, and independence.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How involved will I be as a parent?</summary>
-        <p>Very involved. You're an active partner throughout, with regular coaching, check-ins, and tools you can use every day, not just during sessions.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How long until we see progress?</summary>
-        <p>Every child's timeline looks different. We track meaningful growth from day one and share updates regularly, so you always know where things stand.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What ages do you work with?</summary>
-        <p>Reach out with your child's age and a bit about your situation, and we'll let you know if we're the right fit or point you toward someone who is.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- ============ TESTIMONIALS ============ -->
-  <section class="band" id="testimonials">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Families we've grown alongside</h2>
-      </div>
-      <div class="testi-grid">
-        <div class="testi-card">
-          <p>"For the first time, therapy felt like something we were doing together, not something being done to our son."</p>
-          <cite>— Placeholder quote, swap with a real family testimonial</cite>
-        </div>
-        <div class="testi-card">
-          <p>"Our team taught us as much as they taught our daughter. We finally feel equipped for the hard moments."</p>
-          <cite>— Placeholder quote, swap with a real family testimonial</cite>
-        </div>
-        <div class="testi-card">
-          <p>"The play-based approach meant our son actually looked forward to sessions. That changed everything."</p>
-          <cite>— Placeholder quote, swap with a real family testimonial</cite>
-        </div>
-      </div>
-      <p class="testi-note">Testimonials shown above are placeholders — replace with real, permission-granted quotes from families before launch.</p>
-    </div>
-  </section>
-
-  <!-- ============ CONTACT ============ -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="contact-inner">
-        <div class="contact-copy">
-          <h2>Let's talk about your child</h2>
-          <p>Tell us a little about what you're looking for, and we'll be in touch within one to two business days. There's no pressure, and no wrong way to start this conversation.</p>
-          <div class="contact-detail">
-            <strong>Prefer email?</strong>
-            hello@groundedplaylabsaba.com
+        <div class="about-pillars-inline">
+          <div class="inline-pillar">
+            <h4>Evidence-Based Rigor</h4>
+            <p>Every strategy is anchored in proven behavioral science, objective assessments, and continuous data.</p>
           </div>
-          <div class="contact-detail">
-            <strong>Response time</strong>
-            Within 1–2 business days
+          <div class="inline-pillar">
+            <h4>Compassionate Assent</h4>
+            <p>We respect each child's voice, pace, and comfort, ensuring therapy builds trust rather than compliance.</p>
           </div>
         </div>
-        <form id="contactForm">
-          <div class="form-grid">
+
+        <a href="#contact" class="btn btn-primary btn-sm">Connect with Jessica</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WORDS OF IMPACT / STAGGERED QUOTE BUBBLES ==================== -->
+  <section class="words-section" id="stories">
+    <div class="wrap">
+      <div class="section-intro-center words-intro">
+        <span class="section-kicker">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+          Words of Impact
+        </span>
+        <h2>What Families &amp; Partners Are Saying</h2>
+        <p>
+          Reflections from caregivers, educators, and community leaders who have experienced the transformative power of play-centered behavioral support.
+        </p>
+      </div>
+
+      <div class="quote-bubbles-container">
+        <!-- Column 1 (Stacked Bubbles) -->
+        <div class="bubbles-col col-left">
+          <article class="quote-bubble">
+            <div class="bubble-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+            </div>
+            <blockquote>
+              "Grounded Play Labs completely shifted how we see play in our home. Our daughter went from having daily distress over transitions to singing her own cleanup games. It feels like we finally have a partner who truly honors her voice."
+            </blockquote>
+            <div class="bubble-meta">
+              <div class="bubble-avatar" style="background:#EAE2D5; color:#5C5245;">M</div>
+              <div class="bubble-details">
+                <strong>Parent of a 4-Year-Old</strong>
+                <span>Home Play Routines &amp; Assent Support</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="quote-bubble">
+            <div class="bubble-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+            </div>
+            <blockquote>
+              "Jessica’s staff workshop was by far the most practical, respectful training our classroom team has ever received. No rigid clipboards—just genuine strategies that empower educators and students alike."
+            </blockquote>
+            <div class="bubble-meta">
+              <div class="bubble-avatar" style="background:#DDE2D5; color:#3A4529;">T</div>
+              <div class="bubble-details">
+                <strong>Elementary Inclusion Specialist</strong>
+                <span>School Consultation &amp; Staff Training</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Column 2 (Staggered Centerpiece Bubble) -->
+        <div class="bubbles-col col-center">
+          <article class="quote-bubble bubble-featured">
+            <span class="bubble-tag">Family Reflection</span>
+            <div class="bubble-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+            </div>
+            <blockquote>
+              "Grounded Play Labs gave our family the space to breathe and grow together. The deep behavioral expertise combined with compassionate encouragement made all the difference—not just for our child's milestones, but for our entire household's peace of mind."
+            </blockquote>
+            <div class="bubble-meta">
+              <div class="bubble-avatar" style="background:#F2D8C7; color:#A25837;">L</div>
+              <div class="bubble-details">
+                <strong>Caregiver &amp; Advocate</strong>
+                <span>Parent Coaching &amp; SDP Services</span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Column 3 (Stacked Bubbles) -->
+        <div class="bubbles-col col-right">
+          <article class="quote-bubble">
+            <div class="bubble-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+            </div>
+            <blockquote>
+              "The blend of evidence-based science and child-led play is brilliant. Our son doesn't even realize he's practicing expressive communication—he just knows he's having the time of his life."
+            </blockquote>
+            <div class="bubble-meta">
+              <div class="bubble-avatar" style="background:#E2DACE; color:#5C5245;">D</div>
+              <div class="bubble-details">
+                <strong>Parent of a 6-Year-Old</strong>
+                <span>Social Skills &amp; Communication</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="quote-bubble">
+            <div class="bubble-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 0 1-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+            </div>
+            <blockquote>
+              "Affirming, collaborative, and grounded in real-world application. They equipped our camp counselors with natural play strategies so every single child participated with joy."
+            </blockquote>
+            <div class="bubble-meta">
+              <div class="bubble-avatar" style="background:#D9E0D4; color:#3A4529;">C</div>
+              <div class="bubble-details">
+                <strong>Community Youth Program Leader</strong>
+                <span>Inclusive Play &amp; Counselor Mentorship</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EXTRAS: RECOMMENDED TOYS (ANIMATED PLAY TREE) ==================== -->
+  <section class="extras-section" id="extras">
+    <div class="wrap">
+      <div class="section-intro-center">
+        <span class="section-kicker">Screen-Free Learning</span>
+        <h2>Extras: Recommended Toys for Skill-Building</h2>
+        <p>
+          Curated, screen-free ways to foster communication, fine motor coordination, and shared attention at home—organized by the specific developmental stage your child is exploring.
+        </p>
+        <div class="tree-mobile-hint" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+          <span>Tap any category plaque below to open the developmental guide</span>
+        </div>
+      </div>
+
+      <!-- Main Animated Tree Display -->
+      <div class="play-tree-container" id="playTreeContainer">
+        <div class="tree-artwork-stage">
+          <img 
+            src="assets/grand_paper_tree.jpg" 
+            alt="Grand origami papercraft play tree in signature Grounded Play Labs geometric faceted style with sprawling branches, lush canopy, and no figures"
+            class="tree-bg-image"
+            id="treeBgImage"
+            loading="lazy"
+          />
+          <div class="tree-artwork-vignette"></div>
+
+          <!-- 5 Wooden Plaques -->
+          <div class="tree-badges-overlay" id="treeBadgesOverlay">
+            <!-- 01 Functional Pretend Play -->
+            <div class="tree-badge badge-pos-1" id="toy-pretend" data-step="1">
+              <a href="toy-pretend.html" class="badge-plaque" title="View Functional Pretend Play Guide & Toys">
+                <div class="badge-num">01</div>
+                <h3 class="badge-title">Functional Pretend Play</h3>
+                <p class="badge-desc">Play kitchens, wooden market sets, and doctor kits—building imagination, empathy, and everyday life routines.</p>
+                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+              </a>
+            </div>
+
+            <!-- 02 Constructive Play -->
+            <div class="tree-badge badge-pos-2" id="toy-constructive" data-step="2">
+              <a href="toy-constructive.html" class="badge-plaque" title="View Constructive Play Guide & Toys">
+                <div class="badge-num">02</div>
+                <h3 class="badge-title">Constructive Play</h3>
+                <p class="badge-desc">Natural stacking blocks, nesting cups, and rainbow arches—developing spatial problem-solving and fine motor skills.</p>
+                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+              </a>
+            </div>
+
+            <!-- 03 Games with Rules -->
+            <div class="tree-badge badge-pos-3" id="toy-rules" data-step="3">
+              <a href="toy-rules.html" class="badge-plaque" title="View Games with Rules Guide & Toys">
+                <div class="badge-num">03</div>
+                <h3 class="badge-title">Games with Rules</h3>
+                <p class="badge-desc">Simple cooperative board games and matching sets—practicing turn-taking, patient waiting, and shared enjoyment.</p>
+                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+              </a>
+            </div>
+
+            <!-- 04 Outside Play -->
+            <div class="tree-badge badge-pos-4" id="toy-outside" data-step="4">
+              <a href="toy-outside.html" class="badge-plaque" title="View Outside Play Guide & Toys">
+                <div class="badge-num">04</div>
+                <h3 class="badge-title">Outside Play</h3>
+                <p class="badge-desc">Balls, bubbles, sidewalk chalk, and balance bikes—building gross motor confidence and shared attention under the sun.</p>
+                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+              </a>
+            </div>
+
+            <!-- 05 Table Top Play -->
+            <div class="tree-badge badge-pos-5" id="toy-tabletop" data-step="5">
+              <a href="toy-tabletop.html" class="badge-plaque" title="View Table Top Play Guide & Toys">
+                <div class="badge-num">05</div>
+                <h3 class="badge-title">Table Top Play</h3>
+                <p class="badge-desc">Sensory sorting bins, textured puzzles, and beading kits—supporting calm focus, bilateral coordination, and tactile joy.</p>
+                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Replay controls bar -->
+        <div class="tree-controls-bar">
+          <button type="button" class="tree-replay-btn" id="treeReplayBtn" aria-label="Replay play tree animation">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <span>Replay Tree Animation</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CONSULTATION & CONTACT INQUIRIES ==================== -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <div class="contact-container">
+        <!-- Contact Info Side -->
+        <div class="contact-info">
+          <span class="spotlight-eyebrow" style="color:var(--sand);">Get in Touch</span>
+          <h2>Let's Start the Conversation</h2>
+          <p>
+            Whether you are a parent seeking compassionate guidance for your child, or an administrator seeking professional staff training for your team, we'd love to connect.
+          </p>
+
+          <ul class="contact-perks-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Complimentary 20-minute discovery consultation</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Personal response within 1–2 business days</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>California Regional Center SDP assistance available</span>
+            </li>
+          </ul>
+
+          <div class="contact-direct-block">
+            <strong>Direct Practice Email</strong>
+            groundedplaylabs@gmail.com
+            <div style="margin-top:12px; font-size:0.86rem; opacity:0.85;">
+              Serving Southern California communities &amp; statewide remote consultation.
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Consultation Form -->
+        <form class="contact-form" id="consultationForm">
+          <div>
+            <span class="form-group-label">I am reaching out as a:</span>
+            <div class="role-toggle-grid">
+              <button type="button" class="role-toggle-btn active" data-role="parent">Parent / Caregiver</button>
+              <button type="button" class="role-toggle-btn" data-role="school">School / Educator</button>
+              <button type="button" class="role-toggle-btn" data-role="agency">Agency / Clinic</button>
+              <button type="button" class="role-toggle-btn" data-role="camp">Camp / Community</button>
+            </div>
+          </div>
+
+          <div class="form-inputs-row">
             <div>
               <label class="visually-hidden" for="firstName">First name</label>
-              <input id="firstName" name="firstName" type="text" placeholder="First name *" required>
+              <input id="firstName" name="firstName" type="text" class="form-input" placeholder="First Name *" required>
             </div>
             <div>
               <label class="visually-hidden" for="lastName">Last name</label>
-              <input id="lastName" name="lastName" type="text" placeholder="Last name *" required>
-            </div>
-            <div>
-              <label class="visually-hidden" for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="Email address *" required>
-            </div>
-            <div>
-              <label class="visually-hidden" for="phone">Phone</label>
-              <input id="phone" name="phone" type="tel" placeholder="Phone number *" required>
-            </div>
-            <div class="full">
-              <label class="visually-hidden" for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us a bit about your child and what you're looking for..."></textarea>
+              <input id="lastName" name="lastName" type="text" class="form-input" placeholder="Last Name *" required>
             </div>
           </div>
-          <div class="submit-row">
-            <button type="submit" class="btn btn-primary">Send message</button>
+
+          <div class="form-inputs-row">
+            <div>
+              <label class="visually-hidden" for="email">Email address</label>
+              <input id="email" name="email" type="email" class="form-input" placeholder="Email Address *" required>
+            </div>
+            <div>
+              <label class="visually-hidden" for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" class="form-input" placeholder="Phone Number *" required>
+            </div>
           </div>
-          <p class="form-note">This form currently opens your email client to send a message. Connect a form service (like Formspree or EmailJS) to route submissions automatically — see the comment near the bottom of this file for where to plug that in.</p>
+
+          <div>
+            <span class="form-group-label">Services of Interest (select all that apply):</span>
+            <div class="services-checkboxes-grid">
+              <label class="checkbox-label">
+                <input type="checkbox" name="services" value="Staff Training & Consultation" id="cbStaff">
+                <span>Staff Training &amp; Consultation</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="services" value="Functional Behavior Assessment (FBA)" id="cbFBA">
+                <span>Assessment (FBA)</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="services" value="Parent Coaching" id="cbParent">
+                <span>Parent Coaching</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="services" value="Social Skills" id="cbSocial">
+                <span>Social Skills Development</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="services" value="Self-Determination Program" id="cbSDP">
+                <span>California SDP Services</span>
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" name="services" value="General Inquiry" id="cbGeneral">
+                <span>General Inquiry</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="visually-hidden" for="message">Your Message</label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Tell us a bit about your child, team, or goals, and the best times to connect..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            Send Consultation Request
+          </button>
+
+          <p class="form-footer-note">
+            Your information is kept strictly confidential. We will review your inquiry and follow up promptly.
+          </p>
         </form>
       </div>
     </div>
@@ -733,92 +2981,304 @@
 
 </main>
 
-<footer>
+<!-- Submission Confirmation Modal -->
+<div class="modal-overlay" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-box">
+    <h3 id="modalTitle">Thank You for Connecting!</h3>
+    <p id="modalMessage">
+      Your consultation request has been prepared. We'll be in touch within 1–2 business days.
+    </p>
+    <div style="display:flex; justify-content:center; gap:12px;">
+      <button type="button" class="btn btn-primary btn-sm" id="modalCloseBtn">Close Window</button>
+      <a href="mailto:groundedplaylabs@gmail.com" class="btn btn-secondary btn-sm" id="modalEmailBtn">Email Directly</a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer">
   <div class="wrap">
-    <div class="foot-inner">
-      <a href="#home" class="brand">
-        <img src="assets/logo.jpg" alt="Grounded Play Labs ABA logo">
-        <span class="brand-word">Grounded Play Labs<small>ABA THERAPY</small></span>
+    <div class="footer-inner">
+      <a href="#home" class="brand-wordmark">
+        <img src="assets/logo.jpg" alt="Grounded Play Labs logo" class="brand-logo-img">
+        <span class="brand-title-text">Grounded Play Labs</span>
       </a>
-      <ul class="foot-links">
+
+      <ul class="footer-links">
         <li><a href="#about">About Us</a></li>
         <li><a href="#services">Services</a></li>
-        <li><a href="#training">Training</a></li>
-        <li><a href="#extras">Extras</a></li>
+        <li><a href="#our-approach">Our Approach</a></li>
+        <li><a href="#who-we-serve">Who We Serve</a></li>
+        <li><a href="#extras">Recommended Toys</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-    <p class="foot-fine">© <span id="year"></span> Grounded Play Labs ABA. This site is a starting template — replace placeholder names, quotes, and contact details before publishing.</p>
+
+    <div class="footer-bottom-bar">
+      <div>
+        © <span id="currentYear"></span> Grounded Play Labs. Founded by Jessica Lewis, MA, BCBA. All rights reserved.
+      </div>
+      <div>
+        Grounded in Science. Inspired by Play. Focused on Growth.
+      </div>
+    </div>
   </div>
 </footer>
 
+<!-- Mobile Sticky Action Bar (Thumb Reach Zone) -->
+<nav class="mobile-sticky-action-bar" id="mobileStickyActionBar" aria-label="Mobile Navigation Quick Actions">
+  <a href="#contact" class="mobile-sticky-btn mobile-sticky-primary">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2 17 17 0 0 1-15-15 2 2 0 0 1 2-2h3.5l1.5 3.5-2 2a14 14 0 0 0 6 6l2-2 3.5 1.5Z"/></svg>
+    <span>Free Consultation</span>
+  </a>
+  <a href="#services" class="mobile-sticky-btn mobile-sticky-secondary">
+    <span>Services</span>
+  </a>
+  <a href="#extras" class="mobile-sticky-btn mobile-sticky-secondary">
+    <span>Toys</span>
+  </a>
+</nav>
+
+<!-- ==================== INTERACTIVE SCRIPTS ==================== -->
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // Set copyright year
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-  // Mobile nav toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const mainNav = document.getElementById('mainNav');
-  menuToggle.addEventListener('click', () => {
-    const isOpen = mainNav.classList.toggle('open');
-    menuToggle.setAttribute('aria-expanded', isOpen);
-  });
+  // Mobile Navigation Drawer Toggle & Background Scroll Lock
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks = document.getElementById('navLinks');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
+  const mobileDrawerClose = document.getElementById('mobileDrawerClose');
 
-  // Mobile dropdown accordions
-  document.querySelectorAll('.has-dropdown > a').forEach(a => {
-    a.addEventListener('click', (e) => {
-      if (window.innerWidth <= 1000) {
-        e.preventDefault();
-        a.parentElement.classList.toggle('open');
-      }
+  function openDrawer() {
+    if (!navLinks) return;
+    navLinks.classList.add('open');
+    if (drawerBackdrop) drawerBackdrop.classList.add('open');
+    if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    if (!navLinks) return;
+    navLinks.classList.remove('open');
+    if (drawerBackdrop) drawerBackdrop.classList.remove('open');
+    if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = navLinks && navLinks.classList.contains('open');
+      if (isOpen) closeDrawer();
+      else openDrawer();
     });
-  });
-
-  // Close mobile nav after choosing a link
-  document.querySelectorAll('.main-nav a:not(.has-dropdown > a)').forEach(a => {
-    a.addEventListener('click', () => {
-      mainNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', false);
+  }
+  if (mobileDrawerClose) {
+    mobileDrawerClose.addEventListener('click', closeDrawer);
+  }
+  if (drawerBackdrop) {
+    drawerBackdrop.addEventListener('click', closeDrawer);
+  }
+  if (navLinks) {
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
     });
+  }
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks && navLinks.classList.contains('open')) {
+      closeDrawer();
+    }
   });
 
-  // ---- Growing vine / scroll progress ----
+  // Mobile Sticky Bottom Action Bar hide/show near contact section
+  const stickyBar = document.getElementById('mobileStickyActionBar');
+  const contactSec = document.getElementById('contact');
+  if (stickyBar && contactSec && 'IntersectionObserver' in window) {
+    const contactObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          stickyBar.classList.add('hidden-near-form');
+        } else {
+          stickyBar.classList.remove('hidden-near-form');
+        }
+      });
+    }, { threshold: 0.1 });
+    contactObserver.observe(contactSec);
+  }
+
+  // Desktop Vine Rail Scroll Progress
   const growFill = document.getElementById('growFill');
-  const topFill = document.getElementById('topProgressFill');
-  const nodes = document.querySelectorAll('.grow-node');
-
-  function onScroll(){
+  const growNodes = document.querySelectorAll('.grow-node');
+  function updateScrollProgress() {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)) : 0;
-    if (growFill) growFill.style.height = pct + '%';
-    if (topFill) topFill.style.width = pct + '%';
-    nodes.forEach(n => {
-      const threshold = parseFloat(n.dataset.pct || '0');
-      if (pct >= threshold) n.classList.add('active');
-      else n.classList.remove('active');
+    if (growFill) {
+      growFill.style.height = pct + '%';
+    }
+    growNodes.forEach(node => {
+      const target = parseFloat(node.dataset.pct || '0');
+      if (pct >= target) {
+        node.classList.add('active');
+      } else if (target > 0) {
+        node.classList.remove('active');
+      }
     });
   }
-  window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', onScroll);
-  onScroll();
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+  updateScrollProgress();
 
-  // ---- Contact form: mailto fallback ----
-  // TO CONNECT A REAL EMAIL SERVICE LATER:
-  // Replace this handler with a fetch() POST to your form provider
-  // (e.g. Formspree: https://formspree.io, or EmailJS: https://www.emailjs.com),
-  // or set this <form>'s action/method attributes directly per that provider's docs.
-  document.getElementById('contactForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const f = new FormData(this);
-    const subject = encodeURIComponent('New inquiry from ' + f.get('firstName') + ' ' + f.get('lastName'));
-    const body = encodeURIComponent(
-      'Name: ' + f.get('firstName') + ' ' + f.get('lastName') + '\n' +
-      'Email: ' + f.get('email') + '\n' +
-      'Phone: ' + f.get('phone') + '\n\n' +
-      'Message:\n' + f.get('message')
-    );
-    window.location.href = 'mailto:hello@groundedplaylabsaba.com?subject=' + subject + '&body=' + body;
+  // Service Category Filter Tabs
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const serviceCards = document.querySelectorAll('.service-card');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filter = btn.dataset.filter;
+      serviceCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
   });
+
+  // Role selector toggle on Consultation Form
+  let currentRole = 'parent';
+  const roleButtons = document.querySelectorAll('.role-toggle-btn');
+  function selectRole(role) {
+    currentRole = role;
+    roleButtons.forEach(btn => {
+      if (btn.dataset.role === role) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+  }
+  roleButtons.forEach(btn => {
+    btn.addEventListener('click', () => selectRole(btn.dataset.role));
+  });
+
+  // Inquire for specific service shortcut
+  function inquireService(serviceName) {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (serviceName.includes('Staff') || serviceName.includes('Consultation')) {
+      const cb = document.getElementById('cbStaff');
+      if (cb) cb.checked = true;
+      selectRole('school');
+    } else if (serviceName.includes('FBA') || serviceName.includes('Assessment')) {
+      const cb = document.getElementById('cbFBA');
+      if (cb) cb.checked = true;
+    } else if (serviceName.includes('Parent')) {
+      const cb = document.getElementById('cbParent');
+      if (cb) cb.checked = true;
+      selectRole('parent');
+    } else if (serviceName.includes('Social')) {
+      const cb = document.getElementById('cbSocial');
+      if (cb) cb.checked = true;
+    } else if (serviceName.includes('Self-Determination') || serviceName.includes('SDP')) {
+      const cb = document.getElementById('cbSDP');
+      if (cb) cb.checked = true;
+    }
+  }
+
+  // Consultation Form Handling & Confirmation Modal
+  const consultationForm = document.getElementById('consultationForm');
+  const confirmModal = document.getElementById('confirmModal');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalEmailBtn = document.getElementById('modalEmailBtn');
+  const modalMessage = document.getElementById('modalMessage');
+
+  if (consultationForm && confirmModal) {
+    consultationForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(consultationForm);
+      const name = formData.get('firstName') + ' ' + formData.get('lastName');
+      const email = formData.get('email');
+      const phone = formData.get('phone');
+      const message = formData.get('message') || '';
+
+      const checkedServices = [];
+      document.querySelectorAll('input[name="services"]:checked').forEach(cb => {
+        checkedServices.push(cb.value);
+      });
+
+      const subject = encodeURIComponent(`Consultation Inquiry from ${name} [${currentRole.toUpperCase()}]`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Role: ${currentRole}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Services Requested: ${checkedServices.join(', ') || 'General Consultation'}\n\n` +
+        `Message:\n${message}`
+      );
+
+      modalEmailBtn.href = `mailto:groundedplaylabs@gmail.com?subject=${subject}&body=${body}`;
+      modalMessage.textContent = `Thank you, ${name}! We have received your inquiry regarding ${checkedServices.join(', ') || 'our practice'}. We will reach out to you at ${email} shortly.`;
+      confirmModal.classList.add('open');
+    });
+
+    modalCloseBtn.addEventListener('click', () => {
+      confirmModal.classList.remove('open');
+      consultationForm.reset();
+    });
+  }
+
+  // Animated Play Tree (Extras Section)
+  (function initPlayTree() {
+    const treeContainer = document.getElementById('playTreeContainer');
+    const extrasSection = document.getElementById('extras');
+    const replayBtn = document.getElementById('treeReplayBtn');
+    if (!treeContainer || !extrasSection) return;
+
+    let hasTriggered = false;
+    let completionTimer = null;
+
+    function startTreeAnimation() {
+      if (hasTriggered) return;
+      hasTriggered = true;
+      treeContainer.classList.add('is-animating');
+
+      clearTimeout(completionTimer);
+      completionTimer = setTimeout(() => {
+        treeContainer.classList.remove('is-animating');
+        treeContainer.classList.add('animation-completed');
+      }, 3800);
+    }
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasTriggered) {
+            startTreeAnimation();
+            observer.disconnect();
+          }
+        });
+      }, { threshold: 0.18 });
+      observer.observe(extrasSection);
+    }
+
+    if (replayBtn) {
+      replayBtn.addEventListener('click', () => {
+        treeContainer.classList.remove('animation-completed', 'is-animating');
+        hasTriggered = false;
+        void treeContainer.offsetWidth; // Force reflow
+        startTreeAnimation();
+      });
+    }
+  })();
 </script>
 
 </body>

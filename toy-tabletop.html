@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table Top Play — Recommended Sensory Materials & Fine Motor Guide | Grounded Play Labs ABA</title>
+<meta name="description" content="Discover tabletop sensory bins, fine motor sorting trays, and focus-building activities curated by Jessica Lewis, MA, BCBA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F2EB;
+    --paper-soft: #FBF9F5;
+    --band: #ECEAE2;
+    --sand: #D4C1A7;
+    --sage: #9FA898;
+    --olive: #7B7746;
+    --moss-deep: #3A4529;
+    --clay: #C57E52;
+    --clay-deep: #A25837;
+    --bark: #2C251D;
+    --bark-soft: #5C5245;
+    --line: rgba(44, 37, 29, 0.12);
+    --shadow-soft: 0 16px 36px -18px rgba(44, 37, 29, 0.16);
+    --shadow-card: 0 10px 28px -12px rgba(44, 37, 29, 0.12);
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --maxw: 1160px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    color: var(--bark);
+    background: var(--paper);
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+    color: var(--moss-deep);
+    line-height: 1.22;
+    text-wrap: balance;
+  }
+  p { margin-bottom: 1rem; color: var(--bark-soft); max-width: 66ch; }
+  p:last-child { margin-bottom: 0; }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(244, 242, 235, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 0;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand-wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-logo-img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .brand-title-text {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+  }
+  .header-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .btn-back-link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--bark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease;
+  }
+  .btn-back-link:hover { color: var(--clay); }
+  .btn-cta {
+    background: var(--clay);
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 9px 20px;
+    border-radius: 9999px;
+    transition: background-color 0.18s ease;
+  }
+  .btn-cta:hover { background: var(--clay-deep); }
+
+  .breadcrumb-bar {
+    padding: 24px 0 0;
+    font-size: 0.84rem;
+    color: var(--bark-soft);
+  }
+  .breadcrumb-bar a:hover { color: var(--clay); }
+
+  .guide-hero {
+    padding: 32px 0 64px;
+  }
+  .hero-tagline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    margin-bottom: 14px;
+  }
+  .guide-hero h1 {
+    font-size: clamp(2.3rem, 4vw, 3.4rem);
+    margin-bottom: 18px;
+  }
+  .guide-hero-lead {
+    font-size: 1.15rem;
+    line-height: 1.68;
+    color: var(--bark-soft);
+    margin-bottom: 32px;
+    max-width: 68ch;
+  }
+
+  .bcba-insight-box {
+    background: var(--band);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    border: 1px solid var(--line);
+    margin-bottom: 56px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .bcba-insight-copy h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  .bcba-quote {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--moss-deep);
+    margin-bottom: 14px;
+  }
+  .bcba-author {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--clay-deep);
+  }
+  .skills-pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .skill-pill {
+    background: var(--paper-soft);
+    border: 1px solid rgba(44, 37, 29, 0.1);
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-pill svg {
+    width: 16px;
+    height: 16px;
+    color: var(--olive);
+    flex-shrink: 0;
+  }
+
+  .toys-section {
+    padding: 16px 0 80px;
+  }
+  .section-heading {
+    margin-bottom: 36px;
+  }
+  .section-heading h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    margin-bottom: 8px;
+  }
+  .toys-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 56px;
+  }
+  .toy-card {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .toy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+  }
+  .toy-badge-step {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--clay);
+    margin-bottom: 12px;
+  }
+  .toy-card h3 {
+    font-size: 1.28rem;
+    margin-bottom: 10px;
+    color: var(--moss-deep);
+  }
+  .toy-card p {
+    font-size: 0.92rem;
+    line-height: 1.58;
+    margin-bottom: 18px;
+    flex-grow: 1;
+  }
+  .toy-meta-box {
+    background: var(--band);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    font-size: 0.82rem;
+    color: var(--bark);
+    line-height: 1.45;
+  }
+  .toy-meta-box strong {
+    color: var(--moss-deep);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .coaching-section {
+    background: var(--band);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    border: 1px solid var(--line);
+    margin-bottom: 64px;
+  }
+  .coaching-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .coach-tip-card {
+    background: var(--paper-soft);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    border: 1px solid var(--line);
+  }
+  .coach-tip-card h3 {
+    font-size: 1.18rem;
+    margin-bottom: 8px;
+    color: var(--moss-deep);
+  }
+  .coach-tip-card p {
+    font-size: 0.91rem;
+    margin: 0;
+  }
+
+  .stages-nav-strip {
+    padding: 48px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 64px;
+  }
+  .stages-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--olive);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .stages-links-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+  .stage-nav-card {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 16px 14px;
+    text-align: center;
+    transition: all 0.18s ease;
+  }
+  .stage-nav-card:hover {
+    border-color: var(--clay);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+  }
+  .stage-nav-card.active {
+    background: var(--clay);
+    border-color: var(--clay);
+    color: #FFFFFF;
+  }
+  .stage-nav-card.active h4, .stage-nav-card.active span {
+    color: #FFFFFF !important;
+  }
+  .stage-nav-card span {
+    font-family: var(--serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--clay);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .stage-nav-card h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+  }
+
+  .page-cta-strip {
+    background: var(--moss-deep);
+    border-radius: var(--radius-lg);
+    padding: 50px 40px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .page-cta-strip h2 {
+    color: #FFFFFF;
+    font-size: 2.1rem;
+    margin-bottom: 12px;
+  }
+  .page-cta-strip p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 auto 24px;
+    max-width: 54ch;
+  }
+  .btn-primary-large {
+    background: var(--clay);
+    color: #FFFFFF;
+    padding: 14px 30px;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    transition: background-color 0.18s ease;
+  }
+  .btn-primary-large:hover { background: var(--clay-deep); }
+
+  .site-footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.86rem;
+    color: var(--bark-soft);
+    text-align: center;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button, a {
+    touch-action: manipulation;
+  }
+
+  @media (max-width: 900px) {
+    .bcba-insight-box { grid-template-columns: 1fr; gap: 24px; padding: 28px; }
+    .toys-grid { grid-template-columns: 1fr; }
+    .coaching-grid { grid-template-columns: 1fr; }
+    .stages-links-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .wrap {
+      padding: 0 16px;
+    }
+    .site-header {
+      padding: 10px 0;
+    }
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .brand-title-text {
+      font-size: 1.05rem;
+    }
+    .brand-logo-img {
+      width: 34px;
+      height: 34px;
+    }
+    .header-nav-actions {
+      width: 100%;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .btn-back-link {
+      font-size: 0.88rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+    .btn-cta {
+      padding: 8px 14px;
+      font-size: 0.82rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .breadcrumb-bar {
+      padding-top: 14px;
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+    .guide-hero {
+      padding: 20px 0 36px;
+    }
+    .guide-hero h1 {
+      font-size: clamp(1.8rem, 6.8vw, 2.3rem);
+      line-height: 1.2;
+    }
+    .guide-hero-lead {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .bcba-insight-box {
+      padding: 20px 16px;
+      border-radius: var(--radius-md);
+      margin-bottom: 36px;
+    }
+    .bcba-insight-copy h2 {
+      font-size: 1.35rem;
+    }
+    .bcba-quote {
+      font-size: 0.98rem;
+    }
+    .skill-pill {
+      font-size: 0.82rem;
+      padding: 8px 12px;
+    }
+    .section-heading h2 {
+      font-size: 1.6rem;
+    }
+    .toys-grid {
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+    .toy-card {
+      padding: 20px 16px;
+      border-radius: var(--radius-md);
+    }
+    .toy-card h3 {
+      font-size: 1.18rem;
+    }
+    .coaching-section {
+      padding: 24px 16px;
+      border-radius: var(--radius-md);
+      margin-bottom: 40px;
+    }
+    .coach-tip-card {
+      padding: 18px 16px;
+      border-radius: var(--radius-sm);
+    }
+    .stages-nav-strip {
+      padding: 32px 0;
+      margin-bottom: 40px;
+    }
+    .stages-links-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    .stage-nav-card {
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      padding: 12px 16px;
+    }
+    .stage-nav-card span {
+      margin-bottom: 0;
+      margin-right: 8px;
+    }
+    .page-cta-strip {
+      padding: 32px 18px;
+      border-radius: var(--radius-md);
+      margin-bottom: 40px;
+    }
+    .page-cta-strip h2 {
+      font-size: 1.6rem;
+    }
+    .btn-primary-large {
+      width: 100%;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html#home" class="brand-wordmark">
+      <img src="assets/logo.jpg" alt="Grounded Play Labs logo" class="brand-logo-img">
+      <span class="brand-title-text">Grounded Play Labs</span>
+    </a>
+
+    <div class="header-nav-actions">
+      <a href="index.html#extras" class="btn-back-link">
+        <span aria-hidden="true">←</span> Back to Main Site
+      </a>
+      <a href="index.html#contact" class="btn-cta">Schedule a Consultation</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="breadcrumb-bar">
+    <a href="index.html#home">Home</a> &gt; <a href="index.html#extras">Recommended Toys</a> &gt; <span>05. Table Top Play</span>
+  </div>
+
+  <section class="guide-hero">
+    <span class="hero-tagline">Developmental Category 05</span>
+    <h1>Table Top Play</h1>
+    <p class="guide-hero-lead">
+      Sensory sorting bins, tactile wooden puzzles, threading beads, lock boxes, and kinetic sand provide calm, seated sensory engagement that refines the pincer grasp, visual perception, and sustained task persistence.
+    </p>
+
+    <div class="bcba-insight-box">
+      <div class="bcba-insight-copy">
+        <h2>The Science of Tabletop Focus</h2>
+        <p class="bcba-quote">
+          "Seated tabletop play provides predictable spatial boundaries. When we pair fine motor tasks with soothing tactile materials—like kinetic sand or smooth wooden beads—children enter a calm 'flow state' where communicative persistence flourishes."
+        </p>
+        <span class="bcba-author">— Jessica Lewis, MA, BCBA · Founder</span>
+      </div>
+      <div>
+        <h4 style="margin-bottom:14px; color:var(--moss-deep);">Core Developmental Skills Fostered:</h4>
+        <div class="skills-pill-group">
+          <div class="skill-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Pincer Grasp &amp; Hand Strength
+          </div>
+          <div class="skill-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Visual Scanning &amp; Discrimination
+          </div>
+          <div class="skill-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Task Completion &amp; Persistence
+          </div>
+          <div class="skill-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            Calming Sensory Self-Regulation
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="toys-section">
+    <div class="section-heading">
+      <h2>Curated Tabletop Materials &amp; Puzzles</h2>
+      <p>Clean, open-ended materials that build fine motor endurance without overwhelming sensory input.</p>
+    </div>
+
+    <div class="toys-grid">
+      <div class="toy-card">
+        <span class="toy-badge-step">Tabletop Item 01</span>
+        <h3>Wooden Sensory Sorting Trays &amp; Tongs</h3>
+        <p>Divided wooden trays with felt acorns, wooden balls, bamboo tongs, and small wooden scoops.</p>
+        <div class="toy-meta-box">
+          <strong>Skill Focus:</strong>
+          Fine motor hand strengthening, pincer grasp, categorizing by color/size, and bilateral stabilization.
+        </div>
+      </div>
+
+      <div class="toy-card">
+        <span class="toy-badge-step">Tabletop Item 02</span>
+        <h3>Multi-Layer Wooden Chunk Puzzles</h3>
+        <p>Thick wooden puzzle pieces with easy-to-grasp knobs or chunky animals that fit into matching recessed boards.</p>
+        <div class="toy-meta-box">
+          <strong>Skill Focus:</strong>
+          Rotational matching, visual-spatial orientation, tactile feedback, and independent task completion.
+        </div>
+      </div>
+
+      <div class="toy-card">
+        <span class="toy-badge-step">Tabletop Item 03</span>
+        <h3>Kinetic Sand &amp; Stamp Carving Tools</h3>
+        <p>Mess-free moldable sensory sand in a shallow tray with wooden geometric rollers and natural stamps.</p>
+        <div class="toy-meta-box">
+          <strong>Skill Focus:</strong>
+          Deep sensory pressure, anxiety reduction, finger isolation, and tactile exploration without sticky residue.
+        </div>
+      </div>
+
+      <div class="toy-card">
+        <span class="toy-badge-step">Tabletop Item 04</span>
+        <h3>Wooden Lock &amp; Latch Board</h3>
+        <p>A sturdy activity board with functioning brass latches, key locks, sliding deadbolts, and hidden door reveals.</p>
+        <div class="toy-meta-box">
+          <strong>Skill Focus:</strong>
+          Everyday life manipulation, problem solving, bilateral hand coordination, and finger dexterity.
+        </div>
+      </div>
+
+      <div class="toy-card">
+        <span class="toy-badge-step">Tabletop Item 05</span>
+        <h3>Threading Beads &amp; Lacing Cards</h3>
+        <p>Large wooden beads with smooth threading ropes and blunt wooden needles with stopper beads.</p>
+        <div class="toy-meta-box">
+          <strong>Skill Focus:</strong>
+          Hand-eye coordination, pattern recognition (ABAB sequences), and bilateral lead-assist hand dominance.
+        </div>
+      </div>
+
+      <div class="toy-card">
+        <span class="toy-badge-step">Tabletop Item 06</span>
+        <h3>Pegboard Color Mosaics &amp; Rubber Bands</h3>
+        <p>Wooden pegboards where children insert colorful pegs or stretch soft rubber bands to create patterns.</p>
+        <div class="toy-meta-box">
+          <strong>Skill Focus:</strong>
+          Finger isolation, grip strength, geometric form reproduction, and spatial planning.
+        </div>
+      </div>
+    </div>
+
+    <!-- Parent Coaching Tips -->
+    <div class="coaching-section">
+      <h2 style="font-size:1.8rem; margin-bottom:12px;">Parent Coaching: Fostering Calm Tabletop Routines</h2>
+      <p style="margin-bottom:28px;">How to structure seated play for children who find it difficult to sit still.</p>
+      
+      <div class="coaching-grid">
+        <div class="coach-tip-card">
+          <h3>1. Ensure 90-90-90 Seating Posture</h3>
+          <p>Children cannot focus their fingers if their feet are dangling in the air. Ensure hips, knees, and ankles are at a comfortable 90-degree angle with feet flat on the floor or a firm footstool.</p>
+        </div>
+        <div class="coach-tip-card">
+          <h3>2. Clear Away Visual Distractions</h3>
+          <p>Don't put 6 different toys on the table at once. Present one tray or puzzle at a time in a clean field. When that activity is done, have your child help put it in a basket before bringing the next one out.</p>
+        </div>
+        <div class="coach-tip-card">
+          <h3>3. Backward Chaining for Puzzles</h3>
+          <p>If your child gives up easily on puzzles, complete all the pieces except the very last one. Hand them the final piece to place: they experience immediate success, completion pride, and eagerness to try two pieces next time!</p>
+        </div>
+        <div class="coach-tip-card">
+          <h3>4. Pair with Sensory Calming</h3>
+          <p>A small squishy fidget in their non-dominant hand or a weighted lap pad during tabletop activities can provide just enough proprioceptive input to help them stay comfortably seated longer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Switch between all 5 stages -->
+  <section class="stages-nav-strip">
+    <div class="stages-title">Explore All 5 Developmental Play Categories</div>
+    <div class="stages-links-grid">
+      <a href="toy-pretend.html" class="stage-nav-card">
+        <span>01</span>
+        <h4>Pretend Play</h4>
+      </a>
+      <a href="toy-constructive.html" class="stage-nav-card">
+        <span>02</span>
+        <h4>Constructive Play</h4>
+      </a>
+      <a href="toy-rules.html" class="stage-nav-card">
+        <span>03</span>
+        <h4>Games with Rules</h4>
+      </a>
+      <a href="toy-outside.html" class="stage-nav-card">
+        <span>04</span>
+        <h4>Outside Play</h4>
+      </a>
+      <a href="toy-tabletop.html" class="stage-nav-card active">
+        <span>05</span>
+        <h4>Table Top Play</h4>
+      </a>
+    </div>
+  </section>
+
+  <section class="page-cta-strip">
+    <h2>Empower Your Child with Personalized Play Coaching</h2>
+    <p>
+      Connect with Jessica Lewis, MA, BCBA, to learn how Grounded Play Labs ABA can support your family's unique developmental journey.
+    </p>
+    <a href="index.html#contact" class="btn-primary-large">Schedule a Free 20-Minute Consultation</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© Grounded Play Labs ABA. Founded by Jessica Lewis, MA, BCBA. Grounded in Science. Inspired by Play. Focused on Growth.</p>
+  </div>
+</footer>
+
+</body>
+</html>
