@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grounded Play Labs ABA — Behavioral Consulting & Play-Based Learning</title>
+<title>Grounded Play Labs — Behavioral Consulting & Play-Based Learning</title>
 <meta name="description" content="Grounded in Science. Inspired by Play. Focused on Growth. Boutique behavioral consulting, professional staff training, FBAs, parent coaching, and California Self-Determination Program services founded by Jessica Lewis, MA, BCBA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,7 +135,7 @@
   .header-inner {
     max-width: var(--maxw);
     margin: 0 auto;
-    padding: 12px 28px;
+    padding: 8px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -145,16 +145,28 @@
   .brand-wordmark {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
     white-space: nowrap;
     flex-shrink: 0;
   }
   .brand-logo-img {
-    width: 38px;
-    height: 38px;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
     object-fit: cover;
     border: 1.5px solid rgba(123, 119, 70, 0.3);
+  }
+  header:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1) {
+    cursor: zoom-in;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  header:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1):hover {
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(44, 37, 29, 0.16);
+  }
+  header:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1) > img:nth-of-type(1):focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
   }
   .brand-title-text {
     font-family: var(--serif);
@@ -1880,6 +1892,76 @@
     margin-bottom: 24px;
   }
 
+  /* Enlarged Logo Lightbox */
+  .logo-lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: rgba(34, 38, 25, 0.62);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+  .logo-lightbox-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .logo-lightbox-dialog {
+    position: relative;
+    width: min(440px, 86vw);
+    background: var(--paper-soft);
+    border-radius: 28px;
+    padding: 14px;
+    border: 1px solid rgba(251, 249, 245, 0.6);
+    box-shadow: 0 28px 64px -12px rgba(24, 29, 17, 0.45);
+    transform: scale(0.92);
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .logo-lightbox-overlay.open .logo-lightbox-dialog {
+    transform: scale(1);
+  }
+  .logo-lightbox-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 1.5px solid rgba(123, 119, 70, 0.28);
+    object-fit: cover;
+    display: block;
+    cursor: zoom-out;
+  }
+  .logo-lightbox-close {
+    position: absolute;
+    top: -14px;
+    right: -14px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    color: var(--moss-deep);
+    font-size: 1.4rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.16s ease, background-color 0.16s ease;
+  }
+  .logo-lightbox-close:hover {
+    background: #FFFFFF;
+    transform: scale(1.06);
+  }
+  .logo-lightbox-close:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+  }
+
   /* ---------- Footer ---------- */
   .site-footer {
     padding: 56px 0 40px;
@@ -2065,12 +2147,12 @@
       padding: 0 18px;
     }
     .header-inner {
-      padding: 10px 16px;
+      padding: 8px 16px;
       gap: 12px;
     }
     .brand-logo-img {
-      width: 36px;
-      height: 36px;
+      width: 48px;
+      height: 48px;
     }
     .brand-title-text {
       font-size: 1.02rem;
@@ -2335,7 +2417,7 @@
   <div class="header-inner">
     <!-- Zone 1: Single text element wordmark with logo -->
     <a href="#home" class="brand-wordmark">
-      <img src="assets/logo.jpg" alt="Grounded Play Labs logo" class="brand-logo-img">
+      <img src="/src/assets/images/logo_smaller_tree_1795320893633.jpg" alt="Grounded Play Labs papercraft tree logo with one child sitting and one reaching toward the tree" id="headerLogoImg" class="brand-logo-img" role="button" tabindex="0" aria-label="View enlarged Grounded Play Labs logo" referrerpolicy="no-referrer">
       <span class="brand-title-text">Grounded Play Labs</span>
     </a>
 
@@ -2386,7 +2468,7 @@
         </div>
         <h1>Where Behavioral Science Meets the Power of Play.</h1>
         <p class="hero-lead">
-          At Grounded Play Labs ABA, we believe meaningful growth begins with understanding, connection, and individualized support. A modern, boutique behavioral consulting practice combining evidence-based behavioral science with compassionate, play-centered services.
+          At Grounded Play Labs, we believe meaningful growth begins with understanding, connection, and individualized support. A modern, boutique behavioral consulting practice combining evidence-based behavioral science with compassionate, play-centered services.
         </p>
 
         <div class="hero-mission-callout">
@@ -2422,7 +2504,7 @@
         </div>
         <div class="hero-quote-badge">
           <p>"Grounded in Science. Inspired by Play. Focused on Growth."</p>
-          <span>Grounded Play Labs ABA</span>
+          <span>Grounded Play Labs</span>
         </div>
       </div>
     </div>
@@ -2435,7 +2517,7 @@
         <span class="spotlight-eyebrow">Featured Practice Focus</span>
         <h2>Distinguished Staff Training &amp; Behavioral Consultation</h2>
         <p>
-          Beyond individualized child services, Grounded Play Labs ABA partners directly with schools, agencies, clinics, and camps to deliver high-impact professional staff training and behavioral consultation. We empower your educators, care teams, and supervisors with sustainable, compassionate behavioral frameworks that elevate student success and clinical consistency.
+          Beyond individualized child services, Grounded Play Labs partners directly with schools, agencies, clinics, and camps to deliver high-impact professional staff training and behavioral consultation. We empower your educators, care teams, and supervisors with sustainable, compassionate behavioral frameworks that elevate student success and clinical consistency.
         </p>
         <a href="#contact" class="btn btn-primary btn-sm" onclick="selectRole('organization')">Request Consultation for Your Team</a>
       </div>
@@ -2471,7 +2553,7 @@
         </span>
         <h2>Gentle guidance, meaningful growth.</h2>
         <p>
-          At Grounded Play Labs ABA, we know that every child and care setting is unique. That's why our approach is never one-size-fits-all. We focus on creating safe, nurturing spaces where children and care teams explore, learn, and thrive at their own pace—blending rigorous behavioral science with playful joy.
+          At Grounded Play Labs, we know that every child and care setting is unique. That's why our approach is never one-size-fits-all. We focus on creating safe, nurturing spaces where children and care teams explore, learn, and thrive at their own pace—blending rigorous behavioral science with playful joy.
         </p>
       </div>
 
@@ -2522,7 +2604,7 @@
         <!-- Card 3: Philosophy -->
         <article class="approach-photo-card">
           <div class="approach-card-img-wrap">
-            <img src="/src/assets/images/diverse_child_wooden_stack_1792475373206.jpg" alt="Smiling Hispanic Latino boy proudly stacking colorful curved wooden rainbow arches" loading="lazy">
+            <img src="/src/assets/images/boy_wooden_stack_kippah_tzitzit_1795321162848.jpg" alt="Smiling Jewish boy wearing a knit yarmulke and tzitzit proudly stacking colorful curved wooden rainbow arches" loading="lazy" referrerpolicy="no-referrer">
             <span class="approach-card-tag">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               Philosophy
@@ -2732,7 +2814,7 @@
 
       <!-- Papercraft Diverse Block-Builders Diorama -->
       <div class="paper-blocks-feature">
-        <img src="/src/assets/images/paper_art_blocks_diorama_1795319352695.jpg" alt="Diverse origami papercraft children building a colorful rainbow arch and stacking blocks surrounded by folded paper leaves and butterflies" loading="lazy" referrerpolicy="no-referrer">
+        <img src="/src/assets/images/paper_blocks_tzitzit_kippah_1795321085812.jpg" alt="Diverse origami papercraft children including a boy in a yellow shirt wearing a yarmulke and tzitzit building a colorful rainbow arch and stacking blocks" loading="lazy" referrerpolicy="no-referrer">
       </div>
 
       <div class="serve-grid">
@@ -2784,7 +2866,7 @@
     <div class="wrap about-layout">
       <div class="founder-media-stack">
         <div class="founder-main-photo">
-          <img src="assets/founder-portrait.jpg" alt="Jessica Lewis, MA, BCBA, founder of Grounded Play Labs ABA" loading="lazy">
+          <img src="assets/founder-portrait.jpg" alt="Jessica Lewis, MA, BCBA, founder of Grounded Play Labs" loading="lazy">
         </div>
         <div class="founder-creds-strip">
           <div class="founder-stat-item">
@@ -2808,7 +2890,7 @@
         <span class="founder-title-badge">Founder &amp; Clinical Director · Board Certified Behavior Analyst</span>
         
         <p>
-          Founded by Jessica Lewis, MA, BCBA, Grounded Play Labs ABA was born from a deep conviction: behavioral science is most powerful when it is rooted in genuine human connection, dignity, and playful joy.
+          Founded by Jessica Lewis, MA, BCBA, Grounded Play Labs was born from a deep conviction: behavioral science is most powerful when it is rooted in genuine human connection, dignity, and playful joy.
         </p>
         <p>
           With over a decade of hands-on experience across California public and private schools, clinical centers, family homes, recreational camps, and community settings, Jessica combines evidence-based behavioral strategies with compassionate, developmentally appropriate approaches that foster confidence, independence, meaningful relationships, and lasting progress.
@@ -3269,12 +3351,20 @@
   </div>
 </div>
 
+<!-- Enlarged Logo Lightbox Modal -->
+<div class="logo-lightbox-overlay" id="logoLightbox" role="dialog" aria-modal="true" aria-label="Enlarged Grounded Play Labs logo">
+  <div class="logo-lightbox-dialog">
+    <button type="button" class="logo-lightbox-close" id="logoLightboxClose" aria-label="Close enlarged logo">&times;</button>
+    <img src="/src/assets/images/logo_smaller_tree_1795320893633.jpg" alt="Grounded Play Labs folded-paper tree logo with two origami kids and Grounded Play Labs text" class="logo-lightbox-img" id="logoLightboxImg" referrerpolicy="no-referrer">
+  </div>
+</div>
+
 <!-- ==================== FOOTER ==================== -->
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-inner">
       <a href="#home" class="brand-wordmark">
-        <img src="assets/logo.jpg" alt="Grounded Play Labs logo" class="brand-logo-img">
+        <img src="/src/assets/images/logo_smaller_tree_1795320893633.jpg" alt="Grounded Play Labs papercraft tree logo with one child sitting and one reaching toward the tree" class="brand-logo-img" referrerpolicy="no-referrer">
         <span class="brand-title-text">Grounded Play Labs</span>
       </a>
 
@@ -3544,6 +3634,49 @@
     } else {
       treeContainer.classList.add('animation-completed');
     }
+  })();
+
+  // Click-to-Enlarge Header Logo Lightbox
+  (function initHeaderLogoLightbox() {
+    const logoImg = document.getElementById('headerLogoImg');
+    const lightbox = document.getElementById('logoLightbox');
+    const closeBtn = document.getElementById('logoLightboxClose');
+    const lightboxImg = document.getElementById('logoLightboxImg');
+    if (!logoImg || !lightbox || !closeBtn) return;
+
+    function openLightbox(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeLightbox() {
+      if (!lightbox.classList.contains('open')) return;
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+      logoImg.focus();
+    }
+
+    logoImg.addEventListener('click', openLightbox);
+    logoImg.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        openLightbox(e);
+      }
+    });
+    closeBtn.addEventListener('click', closeLightbox);
+    if (lightboxImg) lightboxImg.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
   })();
 </script>
 
