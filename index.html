@@ -829,16 +829,83 @@
     text-decoration: underline;
   }
 
+  .paper-meadow-band {
+    margin-top: 44px;
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .paper-meadow-media {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    background: #F4F2EB;
+    border: 1px solid rgba(44, 37, 29, 0.08);
+  }
+  .paper-meadow-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .paper-meadow-copy {
+    padding: 8px 10px 8px 4px;
+  }
+  .paper-meadow-copy h3 {
+    font-size: 1.5rem;
+    color: var(--moss-deep);
+    margin-bottom: 10px;
+  }
+  .paper-meadow-copy p {
+    font-size: 0.96rem;
+    line-height: 1.64;
+    margin-bottom: 20px;
+  }
+
   @media (max-width: 1024px) {
     .services-cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .paper-meadow-band { grid-template-columns: 1fr; gap: 20px; }
   }
   @media (max-width: 680px) {
     .services-cards-grid { grid-template-columns: 1fr; }
+    .paper-meadow-band { padding: 14px; }
+    .paper-meadow-copy { padding: 4px 4px 8px; }
   }
 
   /* ---------- Who We Serve (Families, Schools, Agencies, Clinics, Camps) ---------- */
   .who-we-serve {
     padding: 96px 0;
+  }
+  .paper-blocks-feature {
+    position: relative;
+    max-width: 840px;
+    margin: 0 auto 44px;
+    border-radius: 26px;
+    overflow: hidden;
+    background: #F4F2EB;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 16 / 9;
+  }
+  .paper-blocks-feature img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .paper-blocks-feature::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 92% 88% at 50% 50%, rgba(244,242,235,0) 60%, rgba(244,242,235,0.28) 100%);
   }
   .serve-grid {
     display: grid;
@@ -1035,17 +1102,17 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
-    aspect-ratio: 4/5;
+    aspect-ratio: 16/10;
     background: var(--band);
   }
   .founder-main-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 25%;
+    object-position: 60% 22%;
   }
   .founder-creds-strip {
-    margin-top: 18px;
+    margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
@@ -1138,6 +1205,31 @@
   }
   .col-center {
     padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .paper-story-vignette {
+    position: relative;
+    border-radius: 26px;
+    overflow: hidden;
+    background: #F4F2EB;
+    border: 1.5px solid var(--line);
+    box-shadow: var(--shadow-card);
+    aspect-ratio: 4 / 3;
+  }
+  .paper-story-vignette img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .paper-story-vignette::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 22px rgba(44, 37, 29, 0.08);
   }
   .quote-bubble {
     background: var(--paper-soft);
@@ -1267,7 +1359,7 @@
     }
   }
 
-  /* ---------- Extras: Recommended Toys (Animated Play Tree) ---------- */
+  /* ---------- Extras: Recommended Toys (Interactive Papercraft Apple Tree) ---------- */
   .extras-section {
     background: var(--band);
     padding: 96px 0;
@@ -1288,7 +1380,7 @@
   .tree-artwork-stage {
     position: relative;
     width: 100%;
-    min-height: 700px;
+    aspect-ratio: 16 / 9;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1297,7 +1389,6 @@
   .tree-bg-image {
     width: 100%;
     height: 100%;
-    max-height: 760px;
     object-fit: cover;
     object-position: center center;
     display: block;
@@ -1306,168 +1397,285 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(ellipse 94% 90% at 50% 50%, rgba(247,244,236,0) 50%, rgba(247,244,236,0.2) 75%, rgba(238,234,222,0.6) 100%);
+    background: radial-gradient(ellipse 94% 90% at 50% 50%, rgba(247,244,236,0) 55%, rgba(247,244,236,0.18) 80%, rgba(238,234,222,0.5) 100%);
   }
 
-  /* 5 Plaques */
-  .tree-badges-overlay {
+  /* 5 Interactive Clickable Apples on Tree */
+  .tree-apples-overlay {
     position: absolute;
     inset: 0;
     pointer-events: none;
   }
-  .tree-badge {
+  .tree-apple-node {
     position: absolute;
+    transform: translate(-50%, -50%);
     pointer-events: auto;
-    z-index: 3;
+    z-index: 4;
   }
-  .badge-pos-1 { top: 6%; left: 50%; transform: translateX(-50%); width: 250px; }
-  .badge-pos-2 { top: 24%; left: 16%; transform: translateX(-50%); width: 240px; }
-  .badge-pos-3 { top: 24%; left: 84%; transform: translateX(-50%); width: 240px; }
-  .badge-pos-4 { top: 60%; left: 14%; transform: translateX(-50%); width: 240px; }
-  .badge-pos-5 { top: 60%; left: 86%; transform: translateX(-50%); width: 240px; }
+  .tree-apple-node:hover,
+  .tree-apple-node:focus-within {
+    z-index: 20;
+  }
 
-  .badge-plaque {
-    background: linear-gradient(180deg, #FBF9F4 0%, #F5EDE0 100%);
-    border: 2px solid #C49C65;
-    border-radius: 18px;
-    padding: 16px 14px 14px;
-    box-shadow: 0 12px 28px -8px rgba(44, 37, 29, 0.25);
-    text-align: center;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-    backdrop-filter: blur(4px);
-    opacity: 0;
-    transform: scale(0.6) translateY(20px);
-    display: block;
+  /* Positioned squarely on the lush canopy branches above the children */
+  .apple-pos-1 { top: 18%; left: 50%; }
+  .apple-pos-2 { top: 31%; left: 32%; }
+  .apple-pos-3 { top: 29%; left: 67%; }
+  .apple-pos-4 { top: 47%; left: 19%; }
+  .apple-pos-5 { top: 45%; left: 80%; }
+
+  .apple-target-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
     cursor: pointer;
     position: relative;
+    padding: 4px;
+    opacity: 0;
+    transform: scale(0.45) translateY(-10px);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     user-select: none;
   }
-  .badge-plaque:hover {
-    transform: translateY(-5px);
-    border-color: var(--clay);
-    box-shadow: 0 18px 38px -6px rgba(44, 37, 29, 0.35);
-  }
-  .badge-plaque:focus-visible {
+  .apple-target-link:focus-visible {
     outline: 2px solid var(--clay);
-    outline-offset: 3px;
-  }
-  .badge-link-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    margin-top: 8px;
-    font-size: 0.74rem;
-    font-weight: 700;
-    color: var(--clay-deep);
-    background: rgba(197, 126, 82, 0.1);
-    border: 1px solid rgba(197, 126, 82, 0.28);
-    border-radius: 9999px;
-    padding: 3px 10px;
-    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
-  }
-  .badge-plaque:hover .badge-link-cta {
-    background: var(--clay);
-    color: #FFFFFF;
-    border-color: var(--clay);
-    transform: translateY(-1px);
-  }
-  .badge-num {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--clay);
-    line-height: 1;
-    margin-bottom: 4px;
-  }
-  .badge-title {
-    font-family: var(--serif);
-    font-size: 1.02rem;
-    font-weight: 600;
-    color: var(--moss-deep);
-    margin-bottom: 6px;
-  }
-  .badge-desc {
-    font-size: 0.82rem;
-    line-height: 1.45;
-    color: var(--bark);
-    margin: 0;
+    outline-offset: 4px;
+    border-radius: 16px;
   }
 
-  @keyframes plaquePopIn {
-    0% { opacity: 0; transform: scale(0.5) translateY(24px); }
-    70% { opacity: 1; transform: scale(1.05) translateY(-3px); }
+  .apple-svg-wrap {
+    position: relative;
+    width: clamp(42px, 5.4vw, 66px);
+    height: clamp(46px, 5.8vw, 72px);
+    filter: drop-shadow(0 6px 10px rgba(44, 37, 29, 0.28));
+    transition: transform 0.26s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.26s ease;
+  }
+  .apple-target-link:hover .apple-svg-wrap,
+  .apple-target-link:focus-visible .apple-svg-wrap {
+    transform: scale(1.16) rotate(-4deg);
+    filter: drop-shadow(0 12px 18px rgba(158, 43, 30, 0.36));
+  }
+  .apple-svg-wrap svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .apple-number-label {
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 1.8vw, 1.45rem);
+    font-weight: 700;
+    color: #FFFBF4;
+    text-shadow: 0 1px 3px rgba(92, 22, 14, 0.55);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .apple-pill-caption {
+    margin-top: 4px;
+    background: rgba(251, 249, 244, 0.94);
+    border: 1.5px solid rgba(196, 156, 101, 0.75);
+    border-radius: 9999px;
+    padding: 3px 10px;
+    font-family: var(--sans);
+    font-size: clamp(0.64rem, 0.95vw, 0.78rem);
+    font-weight: 700;
+    color: var(--moss-deep);
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(44, 37, 29, 0.16);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .apple-target-link:hover .apple-pill-caption,
+  .apple-target-link:focus-visible .apple-pill-caption {
+    background: #C23B2B;
+    color: #FFFFFF;
+    border-color: #9E2B1E;
+  }
+
+  /* Hover / Focus Detail Popover Card */
+  .apple-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    width: 248px;
+    background: linear-gradient(180deg, #FBF9F4 0%, #F5EDE0 100%);
+    border: 1.5px solid #C49C65;
+    border-radius: 16px;
+    padding: 14px 16px;
+    box-shadow: 0 16px 34px -8px rgba(44, 37, 29, 0.3);
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 30;
+  }
+  .apple-pos-4 .apple-tooltip {
+    left: 0;
+    transform: translateY(6px);
+  }
+  .apple-pos-5 .apple-tooltip {
+    left: auto;
+    right: 0;
+    transform: translateY(6px);
+  }
+  .apple-target-link:hover .apple-tooltip,
+  .apple-target-link:focus-visible .apple-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .apple-pos-4 .apple-target-link:hover .apple-tooltip,
+  .apple-pos-4 .apple-target-link:focus-visible .apple-tooltip,
+  .apple-pos-5 .apple-target-link:hover .apple-tooltip,
+  .apple-pos-5 .apple-target-link:focus-visible .apple-tooltip {
+    transform: translateY(0);
+  }
+  .apple-tooltip-title {
+    font-family: var(--serif);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+    margin: 0 0 4px;
+  }
+  .apple-tooltip-desc {
+    font-size: 0.78rem;
+    line-height: 1.45;
+    color: var(--bark);
+    margin: 0 0 8px;
+  }
+  .apple-tooltip-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background: #C23B2B;
+    border-radius: 9999px;
+    padding: 4px 12px;
+  }
+
+  @keyframes applePopIn {
+    0% { opacity: 0; transform: scale(0.4) translateY(-14px); }
+    70% { opacity: 1; transform: scale(1.08) translateY(2px); }
     100% { opacity: 1; transform: scale(1) translateY(0); }
   }
-  .play-tree-container.is-animating .tree-badge[data-step="1"] .badge-plaque {
-    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards;
+  .play-tree-container.is-animating .tree-apple-node[data-step="1"] .apple-target-link {
+    animation: applePopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards;
   }
-  .play-tree-container.is-animating .tree-badge[data-step="2"] .badge-plaque {
-    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.85s forwards;
+  .play-tree-container.is-animating .tree-apple-node[data-step="2"] .apple-target-link {
+    animation: applePopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s forwards;
   }
-  .play-tree-container.is-animating .tree-badge[data-step="3"] .badge-plaque {
-    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 1.55s forwards;
+  .play-tree-container.is-animating .tree-apple-node[data-step="3"] .apple-target-link {
+    animation: applePopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s forwards;
   }
-  .play-tree-container.is-animating .tree-badge[data-step="4"] .badge-plaque {
-    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 2.25s forwards;
+  .play-tree-container.is-animating .tree-apple-node[data-step="4"] .apple-target-link {
+    animation: applePopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.15s forwards;
   }
-  .play-tree-container.is-animating .tree-badge[data-step="5"] .badge-plaque {
-    animation: plaquePopIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 2.95s forwards;
+  .play-tree-container.is-animating .tree-apple-node[data-step="5"] .apple-target-link {
+    animation: applePopIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1.5s forwards;
   }
-  .play-tree-container.animation-completed .badge-plaque {
+  .play-tree-container.animation-completed .apple-target-link {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
   }
 
-  .tree-controls-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 14px 20px 18px;
-    background: #F4EEDC;
-    border-top: 1px solid rgba(44, 37, 29, 0.08);
+  @media (max-width: 768px) {
+    .apple-pill-caption {
+      padding: 2px 7px;
+      font-size: 0.58rem;
+    }
+    .apple-tooltip {
+      display: none;
+    }
   }
-  .tree-replay-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #FFFFFF;
-    border: 1px solid rgba(44, 37, 29, 0.16);
-    border-radius: 9999px;
-    padding: 7px 18px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--bark);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .tree-replay-btn:hover {
-    border-color: var(--clay);
-    color: var(--clay-deep);
-    transform: translateY(-1px);
+  @media (max-width: 480px) {
+    .apple-pill-caption {
+      display: none;
+    }
+    .apple-target-link {
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+    }
   }
 
-  @media (max-width: 960px) {
-    .tree-artwork-stage { display: block; min-height: auto; }
-    .tree-bg-image { max-height: 400px; }
-    .tree-badges-overlay {
-      position: relative;
-      inset: auto;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      padding: 24px 18px;
-      pointer-events: auto;
-      background: #F4EEDC;
-    }
-    .tree-badge { position: relative; top: auto !important; left: auto !important; transform: none !important; width: 100% !important; }
-    .badge-pos-1 { grid-column: 1 / -1; max-width: 440px; margin: 0 auto; }
+  /* ---------- Editorial Gallery Interlude ("Every Small Step") ---------- */
+  .walk-together-section {
+    background: var(--paper-soft);
+    padding: 88px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
   }
-  @media (max-width: 600px) {
-    .tree-badges-overlay { grid-template-columns: 1fr; }
-    .badge-pos-1 { grid-column: auto; max-width: none; }
+  .walk-together-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 60px;
+    align-items: center;
+  }
+  .walk-art-frame {
+    max-width: 390px;
+    width: 100%;
+    margin: 0 auto;
+    background: var(--paper);
+    padding: 14px;
+    border-radius: 28px;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-soft);
+  }
+  .walk-art-inner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 2 / 3;
+    background: var(--band);
+  }
+  .walk-art-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .walk-art-inner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 24px rgba(44, 37, 29, 0.09);
+  }
+  .walk-together-copy h2 {
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    margin-bottom: 16px;
+    color: var(--moss-deep);
+  }
+  .walk-together-copy p {
+    font-size: 1.04rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .walk-together-quote {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 18px 22px;
+    margin: 24px 0 28px;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.55;
+    color: var(--moss-deep);
+  }
+  @media (max-width: 900px) {
+    .walk-together-layout {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
   }
 
   /* ---------- Interactive Consultation / Contact Section ---------- */
@@ -1740,91 +1948,10 @@
       padding: 6px 16px;
       text-align: center;
     }
-    .badge-plaque {
+    .apple-target-link {
       opacity: 1 !important;
       transform: none !important;
       animation: none !important;
-      text-align: left;
-      padding: 20px 18px 18px;
-      border-radius: 18px;
-      background: #FFFFFF;
-      border: 1.5px solid #D8CCA8;
-      box-shadow: 0 6px 20px -4px rgba(44, 37, 29, 0.1);
-      display: flex;
-      flex-direction: column;
-    }
-    .badge-plaque:active {
-      transform: scale(0.985);
-      background: #FAF6EF;
-      border-color: var(--clay);
-    }
-    .tree-artwork-stage {
-      min-height: auto;
-      display: block;
-    }
-    .tree-bg-image {
-      max-height: 220px;
-      object-fit: cover;
-      object-position: center 30%;
-      border-radius: 20px 20px 0 0;
-    }
-    .tree-badges-overlay {
-      position: relative;
-      inset: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      padding: 20px 16px 24px;
-      background: #F7F4EC;
-      pointer-events: auto;
-    }
-    .tree-badge {
-      position: relative;
-      top: auto !important;
-      left: auto !important;
-      transform: none !important;
-      width: 100% !important;
-    }
-    .badge-num {
-      display: inline-block;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--clay-deep);
-      background: rgba(197, 126, 82, 0.14);
-      padding: 3px 10px;
-      border-radius: 9999px;
-      width: fit-content;
-      margin-bottom: 8px;
-    }
-    .badge-title {
-      font-size: 1.15rem;
-      margin-bottom: 6px;
-      color: var(--moss-deep);
-    }
-    .badge-desc {
-      font-size: 0.88rem;
-      line-height: 1.55;
-      color: var(--bark-soft);
-      margin-bottom: 12px;
-    }
-    .badge-link-cta {
-      min-height: 44px;
-      width: 100%;
-      margin-top: 4px;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 9999px;
-      background: var(--clay);
-      color: #FFFFFF;
-      border: 1px solid var(--clay-deep);
-      box-shadow: 0 4px 12px rgba(197, 126, 82, 0.28);
-    }
-    .badge-plaque:active .badge-link-cta {
-      background: var(--clay-deep);
-    }
-    .tree-controls-bar {
-      display: none;
     }
   }
 
@@ -2056,8 +2183,8 @@
       padding: 52px 0;
     }
     .founder-main-photo {
-      aspect-ratio: 1/1;
-      max-height: 320px;
+      aspect-ratio: 4/3;
+      max-height: 260px;
       border-radius: var(--radius-md);
     }
     .founder-creds-strip {
@@ -2116,6 +2243,21 @@
     }
     .extras-section {
       padding: 52px 0;
+    }
+    .walk-together-section {
+      padding: 52px 0;
+    }
+    .walk-art-frame {
+      max-width: 320px;
+      padding: 10px;
+      border-radius: 22px;
+    }
+    .walk-art-inner {
+      border-radius: 15px;
+    }
+    .walk-together-copy .btn {
+      width: 100%;
+      min-height: 48px;
     }
     .contact-section {
       padding: 44px 0 100px;
@@ -2324,7 +2466,7 @@
     <div class="wrap">
       <div class="section-intro-center">
         <span class="section-kicker">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+          <svg viewBox="0 0 24 18" width="18" height="14" aria-hidden="true"><path d="M2 15 L10 3 L22 4 L14 14 Z" fill="#8CA067"/><path d="M2 15 L14 14 L22 4 Z" fill="#6F834D"/><path d="M1 16 L6 12" stroke="#5C3A21" stroke-width="1.4" stroke-linecap="round"/></svg>
           A Philosophy of Care
         </span>
         <h2>Gentle guidance, meaningful growth.</h2>
@@ -2333,12 +2475,12 @@
         </p>
       </div>
 
-      <!-- 4 Photo Cards matching Image 2 Layout -->
+      <!-- 4 Photo Cards matching Image 2 Layout with Diverse Kids -->
       <div class="approach-photo-grid">
         <!-- Card 1: Environment -->
         <article class="approach-photo-card">
           <div class="approach-card-img-wrap">
-            <img src="/src/assets/images/home_play_session_1792018361871.jpg" alt="Child happily playing with natural wooden toys in sunlit living room" loading="lazy">
+            <img src="/src/assets/images/diverse_child_home_play_1792475371309.jpg" alt="Young Black child happily playing with natural wooden Montessori toys in sunlit living room" loading="lazy">
             <span class="approach-card-tag">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
               Environment
@@ -2359,7 +2501,7 @@
         <!-- Card 2: Method -->
         <article class="approach-photo-card">
           <div class="approach-card-img-wrap">
-            <img src="/src/assets/images/blended_approach_guidance_1792018362746.jpg" alt="Therapist and child warmly collaborating with sensory materials" loading="lazy">
+            <img src="/src/assets/images/diverse_therapist_play_1792475372423.jpg" alt="East Asian girl with glasses and smiling therapist collaborating over sensory wooden puzzle materials" loading="lazy">
             <span class="approach-card-tag">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path></svg>
               Method
@@ -2380,7 +2522,7 @@
         <!-- Card 3: Philosophy -->
         <article class="approach-photo-card">
           <div class="approach-card-img-wrap">
-            <img src="/src/assets/images/child_led_wooden_blocks_1792018364013.jpg" alt="Child stacking colorful rainbow arches and building shapes" loading="lazy">
+            <img src="/src/assets/images/diverse_child_wooden_stack_1792475373206.jpg" alt="Smiling Hispanic Latino boy proudly stacking colorful curved wooden rainbow arches" loading="lazy">
             <span class="approach-card-tag">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
               Philosophy
@@ -2401,7 +2543,7 @@
         <!-- Card 4: Family -->
         <article class="approach-photo-card">
           <div class="approach-card-img-wrap">
-            <img src="/src/assets/images/parent_caregiver_support_1792018363546.jpg" alt="Parents and child joyfully engaged around learning puzzle on sofa" loading="lazy">
+            <img src="/src/assets/images/diverse_family_coaching_1792475372603.jpg" alt="Loving South Asian family celebrating together as their young daughter solves a wooden shape puzzle" loading="lazy">
             <span class="approach-card-tag">
               <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
               Family
@@ -2553,6 +2695,24 @@
           </button>
         </div>
       </div>
+
+      <!-- Papercraft Meadow & Kite Diorama Showcase -->
+      <div class="paper-meadow-band">
+        <div class="paper-meadow-media">
+          <img src="/src/assets/images/paper_art_kite_meadow_1795319353270.jpg" alt="Origami papercraft children flying a terracotta diamond kite across layered sage-green folded paper hills" loading="lazy" referrerpolicy="no-referrer">
+        </div>
+        <div class="paper-meadow-copy">
+          <span class="section-kicker">
+            <svg viewBox="0 0 24 18" width="18" height="14" aria-hidden="true"><path d="M2 15 L10 3 L22 4 L14 14 Z" fill="#D4845C"/><path d="M2 15 L14 14 L22 4 Z" fill="#A25837"/><path d="M1 16 L6 12" stroke="#5C3A21" stroke-width="1.4" stroke-linecap="round"/></svg>
+            Naturalistic Growth
+          </span>
+          <h3>Play that carries into everyday life.</h3>
+          <p>
+            Whether practicing peer turn-taking in the yard, navigating a classroom transition, or sharing laughter at home, our goals follow children into the bright, open spaces where childhood happens.
+          </p>
+          <a href="#contact" class="btn btn-primary btn-sm">Schedule Discovery Call</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2560,11 +2720,19 @@
   <section class="who-we-serve" id="who-we-serve">
     <div class="wrap">
       <div class="section-intro-center">
-        <span class="section-kicker">Partners in Growth</span>
+        <span class="section-kicker">
+          <svg viewBox="0 0 24 18" width="18" height="14" aria-hidden="true"><path d="M2 15 L10 3 L22 4 L14 14 Z" fill="#8CA067"/><path d="M2 15 L14 14 L22 4 Z" fill="#6F834D"/><path d="M1 16 L6 12" stroke="#5C3A21" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Partners in Growth
+        </span>
         <h2>Who We Serve</h2>
         <p>
           Providing customized behavioral expertise across a variety of environments throughout Southern California.
         </p>
+      </div>
+
+      <!-- Papercraft Diverse Block-Builders Diorama -->
+      <div class="paper-blocks-feature">
+        <img src="/src/assets/images/paper_art_blocks_diorama_1795319352695.jpg" alt="Diverse origami papercraft children building a colorful rainbow arch and stacking blocks surrounded by folded paper leaves and butterflies" loading="lazy" referrerpolicy="no-referrer">
       </div>
 
       <div class="serve-grid">
@@ -2667,7 +2835,7 @@
     <div class="wrap">
       <div class="section-intro-center words-intro">
         <span class="section-kicker">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+          <svg viewBox="0 0 24 18" width="18" height="14" aria-hidden="true"><path d="M2 15 L10 3 L22 4 L14 14 Z" fill="#D4845C"/><path d="M2 15 L14 14 L22 4 Z" fill="#A25837"/><path d="M1 16 L6 12" stroke="#5C3A21" stroke-width="1.4" stroke-linecap="round"/></svg>
           Words of Impact
         </span>
         <h2>What Families &amp; Partners Are Saying</h2>
@@ -2712,7 +2880,7 @@
           </article>
         </div>
 
-        <!-- Column 2 (Staggered Centerpiece Bubble) -->
+        <!-- Column 2 (Staggered Centerpiece Bubble + Papercraft Story Vignette) -->
         <div class="bubbles-col col-center">
           <article class="quote-bubble bubble-featured">
             <span class="bubble-tag">Family Reflection</span>
@@ -2730,6 +2898,10 @@
               </div>
             </div>
           </article>
+
+          <div class="paper-story-vignette">
+            <img src="/src/assets/images/paper_art_story_circle_1795319352635.jpg" alt="Three diverse origami papercraft children sharing an open folded-paper storybook and sensory puzzle pieces beside sage and terracotta origami ferns" loading="lazy" referrerpolicy="no-referrer">
+          </div>
         </div>
 
         <!-- Column 3 (Stacked Bubbles) -->
@@ -2774,90 +2946,192 @@
   <section class="extras-section" id="extras">
     <div class="wrap">
       <div class="section-intro-center">
-        <span class="section-kicker">Screen-Free Learning</span>
+        <span class="section-kicker">
+          <svg viewBox="0 0 24 18" width="18" height="14" aria-hidden="true"><path d="M2 15 L10 3 L22 4 L14 14 Z" fill="#8CA067"/><path d="M2 15 L14 14 L22 4 Z" fill="#6F834D"/><path d="M1 16 L6 12" stroke="#5C3A21" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Screen-Free Learning
+        </span>
         <h2>Extras: Recommended Toys for Skill-Building</h2>
         <p>
-          Curated, screen-free ways to foster communication, fine motor coordination, and shared attention at home—organized by the specific developmental stage your child is exploring.
+          Curated, screen-free ways to foster communication, fine motor coordination, and shared attention at home—click any numbered apple (1–5) on the tree to explore each developmental toy guide.
         </p>
         <div class="tree-mobile-hint" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-          <span>Tap any category plaque below to open the developmental guide</span>
+          <span>Tap any apple (1–5) on the tree to open its toy guide</span>
         </div>
       </div>
 
-      <!-- Main Animated Tree Display -->
+      <!-- Main Interactive Papercraft Tree Display -->
       <div class="play-tree-container" id="playTreeContainer">
         <div class="tree-artwork-stage">
           <img 
-            src="assets/grand_paper_tree.jpg" 
-            alt="Grand origami papercraft play tree in signature Grounded Play Labs geometric faceted style with sprawling branches, lush canopy, and no figures"
+            src="/src/assets/images/grand_paper_tree_redhead_1795319352585.jpg" 
+            alt="Grand origami papercraft play tree surrounded by diverse papercraft children including a Black girl and redhead girl holding hands, standing children, and lush faceted leaves"
             class="tree-bg-image"
             id="treeBgImage"
             loading="lazy"
+            referrerpolicy="no-referrer"
           />
           <div class="tree-artwork-vignette"></div>
 
-          <!-- 5 Wooden Plaques -->
-          <div class="tree-badges-overlay" id="treeBadgesOverlay">
-            <!-- 01 Functional Pretend Play -->
-            <div class="tree-badge badge-pos-1" id="toy-pretend" data-step="1">
-              <a href="toy-pretend.html" class="badge-plaque" title="View Functional Pretend Play Guide & Toys">
-                <div class="badge-num">01</div>
-                <h3 class="badge-title">Functional Pretend Play</h3>
-                <p class="badge-desc">Play kitchens, wooden market sets, and doctor kits—building imagination, empathy, and everyday life routines.</p>
-                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+          <!-- 5 Interactive Clickable Origami Apples on Tree Canopy -->
+          <div class="tree-apples-overlay" id="treeApplesOverlay">
+            <!-- 1. Functional Pretend Play -->
+            <div class="tree-apple-node apple-pos-1" id="toy-pretend" data-step="1">
+              <a href="toy-pretend.html" class="apple-target-link" aria-label="Target 1: Functional Pretend Play — Explore Toys and Guide">
+                <div class="apple-svg-wrap">
+                  <svg viewBox="0 0 64 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 16 L33 4 L37 5 L35 17 Z" fill="#5C3A21"/>
+                    <path d="M35 12 C40 6 49 6 52 11 C46 15 39 15 35 12 Z" fill="#8CA067"/>
+                    <path d="M35 12 C42 10 47 10 52 11 C46 15 39 15 35 12 Z" fill="#6F834D"/>
+                    <path d="M32 21 L18 17 L9 28 L12 48 L24 63 L32 60 Z" fill="#D9533F"/>
+                    <path d="M32 21 L18 17 L9 28 L22 33 Z" fill="#E86F58"/>
+                    <path d="M32 21 L46 17 L55 28 L52 48 L40 63 L32 60 Z" fill="#C23B2B"/>
+                    <path d="M55 28 L52 48 L40 63 L32 60 L41 41 Z" fill="#9E2B1E"/>
+                    <path d="M32 21 L22 33 L32 60 L41 41 Z" fill="#D04734"/>
+                  </svg>
+                  <span class="apple-number-label">1</span>
+                </div>
+                <span class="apple-pill-caption">1 · Pretend Play</span>
+                <div class="apple-tooltip" role="tooltip">
+                  <h3 class="apple-tooltip-title">01 · Functional Pretend Play</h3>
+                  <p class="apple-tooltip-desc">Play kitchens, wooden market sets, and doctor kits—building imagination, empathy, and everyday routines.</p>
+                  <span class="apple-tooltip-cta">Explore Toys &amp; Guide &rarr;</span>
+                </div>
               </a>
             </div>
 
-            <!-- 02 Constructive Play -->
-            <div class="tree-badge badge-pos-2" id="toy-constructive" data-step="2">
-              <a href="toy-constructive.html" class="badge-plaque" title="View Constructive Play Guide & Toys">
-                <div class="badge-num">02</div>
-                <h3 class="badge-title">Constructive Play</h3>
-                <p class="badge-desc">Natural stacking blocks, nesting cups, and rainbow arches—developing spatial problem-solving and fine motor skills.</p>
-                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+            <!-- 2. Constructive Play -->
+            <div class="tree-apple-node apple-pos-2" id="toy-constructive" data-step="2">
+              <a href="toy-constructive.html" class="apple-target-link" aria-label="Target 2: Constructive Play — Explore Toys and Guide">
+                <div class="apple-svg-wrap">
+                  <svg viewBox="0 0 64 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 16 L33 4 L37 5 L35 17 Z" fill="#5C3A21"/>
+                    <path d="M35 12 C40 6 49 6 52 11 C46 15 39 15 35 12 Z" fill="#8CA067"/>
+                    <path d="M35 12 C42 10 47 10 52 11 C46 15 39 15 35 12 Z" fill="#6F834D"/>
+                    <path d="M32 21 L18 17 L9 28 L12 48 L24 63 L32 60 Z" fill="#D9533F"/>
+                    <path d="M32 21 L18 17 L9 28 L22 33 Z" fill="#E86F58"/>
+                    <path d="M32 21 L46 17 L55 28 L52 48 L40 63 L32 60 Z" fill="#C23B2B"/>
+                    <path d="M55 28 L52 48 L40 63 L32 60 L41 41 Z" fill="#9E2B1E"/>
+                    <path d="M32 21 L22 33 L32 60 L41 41 Z" fill="#D04734"/>
+                  </svg>
+                  <span class="apple-number-label">2</span>
+                </div>
+                <span class="apple-pill-caption">2 · Constructive</span>
+                <div class="apple-tooltip" role="tooltip">
+                  <h3 class="apple-tooltip-title">02 · Constructive Play</h3>
+                  <p class="apple-tooltip-desc">Natural stacking blocks, nesting cups, and rainbow arches—developing spatial problem-solving and fine motor skills.</p>
+                  <span class="apple-tooltip-cta">Explore Toys &amp; Guide &rarr;</span>
+                </div>
               </a>
             </div>
 
-            <!-- 03 Games with Rules -->
-            <div class="tree-badge badge-pos-3" id="toy-rules" data-step="3">
-              <a href="toy-rules.html" class="badge-plaque" title="View Games with Rules Guide & Toys">
-                <div class="badge-num">03</div>
-                <h3 class="badge-title">Games with Rules</h3>
-                <p class="badge-desc">Simple cooperative board games and matching sets—practicing turn-taking, patient waiting, and shared enjoyment.</p>
-                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+            <!-- 3. Games with Rules -->
+            <div class="tree-apple-node apple-pos-3" id="toy-rules" data-step="3">
+              <a href="toy-rules.html" class="apple-target-link" aria-label="Target 3: Games with Rules — Explore Toys and Guide">
+                <div class="apple-svg-wrap">
+                  <svg viewBox="0 0 64 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 16 L33 4 L37 5 L35 17 Z" fill="#5C3A21"/>
+                    <path d="M35 12 C40 6 49 6 52 11 C46 15 39 15 35 12 Z" fill="#8CA067"/>
+                    <path d="M35 12 C42 10 47 10 52 11 C46 15 39 15 35 12 Z" fill="#6F834D"/>
+                    <path d="M32 21 L18 17 L9 28 L12 48 L24 63 L32 60 Z" fill="#D9533F"/>
+                    <path d="M32 21 L18 17 L9 28 L22 33 Z" fill="#E86F58"/>
+                    <path d="M32 21 L46 17 L55 28 L52 48 L40 63 L32 60 Z" fill="#C23B2B"/>
+                    <path d="M55 28 L52 48 L40 63 L32 60 L41 41 Z" fill="#9E2B1E"/>
+                    <path d="M32 21 L22 33 L32 60 L41 41 Z" fill="#D04734"/>
+                  </svg>
+                  <span class="apple-number-label">3</span>
+                </div>
+                <span class="apple-pill-caption">3 · Games with Rules</span>
+                <div class="apple-tooltip" role="tooltip">
+                  <h3 class="apple-tooltip-title">03 · Games with Rules</h3>
+                  <p class="apple-tooltip-desc">Simple cooperative board games and matching sets—practicing turn-taking, patient waiting, and shared enjoyment.</p>
+                  <span class="apple-tooltip-cta">Explore Toys &amp; Guide &rarr;</span>
+                </div>
               </a>
             </div>
 
-            <!-- 04 Outside Play -->
-            <div class="tree-badge badge-pos-4" id="toy-outside" data-step="4">
-              <a href="toy-outside.html" class="badge-plaque" title="View Outside Play Guide & Toys">
-                <div class="badge-num">04</div>
-                <h3 class="badge-title">Outside Play</h3>
-                <p class="badge-desc">Balls, bubbles, sidewalk chalk, and balance bikes—building gross motor confidence and shared attention under the sun.</p>
-                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+            <!-- 4. Outside Play -->
+            <div class="tree-apple-node apple-pos-4" id="toy-outside" data-step="4">
+              <a href="toy-outside.html" class="apple-target-link" aria-label="Target 4: Outside Play — Explore Toys and Guide">
+                <div class="apple-svg-wrap">
+                  <svg viewBox="0 0 64 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 16 L33 4 L37 5 L35 17 Z" fill="#5C3A21"/>
+                    <path d="M35 12 C40 6 49 6 52 11 C46 15 39 15 35 12 Z" fill="#8CA067"/>
+                    <path d="M35 12 C42 10 47 10 52 11 C46 15 39 15 35 12 Z" fill="#6F834D"/>
+                    <path d="M32 21 L18 17 L9 28 L12 48 L24 63 L32 60 Z" fill="#D9533F"/>
+                    <path d="M32 21 L18 17 L9 28 L22 33 Z" fill="#E86F58"/>
+                    <path d="M32 21 L46 17 L55 28 L52 48 L40 63 L32 60 Z" fill="#C23B2B"/>
+                    <path d="M55 28 L52 48 L40 63 L32 60 L41 41 Z" fill="#9E2B1E"/>
+                    <path d="M32 21 L22 33 L32 60 L41 41 Z" fill="#D04734"/>
+                  </svg>
+                  <span class="apple-number-label">4</span>
+                </div>
+                <span class="apple-pill-caption">4 · Outside Play</span>
+                <div class="apple-tooltip" role="tooltip">
+                  <h3 class="apple-tooltip-title">04 · Outside Play</h3>
+                  <p class="apple-tooltip-desc">Balls, bubbles, sidewalk chalk, and balance bikes—building gross motor confidence and shared attention under the sun.</p>
+                  <span class="apple-tooltip-cta">Explore Toys &amp; Guide &rarr;</span>
+                </div>
               </a>
             </div>
 
-            <!-- 05 Table Top Play -->
-            <div class="tree-badge badge-pos-5" id="toy-tabletop" data-step="5">
-              <a href="toy-tabletop.html" class="badge-plaque" title="View Table Top Play Guide & Toys">
-                <div class="badge-num">05</div>
-                <h3 class="badge-title">Table Top Play</h3>
-                <p class="badge-desc">Sensory sorting bins, textured puzzles, and beading kits—supporting calm focus, bilateral coordination, and tactile joy.</p>
-                <span class="badge-link-cta">Explore Toys &amp; Guide <span aria-hidden="true">&rarr;</span></span>
+            <!-- 5. Table Top Play -->
+            <div class="tree-apple-node apple-pos-5" id="toy-tabletop" data-step="5">
+              <a href="toy-tabletop.html" class="apple-target-link" aria-label="Target 5: Table Top Play — Explore Toys and Guide">
+                <div class="apple-svg-wrap">
+                  <svg viewBox="0 0 64 70" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M32 16 L33 4 L37 5 L35 17 Z" fill="#5C3A21"/>
+                    <path d="M35 12 C40 6 49 6 52 11 C46 15 39 15 35 12 Z" fill="#8CA067"/>
+                    <path d="M35 12 C42 10 47 10 52 11 C46 15 39 15 35 12 Z" fill="#6F834D"/>
+                    <path d="M32 21 L18 17 L9 28 L12 48 L24 63 L32 60 Z" fill="#D9533F"/>
+                    <path d="M32 21 L18 17 L9 28 L22 33 Z" fill="#E86F58"/>
+                    <path d="M32 21 L46 17 L55 28 L52 48 L40 63 L32 60 Z" fill="#C23B2B"/>
+                    <path d="M55 28 L52 48 L40 63 L32 60 L41 41 Z" fill="#9E2B1E"/>
+                    <path d="M32 21 L22 33 L32 60 L41 41 Z" fill="#D04734"/>
+                  </svg>
+                  <span class="apple-number-label">5</span>
+                </div>
+                <span class="apple-pill-caption">5 · Table Top Play</span>
+                <div class="apple-tooltip" role="tooltip">
+                  <h3 class="apple-tooltip-title">05 · Table Top Play</h3>
+                  <p class="apple-tooltip-desc">Sensory sorting bins, textured puzzles, and beading kits—supporting calm focus, bilateral coordination, and tactile joy.</p>
+                  <span class="apple-tooltip-cta">Explore Toys &amp; Guide &rarr;</span>
+                </div>
               </a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Replay controls bar -->
-        <div class="tree-controls-bar">
-          <button type="button" class="tree-replay-btn" id="treeReplayBtn" aria-label="Replay play tree animation">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-            <span>Replay Tree Animation</span>
-          </button>
+  <!-- ==================== EDITORIAL GALLERY FEATURE: WALKED TOGETHER ==================== -->
+  <section class="walk-together-section" id="connection">
+    <div class="wrap walk-together-layout">
+      <div>
+        <div class="walk-art-frame">
+          <div class="walk-art-inner">
+            <img src="/assets/aistudio/image_007ce968.png" alt="Warm sunlit illustration of two children walking hand-in-hand down a quiet neighborhood sidewalk" loading="lazy">
+          </div>
         </div>
+      </div>
+
+      <div class="walk-together-copy">
+        <span class="section-kicker">
+          <svg viewBox="0 0 24 18" width="18" height="14" aria-hidden="true"><path d="M2 15 L10 3 L22 4 L14 14 Z" fill="#8CA067"/><path d="M2 15 L14 14 L22 4 Z" fill="#6F834D"/><path d="M1 16 L6 12" stroke="#5C3A21" stroke-width="1.4" stroke-linecap="round"/></svg>
+          Grounded in Connection
+        </span>
+        <h2>Every small step, walked together.</h2>
+        <p>
+          True growth rarely happens in rigid clinic drills—it unfolds side by side in the natural rhythm of childhood: a sunny walk down the block, a shared laugh, and the quiet confidence to take the next step forward.
+        </p>
+        <p>
+          When children feel understood, supported, and free to move at their own pace, communication and genuine connection grow naturally into every part of family and community life.
+        </p>
+        <blockquote class="walk-together-quote">
+          “Connection first, curiosity always—supporting children at their own natural pace.”
+        </blockquote>
+        <a href="#contact" class="btn btn-primary btn-sm">Start a Conversation</a>
       </div>
     </div>
   </section>
@@ -3236,11 +3510,10 @@
     });
   }
 
-  // Animated Play Tree (Extras Section)
+  // Animated Play Tree Apples (Extras Section)
   (function initPlayTree() {
     const treeContainer = document.getElementById('playTreeContainer');
     const extrasSection = document.getElementById('extras');
-    const replayBtn = document.getElementById('treeReplayBtn');
     if (!treeContainer || !extrasSection) return;
 
     let hasTriggered = false;
@@ -3255,7 +3528,7 @@
       completionTimer = setTimeout(() => {
         treeContainer.classList.remove('is-animating');
         treeContainer.classList.add('animation-completed');
-      }, 3800);
+      }, 2400);
     }
 
     if ('IntersectionObserver' in window) {
@@ -3266,17 +3539,10 @@
             observer.disconnect();
           }
         });
-      }, { threshold: 0.18 });
+      }, { threshold: 0.15 });
       observer.observe(extrasSection);
-    }
-
-    if (replayBtn) {
-      replayBtn.addEventListener('click', () => {
-        treeContainer.classList.remove('animation-completed', 'is-animating');
-        hasTriggered = false;
-        void treeContainer.offsetWidth; // Force reflow
-        startTreeAnimation();
-      });
+    } else {
+      treeContainer.classList.add('animation-completed');
     }
   })();
 </script>
