@@ -604,6 +604,240 @@
     .spotlight-cards-grid { grid-template-columns: 1fr; }
   }
 
+  /* Scoped SDP Social Development Program Styles */
+  #staff-training .sdp-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  #staff-training .sdp-top-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+  }
+  #staff-training .sdp-model-card {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 28px 28px 26px;
+    box-shadow: var(--shadow-soft);
+  }
+  #staff-training .sdp-model-card h3 {
+    font-size: 1.24rem;
+    color: var(--moss-deep);
+    margin-bottom: 16px;
+  }
+  #staff-training .sdp-check-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  #staff-training .sdp-check-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+  #staff-training .sdp-check-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(123, 119, 70, 0.14);
+    color: var(--moss-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  #staff-training .sdp-subblock-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  #staff-training .sdp-subblock-head h3 {
+    font-size: 1.38rem;
+    color: var(--moss-deep);
+    margin: 0;
+  }
+  #staff-training .sdp-subblock-head span {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+  }
+  #staff-training .sdp-groups-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  #staff-training .sdp-group-tab {
+    appearance: none;
+    text-align: left;
+    background: var(--paper-soft);
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 18px 18px 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: inherit;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+  }
+  #staff-training .sdp-group-tab:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(123, 119, 70, 0.5);
+  }
+  #staff-training .sdp-group-tab:focus-visible {
+    outline: 2px solid var(--clay);
+    outline-offset: 2px;
+  }
+  #staff-training .sdp-group-tab.active {
+    background: #FFFFFF;
+    border-color: var(--moss-deep);
+    box-shadow: var(--shadow-card);
+  }
+  #staff-training .sdp-tab-age {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+  }
+  #staff-training .sdp-tab-name {
+    font-family: var(--font-display);
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--moss-deep);
+    line-height: 1.25;
+  }
+  #staff-training .sdp-tab-focus {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--ink-muted);
+    margin-bottom: 4px;
+  }
+  #staff-training .sdp-tab-cue {
+    margin-top: auto;
+    font-size: 0.79rem;
+    font-weight: 700;
+    color: var(--olive);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  #staff-training .sdp-group-tab.active .sdp-tab-cue {
+    color: var(--moss-deep);
+  }
+  #staff-training .sdp-detail-shell {
+    background: var(--paper-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px;
+    box-shadow: var(--shadow-soft);
+  }
+  #staff-training .sdp-detail-pane {
+    display: none;
+  }
+  #staff-training .sdp-detail-pane.active {
+    display: block;
+    animation: sdpPaneFade 0.22s ease;
+  }
+  @keyframes sdpPaneFade {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  #staff-training .sdp-detail-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+    border-bottom: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+  #staff-training .sdp-detail-title-group {
+    max-width: 680px;
+  }
+  #staff-training .sdp-detail-kicker {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    display: block;
+    margin-bottom: 6px;
+  }
+  #staff-training .sdp-detail-title-group h4 {
+    font-size: 1.62rem;
+    color: var(--moss-deep);
+    margin: 0 0 8px;
+  }
+  #staff-training .sdp-detail-title-group p {
+    font-size: 0.96rem;
+    line-height: 1.62;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+  #staff-training .sdp-focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  #staff-training .sdp-focus-card {
+    background: #FFFFFF;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 20px 20px 18px;
+  }
+  #staff-training .sdp-focus-card h5 {
+    font-family: var(--font-display);
+    font-size: 1.06rem;
+    color: var(--moss-deep);
+    margin: 0 0 8px;
+  }
+  #staff-training .sdp-focus-card p {
+    font-size: 0.89rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+  @media (max-width: 960px) {
+    #staff-training .sdp-top-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    #staff-training .sdp-groups-selector {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    #staff-training .sdp-focus-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 600px) {
+    #staff-training .sdp-groups-selector {
+      grid-template-columns: 1fr;
+    }
+    #staff-training .sdp-model-card,
+    #staff-training .sdp-detail-shell {
+      padding: 22px 18px;
+    }
+    #staff-training .sdp-detail-head .btn {
+      width: 100%;
+    }
+  }
+
   /* ---------- How We Help / Our Approach (Haven-Inspired Layout) ---------- */
   .how-we-help {
     padding: 96px 0;
@@ -2512,32 +2746,196 @@
 
   <!-- ==================== MARQUEE HIGHLIGHT: STAFF TRAINING & CONSULTATION ==================== -->
   <section class="section-spotlight" id="staff-training">
-    <div class="wrap spotlight-grid">
-      <div class="spotlight-copy">
-        <span class="spotlight-eyebrow">Featured Practice Focus</span>
-        <h2>Distinguished Staff Training &amp; Behavioral Consultation</h2>
-        <p>
-          Beyond individualized child services, Grounded Play Labs partners directly with schools, agencies, clinics, and camps to deliver high-impact professional staff training and behavioral consultation. We empower your educators, care teams, and supervisors with sustainable, compassionate behavioral frameworks that elevate student success and clinical consistency.
-        </p>
-        <a href="#contact" class="btn btn-primary btn-sm" onclick="selectRole('organization')">Request Consultation for Your Team</a>
+    <div class="wrap sdp-wrap">
+      <!-- Top Row: SDP Provider Overview + Clinical Programming Structure -->
+      <div class="sdp-top-grid">
+        <div class="spotlight-copy">
+          <span class="spotlight-eyebrow">California Regional Center SDP Provider</span>
+          <h2>Grounded Play Labs – Social Development Program</h2>
+          <p>
+            A relationship-based social learning and play program for children with developmental disabilities. Available through California’s Self-Determination Program (SDP), our groups blend clinical precision with joyful, naturalistic play so children build authentic peer connections and real-world confidence.
+          </p>
+          <a href="#contact" class="btn btn-primary btn-sm" onclick="selectRole('parent'); inquireService('Self-Determination');">Inquire About SDP Enrollment</a>
+        </div>
+
+        <div class="sdp-model-card">
+          <h3>Clinical Oversight &amp; Group Model</h3>
+          <ul class="sdp-check-list">
+            <li>
+              <span class="sdp-check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>A BCBA overseeing clinical programming.</span>
+            </li>
+            <li>
+              <span class="sdp-check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Behavior technicians or qualified group facilitators.</span>
+            </li>
+            <li>
+              <span class="sdp-check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Small groups based on developmental and communication needs.</span>
+            </li>
+            <li>
+              <span class="sdp-check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Individualized goals within group activities.</span>
+            </li>
+            <li>
+              <span class="sdp-check-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </span>
+              <span>Parent consultation and progress updates.</span>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div class="spotlight-cards-grid">
-        <div class="spotlight-card">
-          <h3>School &amp; District Consultation</h3>
-          <p>Assisting educators and administrators with classroom behavior strategies, assent-based support plans, and seamless transition protocols.</p>
+      <!-- Interactive Age Group Structure & Detailed Focus -->
+      <div>
+        <div class="sdp-subblock-head">
+          <h3>Possible Group Structure &amp; Age Focus</h3>
+          <span>Click any group below to explore its developmental focus and goals</span>
         </div>
-        <div class="spotlight-card">
-          <h3>Professional Staff Workshops</h3>
-          <p>Practical, interactive professional development covering de-escalation, reinforcement systems, functional communication, and neurodiversity-affirming care.</p>
+
+        <div class="sdp-groups-selector" role="tablist" aria-label="Social Development Program Age Groups">
+          <button type="button" class="sdp-group-tab active" role="tab" aria-selected="true" aria-controls="sdp-pane-explorers" id="sdp-tab-explorers" data-sdp-group="explorers">
+            <span class="sdp-tab-age">Ages 3–5</span>
+            <span class="sdp-tab-name">Seedlings</span>
+            <span class="sdp-tab-focus">Foundational play</span>
+            <span class="sdp-tab-cue">Explore focus →</span>
+          </button>
+
+          <button type="button" class="sdp-group-tab" role="tab" aria-selected="false" aria-controls="sdp-pane-partners" id="sdp-tab-partners" data-sdp-group="partners">
+            <span class="sdp-tab-age">Ages 5–8</span>
+            <span class="sdp-tab-name">Sprouts</span>
+            <span class="sdp-tab-focus">Peer interaction</span>
+            <span class="sdp-tab-cue">Explore focus →</span>
+          </button>
+
+          <button type="button" class="sdp-group-tab" role="tab" aria-selected="false" aria-controls="sdp-pane-stars" id="sdp-tab-stars" data-sdp-group="stars">
+            <span class="sdp-tab-age">Ages 8–12</span>
+            <span class="sdp-tab-name">Sycamores</span>
+            <span class="sdp-tab-focus">Friendship and social skills</span>
+            <span class="sdp-tab-cue">Explore focus →</span>
+          </button>
+
+          <button type="button" class="sdp-group-tab" role="tab" aria-selected="false" aria-controls="sdp-pane-teens" id="sdp-tab-teens" data-sdp-group="teens">
+            <span class="sdp-tab-age">Ages 13–17</span>
+            <span class="sdp-tab-name">Tall Oaks</span>
+            <span class="sdp-tab-focus">Independence and relationships</span>
+            <span class="sdp-tab-cue">Explore focus →</span>
+          </button>
         </div>
-        <div class="spotlight-card">
-          <h3>Agency &amp; RBT Supervision</h3>
-          <p>Structured BCBA mentorship, Registered Behavior Technician onboarding, and clinical systems audits that strengthen retention and quality of care.</p>
-        </div>
-        <div class="spotlight-card">
-          <h3>Camp &amp; Community Inclusion</h3>
-          <p>Equipping counselors and program leaders with hands-on accommodations and social play support so all children participate fully.</p>
+
+        <div class="sdp-detail-shell">
+          <!-- Pane 1: Seedlings (3–5) -->
+          <div class="sdp-detail-pane active" role="tabpanel" id="sdp-pane-explorers" aria-labelledby="sdp-tab-explorers">
+            <div class="sdp-detail-head">
+              <div class="sdp-detail-title-group">
+                <span class="sdp-detail-kicker">Ages 3–5 · Foundational Play</span>
+                <h4>Seedlings</h4>
+                <p>Warm, sensory-friendly small groups nurturing shared curiosity, early back-and-forth play routines, and comfortable communication at each child’s own pace.</p>
+              </div>
+              <a href="#contact" class="btn btn-secondary btn-sm" onclick="selectRole('parent'); inquireService('Self-Determination');">Ask About Seedlings</a>
+            </div>
+            <div class="sdp-focus-grid">
+              <div class="sdp-focus-card">
+                <h5>Cooperative &amp; Imaginative Play</h5>
+                <p>Moving naturally from parallel play into shared building, sensory exploration, pretend themes, and joyful turn-taking with trusted peers.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Functional &amp; Social Communication</h5>
+                <p>Practicing requesting turns, making choices, responding to peer greetings, and sharing excitement through spoken words, gestures, or AAC.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Regulation &amp; Gentle Transitions</h5>
+                <p>Building body awareness, simple calming routines, and flexible coping strategies when switching activities or sharing favorite toys.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Sprouts (5–8) -->
+          <div class="sdp-detail-pane" role="tabpanel" id="sdp-pane-partners" aria-labelledby="sdp-tab-partners">
+            <div class="sdp-detail-head">
+              <div class="sdp-detail-title-group">
+                <span class="sdp-detail-kicker">Ages 5–8 · Peer Interaction</span>
+                <h4>Sprouts</h4>
+                <p>Engaging, play-based groups helping elementary learners connect with peers, navigate group games together, and practice flexible problem-solving in real time.</p>
+              </div>
+              <a href="#contact" class="btn btn-secondary btn-sm" onclick="selectRole('parent'); inquireService('Self-Determination');">Ask About Sprouts</a>
+            </div>
+            <div class="sdp-focus-grid">
+              <div class="sdp-focus-card">
+                <h5>Peer Engagement &amp; Reciprocal Play</h5>
+                <p>Inviting friends to join, staying connected during shared board or movement games, and practicing reciprocal conversation around common interests.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Problem-Solving &amp; Flexibility</h5>
+                <p>Collaborating on group rules, compromising when ideas differ, handling wins and losses kindly, and adjusting smoothly when plans change.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Emotional Regulation &amp; Coping</h5>
+                <p>Recognizing frustration early, using individualized coping strategies in group moments, and expressing feelings clearly to peers and facilitators.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 3: Sycamores (8–12) -->
+          <div class="sdp-detail-pane" role="tabpanel" id="sdp-pane-stars" aria-labelledby="sdp-tab-stars">
+            <div class="sdp-detail-head">
+              <div class="sdp-detail-title-group">
+                <span class="sdp-detail-kicker">Ages 8–12 · Friendship and Social Skills</span>
+                <h4>Sycamores</h4>
+                <p>Interest-led social groups supporting pre-teens in building meaningful friendships, reading social context naturally, and growing confidence across peer and community spaces.</p>
+              </div>
+              <a href="#contact" class="btn btn-secondary btn-sm" onclick="selectRole('parent'); inquireService('Self-Determination');">Ask About Sycamores</a>
+            </div>
+            <div class="sdp-focus-grid">
+              <div class="sdp-focus-card">
+                <h5>Friendship &amp; Reciprocal Conversations</h5>
+                <p>Discovering shared interests, active listening, perspective-taking, sustaining back-and-forth dialogue, and repairing misunderstandings respectfully.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Independent Leisure &amp; Group Projects</h5>
+                <p>Developing hobby-based play, strategy games, creative team challenges, and confident self-directed leisure choices alongside peers.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Community Participation &amp; Self-Advocacy</h5>
+                <p>Practicing comfortable participation in neighborhood activities and outings while speaking up for personal needs, boundaries, and coping tools.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 4: Tall Oaks (13–17) -->
+          <div class="sdp-detail-pane" role="tabpanel" id="sdp-pane-teens" aria-labelledby="sdp-tab-teens">
+            <div class="sdp-detail-head">
+              <div class="sdp-detail-title-group">
+                <span class="sdp-detail-kicker">Ages 13–17 · Independence and Relationships</span>
+                <h4>Tall Oaks</h4>
+                <p>Respectful, age-authentic peer groups centered on genuine friendships, self-advocacy, real-world social independence, and everyday life confidence.</p>
+              </div>
+              <a href="#contact" class="btn btn-secondary btn-sm" onclick="selectRole('parent'); inquireService('Self-Determination');">Ask About Tall Oaks</a>
+            </div>
+            <div class="sdp-focus-grid">
+              <div class="sdp-focus-card">
+                <h5>Relationships &amp; Authentic Connection</h5>
+                <p>Navigating teen friendships, conversational nuance, healthy boundaries, planning social hangouts, and connecting around shared interests.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Daily Living &amp; Adaptive Skills</h5>
+                <p>Practicing practical independence—making purchases, ordering food, managing time and schedules, and navigating real community settings smoothly.</p>
+              </div>
+              <div class="sdp-focus-card">
+                <h5>Flexibility, Leisure &amp; Self-Regulation</h5>
+                <p>Problem-solving unexpected changes independently, pursuing fulfilling hobbies and community recreation, and using self-chosen coping strategies.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -3676,6 +4074,46 @@
       if (e.key === 'Escape' && lightbox.classList.contains('open')) {
         closeLightbox();
       }
+    });
+  })();
+
+  // Interactive SDP Social Development Program Group Tabs
+  (function initSdpGroupTabs() {
+    const section = document.getElementById('staff-training');
+    if (!section) return;
+    const tabs = Array.from(section.querySelectorAll('.sdp-group-tab'));
+    const panes = Array.from(section.querySelectorAll('.sdp-detail-pane'));
+    if (!tabs.length || !panes.length) return;
+
+    function activateGroup(groupKey) {
+      tabs.forEach(tab => {
+        const isMatch = tab.dataset.sdpGroup === groupKey;
+        tab.classList.toggle('active', isMatch);
+        tab.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+      panes.forEach(pane => {
+        const isMatch = pane.id === 'sdp-pane-' + groupKey;
+        pane.classList.toggle('active', isMatch);
+      });
+    }
+
+    tabs.forEach((tab, idx) => {
+      tab.addEventListener('click', () => {
+        activateGroup(tab.dataset.sdpGroup);
+      });
+      tab.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          const next = tabs[(idx + 1) % tabs.length];
+          next.focus();
+          activateGroup(next.dataset.sdpGroup);
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          const prev = tabs[(idx - 1 + tabs.length) % tabs.length];
+          prev.focus();
+          activateGroup(prev.dataset.sdpGroup);
+        }
+      });
     });
   })();
 </script>
